@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fair Pour Toi — Santa Monica Contemporary Resell Event</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#FAF8F6;
+  --blush:#E6CCC8;
+  --sand:#F6F0E9;
+  --warm:#E8DDD6;
+  --taupe:#C9B8B0;
+  --espresso:#342828;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;font-weight:300;color:var(--espresso);background:var(--cream);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+.serif{font-family:'Cormorant Garamond',serif;font-weight:300}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:transparent;transition:background .4s,box-shadow .4s}
+nav.scrolled{background:var(--cream);box-shadow:0 1px 0 rgba(52,40,40,.08)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:6px 28px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.nav-logo{height:128px;width:auto;filter:brightness(0) invert(1);transition:filter .4s}
+nav.scrolled .nav-logo{filter:none}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.85);text-decoration:none;transition:color .4s}
+nav.scrolled .nav-links a{color:var(--taupe)}
+.nav-links a:hover{color:white}
+nav.scrolled .nav-links a:hover{color:var(--espresso)}
+.nav-cta{background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:.5px solid rgba(255,255,255,.4);color:white;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:400;padding:8px 18px;cursor:pointer;text-decoration:none;white-space:nowrap;transition:background .4s,color .4s,border-color .4s}
+nav.scrolled .nav-cta{background:var(--espresso);border-color:var(--espresso);color:var(--cream)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:22px;height:.5px;background:white;transition:background .4s}
+nav.scrolled .hamburger span{background:var(--espresso)}
+.mobile-menu{display:none;flex-direction:column;background:var(--cream);border-top:.5px solid var(--blush)}
+.mobile-menu a{padding:14px 28px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--taupe);text-decoration:none;border-bottom:.5px solid var(--blush)}
+.mobile-menu.open{display:flex}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;background:#1a1010}
+.hero-bg{position:absolute;inset:0;z-index:0}
+
+/* Video carousel */
+.photo-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease-in-out;z-index:0;background-size:cover;background-position:center}
+.photo-slide.active{opacity:1;z-index:1}
+
+/* Overlay: gradient from dark left to transparent right on desktop */
+.hero-overlay{position:absolute;inset:0;z-index:2;background:linear-gradient(105deg,rgba(26,16,16,.82) 0%,rgba(26,16,16,.55) 50%,rgba(26,16,16,.2) 100%)}
+
+/* Carousel dots */
+.hero-dots{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:10;display:flex;gap:8px}
+.hero-dot{width:24px;height:.5px;background:rgba(255,255,255,.3);cursor:pointer;transition:background .3s,width .3s}
+.hero-dot.active{background:white;width:40px}
+
+/* Slide counter */
+.hero-counter{position:absolute;bottom:36px;right:28px;z-index:10;font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.4)}
+
+.hero-inner{position:relative;z-index:5;max-width:1100px;margin:0 auto;width:100%;padding:200px 28px 80px}
+.pill{display:inline-block;background:rgba(255,255,255,.12);backdrop-filter:blur(4px);color:rgba(255,255,255,.9);font-size:10px;letter-spacing:.18em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:24px;border:.5px solid rgba(255,255,255,.2)}
+.hero h1{font-size:clamp(44px,7vw,92px);line-height:1.04;max-width:680px;margin-bottom:20px;color:white}
+.hero p{font-size:14px;letter-spacing:.06em;color:rgba(255,255,255,.7);max-width:380px;line-height:1.9;margin-bottom:36px}
+.btn-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn-dark{background:white;color:var(--espresso);font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:400;padding:13px 32px;border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:opacity .2s}
+.btn-dark:hover{opacity:.88}
+.btn-ghost{background:transparent;color:white;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:400;padding:12px 32px;border:.5px solid rgba(255,255,255,.5);cursor:pointer;text-decoration:none;display:inline-block;transition:border-color .2s}
+.btn-ghost:hover{border-color:white}
+
+/* SHARED */
+.eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--taupe);margin-bottom:10px;font-weight:400}
+.divider-line{height:.5px;background:var(--blush)}
+.section-inner{max-width:1100px;margin:0 auto;padding:80px 28px}
+.btn-outline-dark{background:transparent;color:var(--espresso);font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:400;padding:12px 32px;border:.5px solid var(--espresso);cursor:pointer;text-decoration:none;display:inline-block}
+.btn-espresso{background:var(--espresso);color:var(--cream);font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:400;padding:13px 32px;border:none;cursor:pointer;text-decoration:none;display:inline-block}
+
+/* EVENTS */
+.events-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+.event-card{background:var(--sand);border:.5px solid var(--blush);padding:32px 28px}
+.event-card .date{font-size:32px;margin:6px 0}
+.event-card .loc{font-size:11px;color:var(--taupe);letter-spacing:.1em;margin-bottom:24px}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.about-photo{width:100%;aspect-ratio:4/5;background:var(--taupe);display:flex;align-items:center;justify-content:center;color:var(--cream);font-size:11px;letter-spacing:.1em}
+.about-copy h2{font-size:clamp(28px,4vw,42px);line-height:1.2;margin-bottom:20px}
+.about-copy p{font-size:13px;line-height:1.95;opacity:.75;margin-bottom:28px}
+
+/* BRANDS */
+.brands-row{display:flex;justify-content:center;flex-wrap:wrap;border:.5px solid var(--blush);margin-top:40px}
+.brand-box{flex:1;min-width:120px;height:64px;display:flex;align-items:center;justify-content:center;font-size:11px;letter-spacing:.1em;color:#5b463f;font-weight:400;border-right:.5px solid var(--blush);transition:background .2s}
+.brand-box:last-child{border-right:none}
+.brand-box:hover{background:var(--sand)}
+
+/* BOOK */
+.book-bg{background:var(--sand)}
+.book-grid{display:grid;grid-template-columns:1fr 1.8fr;gap:60px;align-items:start}
+.book-left h2{font-size:clamp(30px,4vw,48px);line-height:1.15;margin-bottom:20px}
+.book-left p{font-size:13px;line-height:1.9;opacity:.7;margin-bottom:28px}
+.book-detail{display:flex;align-items:center;gap:10px;font-size:11px;color:var(--taupe);letter-spacing:.08em;margin-bottom:12px}
+.book-detail svg{width:14px;height:14px;stroke:var(--taupe);fill:none;stroke-width:1.5;flex-shrink:0}
+.calendly-wrap{background:var(--cream);border:.5px solid var(--blush);overflow:hidden}
+.calendly-inline-widget{min-width:280px;width:100%}
+
+/* IG CTA */
+.ig-bg{background:var(--espresso);text-align:center}
+.ig-inner{max-width:600px;margin:0 auto;padding:100px 28px}
+.ig-inner h2{font-size:clamp(36px,5vw,64px);color:var(--cream);margin-bottom:16px}
+.ig-inner p{font-size:13px;color:var(--taupe);letter-spacing:.08em;line-height:1.9;margin-bottom:36px}
+.btn-light{background:var(--cream);color:var(--espresso);font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:400;padding:13px 36px;border:none;cursor:pointer;text-decoration:none;display:inline-block}
+
+/* FOOTER */
+footer{background:var(--cream);border-top:.5px solid var(--blush)}
+.footer-inner{max-width:1100px;margin:0 auto;padding:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.footer-logo{height:88px;width:auto}
+.footer-copy{font-size:10px;color:var(--taupe);letter-spacing:.1em}
+.footer-ig{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--taupe);text-decoration:none}
+.footer-ig:hover{color:var(--espresso)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .hero-inner{padding:160px 20px 60px}
+  .hero-overlay{background:linear-gradient(180deg,rgba(26,16,16,.75) 0%,rgba(26,16,16,.55) 100%)}
+  .section-inner{padding:60px 20px}
+  .events-grid{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr;gap:28px}
+  .about-photo{aspect-ratio:3/2}
+  .book-grid{grid-template-columns:1fr;gap:32px}
+  .brands-row{flex-direction:column}
+  .brand-box{border-right:none;border-bottom:.5px solid var(--blush)}
+  .brand-box:last-child{border-bottom:none}
+  .footer-inner{flex-direction:column;align-items:flex-start;gap:10px}
+  .ig-inner{padding:72px 20px}
+  .nav-inner{padding:6px 20px}
+  .hero-counter{display:none}
+}
+@media(max-width:480px){
+  .btn-row{flex-direction:column}
+  .btn-dark,.btn-ghost{text-align:center}
+}
+@media(prefers-reduced-motion:reduce){
+  .photo-slide{transition:none}
+  *{transition:none!important}
+}
+#slide-0{background-image:url('assets/img/hero-1.jpg');}#slide-1{background-image:url('assets/img/hero-2.jpg');}#slide-2{background-image:url('assets/img/hero-3.jpg');}#slide-3{background-image:url('assets/img/hero-4.jpg');}
+</style>
+<link rel="preload" as="image" href="assets/img/hero-1.jpg" fetchpriority="high">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <img src="assets/img/logo.png" alt="Fair pour toi" class="nav-logo" width="384" height="384" decoding="async">
+    <div class="nav-links">
+      <a href="#events">Events</a>
+      <a href="#about">About</a>
+      <a href="#book">Book</a>
+      <a href="#contact">Contact</a>
+      <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" class="nav-cta">Follow on Instagram</a>
+    </div>
+    <button class="hamburger" aria-label="Open menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#events" onclick="closeMenu()">Events</a>
+    <a href="#about" onclick="closeMenu()">About</a>
+    <a href="#book" onclick="closeMenu()">Book</a>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
+    <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener">Instagram &nearr;</a>
+  </div>
+</nav>
+
+<!-- HERO with video carousel background -->
+<section class="hero" id="hero">
+  <div class="hero-bg" aria-hidden="true">
+
+    <!-- Slide 1 -->
+    <div class="photo-slide active" id="slide-0"></div>
+
+    <!-- Slide 2 -->
+    <div class="photo-slide" id="slide-1"></div>
+
+    <!-- Slide 3 -->
+    <div class="photo-slide" id="slide-2"></div>
+
+    <!-- Slide 4 -->
+    <div class="photo-slide" id="slide-3"></div>
+
+  </div>
+
+  <!-- Dark overlay -->
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <!-- Dot nav -->
+  <div class="hero-dots" role="tablist" aria-label="Photo slides">
+    <button class="hero-dot active" onclick="goToSlide(0)" aria-label="Slide 1" role="tab"></button>
+    <button class="hero-dot" onclick="goToSlide(1)" aria-label="Slide 2" role="tab"></button>
+    <button class="hero-dot" onclick="goToSlide(2)" aria-label="Slide 3" role="tab"></button>
+    <button class="hero-dot" onclick="goToSlide(3)" aria-label="Slide 4" role="tab"></button>
+  </div>
+
+  <div class="hero-counter" aria-live="polite"><span id="slide-num">1</span> / 4</div>
+
+  <!-- Hero content -->
+  <div class="hero-inner">
+    <div class="pill">Santa Monica &middot; Contemporary Resell Event</div>
+    <h1 class="serif">Luxury fashion,<br>made accessible.</h1>
+    <p>Private, resell event featuring women&rsquo;s contemporary, luxury and designer labels.<br>By appointment, in Santa Monica.</p>
+    <div class="btn-row">
+      <a href="#book" class="btn-dark">Reserve your spot</a>
+      <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" class="btn-ghost">Follow @fair.pourtoi</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- EVENTS -->
+<section id="events" style="background:var(--cream)">
+  <div class="section-inner">
+    <div class="eyebrow">Upcoming events</div>
+    <h2 class="serif" style="font-size:clamp(28px,3.5vw,42px)">Upcoming event dates</h2>
+    <div class="events-grid">
+      <div class="event-card">
+        <div class="eyebrow">Weekend one</div>
+        <div class="date serif">July 3 &ndash; 5</div>
+        <div class="loc">Santa Monica, CA</div>
+        <a href="#book" class="btn-espresso" style="font-size:10px;padding:9px 20px">Reserve a slot</a>
+      </div>
+      <div class="event-card">
+        <div class="eyebrow">Weekend two</div>
+        <div class="date serif">July 10 &ndash; 12</div>
+        <div class="loc">Santa Monica, CA</div>
+        <a href="#book" class="btn-espresso" style="font-size:10px;padding:9px 20px">Reserve a slot</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- ABOUT -->
+<section id="about" style="background:var(--warm)">
+  <div class="section-inner">
+    <div class="about-grid">
+
+      <!-- Editorial photo carousel -->
+      <div class="about-carousel" style="position:relative;overflow:hidden;">
+        <div class="carousel-track" id="about-track" style="display:flex;transition:transform .7s cubic-bezier(.4,0,.2,1);">
+          <!-- Slide 1: pronunciation card grid -->
+          <div class="carousel-slide" style="min-width:100%;position:relative;">
+            <picture><source type="image/avif" srcset="assets/img/about-1.avif"><img src="assets/img/about-1.jpg" alt="How to pronounce Fair Pour Toi" width="958" height="1192" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/5;"></picture>
+          </div>
+          <!-- Slide 2: notes reveal with Grace signature -->
+          <div class="carousel-slide" style="min-width:100%;position:relative;">
+            <picture><source type="image/avif" srcset="assets/img/about-2.avif"><img src="assets/img/about-2.jpg" alt="Fair Pour Toi — for you, by Grace Fairest" width="958" height="1192" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/5;"></picture>
+          </div>
+        </div>
+
+        <!-- Prev / Next arrows -->
+        <button onclick="aboutCarousel(-1)" aria-label="Previous image" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);background:rgba(250,248,246,.85);border:.5px solid var(--blush);width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:var(--espresso);z-index:5;">&#8592;</button>
+        <button onclick="aboutCarousel(1)" aria-label="Next image" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);background:rgba(250,248,246,.85);border:.5px solid var(--blush);width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:var(--espresso);z-index:5;">&#8594;</button>
+
+        <!-- Dots -->
+        <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:5;">
+          <button onclick="aboutGoTo(0)" class="about-dot about-dot-active" aria-label="Slide 1" style="width:28px;height:.5px;background:white;border:none;cursor:pointer;padding:0;transition:opacity .3s"></button>
+          <button onclick="aboutGoTo(1)" class="about-dot" aria-label="Slide 2" style="width:28px;height:.5px;background:rgba(255,255,255,.4);border:none;cursor:pointer;padding:0;transition:opacity .3s"></button>
+        </div>
+      </div>
+
+      <div class="about-copy">
+        <div class="eyebrow">About</div>
+        <h2 class="serif">Fair Pour Toi.<br><em style="font-style:italic;font-size:.85em;opacity:.8">/fair &middot; pour &middot; twa/</em></h2>
+        <p style="margin-bottom:16px">It means <em>for you</em> in French &mdash; and that&rsquo;s exactly the point.</p>
+        <p>Fair Pour Toi brings a private, invitation-style contemporary resell event to Santa Monica. Shopping that&rsquo;s fun, intimate, and curated just for you.</p>
+        <div style="margin:24px 0;padding:20px;background:var(--cream);border:.5px solid var(--blush)">
+          <div class="eyebrow" style="margin-bottom:8px">The details</div>
+          <div style="font-size:12px;line-height:2;letter-spacing:.06em;opacity:.75">
+            Santa Monica, CA<br>
+            July 3&ndash;5 &amp; July 10&ndash;12
+          </div>
+        </div>
+        <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" class="btn-espresso" style="font-size:10px">Follow us on Instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- BRANDS -->
+<section style="background:var(--cream)">
+  <div class="section-inner">
+    <div class="eyebrow" style="text-align:center">Brands you&rsquo;ll find</div>
+    <div class="brands-row">
+      <div class="brand-box">Christian Louboutin</div>
+      <div class="brand-box">Mirror Palais</div>
+      <div class="brand-box">Nana Jacqueline</div>
+      <div class="brand-box">Reformation</div>
+      <div class="brand-box">Aritzia</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- BOOK -->
+<section id="book" class="book-bg">
+  <div class="section-inner">
+    <div class="book-grid">
+      <div class="book-left">
+        <div class="eyebrow">Reserve your spot</div>
+        <h2 class="serif">Book your<br>arrival time.</h2>
+        <p>Appointments are private, unhurried access to the resell event.<br>Select a date and time and we&rsquo;ll confirm the details via email.</p>
+        <div class="book-detail">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <span>Santa Monica, CA</span>
+        </div>
+        <div class="book-detail">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span>July 3&ndash;5 &amp; July 10&ndash;12</span>
+        </div>
+        <div style="margin-top:32px;padding-top:24px;border-top:.5px solid var(--blush)">
+          <div class="eyebrow" style="margin-bottom:8px">Questions?</div>
+          <a href="#contact" style="font-size:12px;color:var(--taupe);letter-spacing:.06em;text-decoration:none;border-bottom:.5px solid var(--blush)">Send us a message</a>
+        </div>
+      </div>
+      <div class="calendly-wrap">
+        <div class="calendly-inline-widget"
+             data-url="https://calendly.com/fairpourtoi/20min?hide_gdpr_banner=1&primary_color=342828&text_color=342828&background_color=faf8f6"
+             style="min-width:280px;height:1050px;">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- CONTACT -->
+<section id="contact" style="background:var(--cream)">
+  <div class="section-inner" style="max-width:680px">
+    <div class="eyebrow" style="text-align:center">Contact</div>
+    <h2 class="serif" style="text-align:center;font-size:clamp(28px,4vw,42px);margin-bottom:14px">Get in touch.</h2>
+    <p style="text-align:center;font-size:13px;line-height:1.8;opacity:.7;max-width:420px;margin:0 auto 40px">For brand inquiries, press, or general questions.<br>We&rsquo;d love to hear from you.</p>
+
+    <form id="contact-form" onsubmit="sendContactForm(event)" style="display:flex;flex-direction:column;gap:16px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div>
+          <label class="eyebrow" for="cf-name" style="display:block;margin-bottom:6px">Name</label>
+          <input type="text" id="cf-name" required placeholder="Your name"
+            style="width:100%;background:var(--sand);border:.5px solid var(--blush);padding:11px 14px;font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:var(--espresso);outline:none">
+        </div>
+        <div>
+          <label class="eyebrow" for="cf-email" style="display:block;margin-bottom:6px">Email</label>
+          <input type="email" id="cf-email" required placeholder="your@email.com"
+            style="width:100%;background:var(--sand);border:.5px solid var(--blush);padding:11px 14px;font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:var(--espresso);outline:none">
+        </div>
+      </div>
+      <div>
+        <label class="eyebrow" for="cf-subject" style="display:block;margin-bottom:6px">Subject</label>
+        <input type="text" id="cf-subject" placeholder="Brand inquiry / General question"
+          style="width:100%;background:var(--sand);border:.5px solid var(--blush);padding:11px 14px;font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:var(--espresso);outline:none">
+      </div>
+      <div>
+        <label class="eyebrow" for="cf-message" style="display:block;margin-bottom:6px">Message</label>
+        <textarea id="cf-message" required placeholder="Tell us more..." rows="5"
+          style="width:100%;background:var(--sand);border:.5px solid var(--blush);padding:11px 14px;font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:var(--espresso);outline:none;resize:vertical"></textarea>
+      </div>
+      <button type="submit" class="btn-espresso" style="width:100%;text-align:center;margin-top:4px">Send message</button>
+    </form>
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- IG CTA -->
+<section class="ig-bg">
+  <div class="ig-inner">
+    <h2 class="serif">Stay in the know.</h2>
+    <p>All updates, new brands, and sale announcements<br>drop on Instagram first.</p>
+    <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" class="btn-light">Follow @fair.pourtoi</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <img src="assets/img/logo.png" alt="Fair pour toi" class="footer-logo" width="384" height="384" loading="lazy" decoding="async">
+    <span class="footer-copy">&copy; 2026 Fair Pour Toi &middot; Santa Monica, CA</span>
+    <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" class="footer-ig">Instagram &nearr;</a>
+  </div>
+</footer>
+
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script>
+// Nav scroll state
+window.addEventListener('scroll',function(){
+  var nav=document.getElementById('main-nav');
+  if(window.scrollY>60){nav.classList.add('scrolled')}
+  else{nav.classList.remove('scrolled')}
+});
+
+// Mobile menu
+function toggleMenu(){document.getElementById('mobile-menu').classList.toggle('open')}
+function closeMenu(){document.getElementById('mobile-menu').classList.remove('open')}
+
+// Video carousel
+var current=0;
+var total=4;
+var autoTimer;
+
+function goToSlide(n){
+  document.getElementById('slide-'+current).classList.remove('active');
+  document.querySelectorAll('.hero-dot')[current].classList.remove('active');
+  current=n;
+  document.getElementById('slide-'+current).classList.add('active');
+  document.querySelectorAll('.hero-dot')[current].classList.add('active');
+  document.getElementById('slide-num').textContent=current+1;
+  resetTimer();
+}
+
+function nextSlide(){
+  goToSlide((current+1)%total);
+}
+
+function resetTimer(){
+  clearInterval(autoTimer);
+  autoTimer=setInterval(nextSlide,7000);
+}
+
+// About carousel
+var aboutCurrent = 0;
+var aboutTotal = 2;
+var aboutAutoTimer;
+
+function aboutGoTo(n) {
+  aboutCurrent = n;
+  document.getElementById('about-track').style.transform = 'translateX(-' + (n * 100) + '%)';
+  document.querySelectorAll('.about-dot').forEach(function(d,i){
+    d.style.background = i===n ? 'white' : 'rgba(255,255,255,.4)';
+  });
+}
+
+function aboutCarousel(dir) {
+  aboutGoTo((aboutCurrent + dir + aboutTotal) % aboutTotal);
+  clearInterval(aboutAutoTimer);
+  aboutAutoTimer = setInterval(function(){ aboutGoTo((aboutCurrent+1)%aboutTotal); }, 5000);
+}
+
+aboutAutoTimer = setInterval(function(){ aboutGoTo((aboutCurrent+1)%aboutTotal); }, 5000);
+
+// Contact form -> mailto
+function sendContactForm(e){
+  e.preventDefault();
+  var name = document.getElementById('cf-name').value;
+  var email = document.getElementById('cf-email').value;
+  var subject = document.getElementById('cf-subject').value || 'Website inquiry';
+  var message = document.getElementById('cf-message').value;
+
+  var body = 'Name: ' + name + '\nEmail: ' + email + '\n\n' + message;
+  var mailto = 'mailto:' + atob('aW5mb0BmYWlycG91cnRvaS5jb20=')
+    + '?subject=' + encodeURIComponent(subject)
+    + '&body=' + encodeURIComponent(body);
+
+  window.location.href = mailto;
+}
+
+// Pause on hero hover
+document.getElementById('hero').addEventListener('mouseenter',function(){clearInterval(autoTimer)});
+document.getElementById('hero').addEventListener('mouseleave',function(){resetTimer()});
+</script>
+</body>
+</html>

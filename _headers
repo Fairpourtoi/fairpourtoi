@@ -1,0 +1,16 @@
+# Cloudflare Pages headers — caching policy for Fair Pour Toi
+# Docs: https://developers.cloudflare.com/pages/configuration/headers/
+
+# Content-stable assets (images, logo): cache hard for one year.
+# NOTE: filenames are NOT content-hashed. When you REPLACE an asset, bust the
+# cache by bumping a ?v= number on its reference in index.html
+# (e.g. assets/img/hero-1.jpg?v=2). Because the HTML below always revalidates,
+# that bump goes live to everyone immediately.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML must always revalidate so content/markup edits go live on next visit.
+/
+  Cache-Control: public, max-age=0, must-revalidate
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
