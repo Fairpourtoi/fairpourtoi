@@ -145,8 +145,9 @@ footer{background:var(--cream);border-top:.5px solid var(--blush)}
   .btn-dark,.btn-ghost{text-align:center}
 }
 @media(prefers-reduced-motion:reduce){
-/*  .photo-slide{transition:none} */
-  *{transition:none!important}
+/*  .photo-slide{transition:none}
+  *{transition:none!important} */
+  .photo-slide{transition: opacity 1.6s ease-in-out !important}
 }
 #slide-0{background-image:url('assets/img/hero-1.jpg');}#slide-1{background-image:url('assets/img/hero-2.jpg');}#slide-2{background-image:url('assets/img/hero-3.jpg');}#slide-3{background-image:url('assets/img/hero-4.jpg');}
 </style>
@@ -434,7 +435,7 @@ function nextSlide(){
 
 function resetTimer(){
   clearInterval(autoTimer);
-  autoTimer=setInterval(nextSlide,4000);
+  autoTimer=setInterval(nextSlide,5000);
 }
 
 // About carousel
