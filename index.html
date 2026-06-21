@@ -473,7 +473,8 @@ function sendContactForm(e){
 
   window.location.href = mailto;
 }
-
+// Start the rotation automatically
+autoTimer = setInterval(nextSlide, 3000);
 // Pause on hero hover
 document.getElementById('hero').addEventListener('mouseenter',function(){clearInterval(autoTimer)});
 document.getElementById('hero').addEventListener('mouseleave',function(){resetTimer()});
