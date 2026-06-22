@@ -387,6 +387,7 @@ footer{background:var(--cream);border-top:.5px solid var(--blush)}
           style="width:100%;background:var(--sand);border:.5px solid var(--blush);padding:11px 14px;font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:var(--espresso);outline:none;resize:vertical"></textarea>
       </div>
       <button type="submit" class="btn-espresso" style="width:100%;text-align:center;margin-top:4px">Send message</button>
+      <div id="form-status" style="text-align:center; font-size:13px; color:var(--espresso); margin-top:10px; min-height: 20px;"></div>
     </form>
   </div>
 </section>
@@ -470,20 +471,30 @@ function aboutCarousel(dir) {
 
 aboutAutoTimer = setInterval(function(){ aboutGoTo((aboutCurrent+1)%aboutTotal); }, 5000);
 
-// Contact form -> mailto
+// Contact form -> contact form
 function sendContactForm(event) {
   event.preventDefault(); // Prevents the page from reloading
   
   const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+  const btn = document.getElementById('submit-btn');
 
-  // Use your actual IDs from EmailJS Dashboard
+  // Visual feedback for the user
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
   emailjs.sendForm('service_9iwnim1', 'template_hjb8edc', form)
     .then(function() {
-      alert('Message sent successfully!');
-      form.reset(); // Clears the form fields
+      // SUCCESS: Clear form and show message
+      form.reset();
+      btn.textContent = 'Message sent';
+      status.textContent = 'Thank you. We have received your inquiry.';
     }, function(error) {
-      alert('Failed to send message. Error: ' + JSON.stringify(error));
+      // ERROR: Show failure message
       console.error('EmailJS Error:', error);
+      status.textContent = 'Something went wrong. Please try again.';
+      btn.textContent = 'Send message';
+      btn.disabled = false;
     });
 }
 // Start the rotation automatically
