@@ -386,9 +386,9 @@ footer{background:var(--cream);border-top:.5px solid var(--blush)}
         <textarea name="message" id="cf-message" required placeholder="Tell us more..." rows="5"
           style="width:100%;background:var(--sand);border:.5px solid var(--blush);padding:11px 14px;font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:var(--espresso);outline:none;resize:vertical"></textarea>
       </div>
-      <button type="submit" class="btn-espresso" style="width:100%;text-align:center;margin-top:4px">Send message</button>
-      <div id="form-status" style="text-align:center; font-size:13px; color:var(--espresso); margin-top:10px; min-height: 20px;"></div>
-    </form>
+<button type="submit" id="submit-btn" class="btn-espresso" style="width:100%;text-align:center;margin-top:4px">Send message</button>
+ <div id="form-status" style="text-align:center; font-size:13px; color:var(--espresso); margin-top:15px; font-weight:400;"></div> 
+  </form>
   </div>
 </section>
 
@@ -415,93 +415,83 @@ footer{background:var(--cream);border-top:.5px solid var(--blush)}
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <script>
   emailjs.init({ publicKey: "H8Lwq9IIsnMZ2zH0T" });
-// Nav scroll state
-window.addEventListener('scroll',function(){
-  var nav=document.getElementById('main-nav');
-  if(window.scrollY>60){nav.classList.add('scrolled')}
-  else{nav.classList.remove('scrolled')}
-});
 
-// Mobile menu
-function toggleMenu(){document.getElementById('mobile-menu').classList.toggle('open')}
-function closeMenu(){document.getElementById('mobile-menu').classList.remove('open')}
-
-// Video carousel
-var current=0;
-var total=4;
-var autoTimer;
-
-function goToSlide(n){
-  document.getElementById('slide-'+current).classList.remove('active');
-  document.querySelectorAll('.hero-dot')[current].classList.remove('active');
-  current=n;
-  document.getElementById('slide-'+current).classList.add('active');
-  document.querySelectorAll('.hero-dot')[current].classList.add('active');
-  document.getElementById('slide-num').textContent=current+1;
-  resetTimer();
-}
-
-function nextSlide(){
-  goToSlide((current+1)%total);
-}
-
-function resetTimer(){
-  clearInterval(autoTimer);
-  autoTimer=setInterval(nextSlide,5000);
-}
-
-// About carousel
-var aboutCurrent = 0;
-var aboutTotal = 2;
-var aboutAutoTimer;
-
-function aboutGoTo(n) {
-  aboutCurrent = n;
-  document.getElementById('about-track').style.transform = 'translateX(-' + (n * 100) + '%)';
-  document.querySelectorAll('.about-dot').forEach(function(d,i){
-    d.style.background = i===n ? 'white' : 'rgba(255,255,255,.4)';
+  // Nav scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 60);
   });
-}
 
-function aboutCarousel(dir) {
-  aboutGoTo((aboutCurrent + dir + aboutTotal) % aboutTotal);
-  clearInterval(aboutAutoTimer);
-  aboutAutoTimer = setInterval(function(){ aboutGoTo((aboutCurrent+1)%aboutTotal); }, 5000);
-}
+  // Mobile menu
+  function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
+  function closeMenu() { document.getElementById('mobile-menu').classList.remove('open'); }
 
-aboutAutoTimer = setInterval(function(){ aboutGoTo((aboutCurrent+1)%aboutTotal); }, 5000);
+  // Hero carousel
+  let current = 0;
+  const total = 4;
+  let autoTimer;
 
-// Contact form -> contact form
-function sendContactForm(event) {
-  event.preventDefault(); // Prevents the page from reloading
-  
-  const form = document.getElementById('contact-form');
-  const status = document.getElementById('form-status');
-  const btn = document.getElementById('submit-btn');
+  function goToSlide(n) {
+    document.getElementById('slide-'+current).classList.remove('active');
+    document.querySelectorAll('.hero-dot')[current].classList.remove('active');
+    current = n;
+    document.getElementById('slide-'+current).classList.add('active');
+    document.querySelectorAll('.hero-dot')[current].classList.add('active');
+    document.getElementById('slide-num').textContent = current + 1;
+    resetTimer();
+  }
 
-  // Visual feedback for the user
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
+  function nextSlide() { goToSlide((current + 1) % total); }
+  function resetTimer() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(nextSlide, 5000);
+  }
 
-  emailjs.sendForm('service_9iwnim1', 'template_hjb8edc', form)
-    .then(function() {
-      // SUCCESS: Clear form and show message
+  // About carousel
+  let aboutCurrent = 0;
+  let aboutAutoTimer;
+  function aboutGoTo(n) {
+    aboutCurrent = n;
+    document.getElementById('about-track').style.transform = `translateX(-${n * 100}%)`;
+    document.querySelectorAll('.about-dot').forEach((d,i) => {
+      d.style.background = i === n ? 'white' : 'rgba(255,255,255,.4)';
+    });
+  }
+
+  // Contact form
+  async function sendContactForm(event) {
+    event.preventDefault();
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+    const btn = document.getElementById('submit-btn');
+
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    try {
+      await emailjs.sendForm('service_9iwnim1', 'template_hjb8edc', form);
       form.reset();
-      btn.textContent = 'Message sent';
       status.textContent = 'Thank you. We have received your inquiry.';
-    }, function(error) {
-      // ERROR: Show failure message
+      btn.textContent = 'Send another message'; // Changed from 'Message sent'
+      setTimeout(() => { 
+        status.textContent = ''; 
+        btn.textContent = 'Send message';
+        btn.disabled = false;
+      }, 5000);
+    } catch (error) {
       console.error('EmailJS Error:', error);
       status.textContent = 'Something went wrong. Please try again.';
       btn.textContent = 'Send message';
       btn.disabled = false;
-    });
-}
-// Start the rotation automatically
-autoTimer = setInterval(nextSlide, 3000);
-// Pause on hero hover
-document.getElementById('hero').addEventListener('mouseenter',function(){clearInterval(autoTimer)});
-document.getElementById('hero').addEventListener('mouseleave',function(){resetTimer()});
+    }
+  }
+
+  // STart Rotation Automatically
+  resetTimer();
+  aboutAutoTimer = setInterval(() => aboutGoTo((aboutCurrent + 1) % 2), 5000);
+  
+  const heroSection = document.getElementById('hero');
+  heroSection.addEventListener('mouseenter', () => clearInterval(autoTimer));
+  heroSection.addEventListener('mouseleave', resetTimer);
 </script>
 </body>
 </html>
