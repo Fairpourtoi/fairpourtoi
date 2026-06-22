@@ -160,6 +160,8 @@ footer{background:var(--cream);border-top:.5px solid var(--blush)}
 <link rel="preload" as="image" href="assets/img/hero-1.jpg" fetchpriority="high">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -365,23 +367,23 @@ footer{background:var(--cream);border-top:.5px solid var(--blush)}
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
         <div>
           <label class="eyebrow" for="cf-name" style="display:block;margin-bottom:6px">Name</label>
-          <input type="text" id="cf-name" required placeholder="Your name"
+          <input type="text" name="name" id="cf-name" required placeholder="Your name"
             style="width:100%;background:var(--sand);border:.5px solid var(--blush);padding:11px 14px;font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:var(--espresso);outline:none">
         </div>
         <div>
           <label class="eyebrow" for="cf-email" style="display:block;margin-bottom:6px">Email</label>
-          <input type="email" id="cf-email" required placeholder="your@email.com"
+          <input type="email" name="email" id="cf-email" required placeholder="your@email.com"
             style="width:100%;background:var(--sand);border:.5px solid var(--blush);padding:11px 14px;font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:var(--espresso);outline:none">
         </div>
       </div>
       <div>
         <label class="eyebrow" for="cf-subject" style="display:block;margin-bottom:6px">Subject</label>
-        <input type="text" id="cf-subject" placeholder="Brand inquiry / General question"
+        <input type="text" name="subject" id="cf-subject" placeholder="Brand inquiry / General question"
           style="width:100%;background:var(--sand);border:.5px solid var(--blush);padding:11px 14px;font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:var(--espresso);outline:none">
       </div>
       <div>
         <label class="eyebrow" for="cf-message" style="display:block;margin-bottom:6px">Message</label>
-        <textarea id="cf-message" required placeholder="Tell us more..." rows="5"
+        <textarea name="message" id="cf-message" required placeholder="Tell us more..." rows="5"
           style="width:100%;background:var(--sand);border:.5px solid var(--blush);padding:11px 14px;font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:var(--espresso);outline:none;resize:vertical"></textarea>
       </div>
       <button type="submit" class="btn-espresso" style="width:100%;text-align:center;margin-top:4px">Send message</button>
@@ -411,6 +413,7 @@ footer{background:var(--cream);border-top:.5px solid var(--blush)}
 
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <script>
+  emailjs.init({ publicKey: "H8Lwq9IIsnMZ2zH0T" });
 // Nav scroll state
 window.addEventListener('scroll',function(){
   var nav=document.getElementById('main-nav');
@@ -468,19 +471,20 @@ function aboutCarousel(dir) {
 aboutAutoTimer = setInterval(function(){ aboutGoTo((aboutCurrent+1)%aboutTotal); }, 5000);
 
 // Contact form -> mailto
-function sendContactForm(e){
-  e.preventDefault();
-  var name = document.getElementById('cf-name').value;
-  var email = document.getElementById('cf-email').value;
-  var subject = document.getElementById('cf-subject').value || 'Website inquiry';
-  var message = document.getElementById('cf-message').value;
+function sendContactForm(event) {
+  event.preventDefault(); // Prevents the page from reloading
+  
+  const form = document.getElementById('contact-form');
 
-  var body = 'Name: ' + name + '\nEmail: ' + email + '\n\n' + message;
-  var mailto = 'mailto:' + atob('aW5mb0BmYWlycG91cnRvaS5jb20=')
-    + '?subject=' + encodeURIComponent(subject)
-    + '&body=' + encodeURIComponent(body);
-
-  window.location.href = mailto;
+  // Use your actual IDs from EmailJS Dashboard
+  emailjs.sendForm('service_9iwnim1', 'template_hjb8edc', form)
+    .then(function() {
+      alert('Message sent successfully!');
+      form.reset(); // Clears the form fields
+    }, function(error) {
+      alert('Failed to send message. Error: ' + JSON.stringify(error));
+      console.error('EmailJS Error:', error);
+    });
 }
 // Start the rotation automatically
 autoTimer = setInterval(nextSlide, 3000);
