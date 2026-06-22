@@ -37,9 +37,10 @@ nav.scrolled .nav-links a{color:var(--taupe)}
 .nav-links a:hover{color:white}
 nav.scrolled .nav-links a:hover{color:var(--espresso)}
 .nav-cta {
-  background: #E6CCC8;
-  border: .5px solid #E6CCC8;
-  color: var(--espresso);
+background: rgba(255, 255, 255, .15);
+  backdrop-filter: blur(8px);
+  border: .5px solid rgba(255, 255, 255, .4);
+  color: white;
   font-family: 'Jost', sans-serif;
   font-size: 10px;
   letter-spacing: .16em;
@@ -51,7 +52,11 @@ nav.scrolled .nav-links a:hover{color:var(--espresso)}
   white-space: nowrap;
   transition: background .4s, color .4s, border-color .4s;
 }
-
+nav.scrolled .nav-cta {
+  background: #E6CCC8;
+  border-color: #E6CCC8;
+  color: var(--espresso);
+}
 .nav-cta:hover, nav.scrolled .nav-cta:hover {
   background: var(--taupe);
   border-color: var(--taupe);
