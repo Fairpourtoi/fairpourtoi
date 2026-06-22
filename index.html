@@ -53,8 +53,9 @@ background: rgba(255, 255, 255, .15);
   transition: background .4s, color .4s, border-color .4s;
 }
 nav.scrolled .nav-cta {
-  background: #E6CCC8;
-  border-color: #E6CCC8;
+background: rgba(230, 204, 200, 0.8); /* 80% opaque blush */
+  backdrop-filter: blur(8px);           /* Adds the frosted glass effect */
+  border: .5px solid rgba(230, 204, 200, 0.9);
   color: var(--espresso);
   font-weight: 500;
 }
