@@ -197,6 +197,7 @@ footer{background:var(--cream);border-top:.5px solid var(--blush)}
 </style>
 <link rel="preload" as="image" href="assets/img/hero-1.jpg" fetchpriority="high">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="preload" as="image" href="assets/img/soon-1.jpg" fetchpriority="low"> <!-- Add this line -->
   <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
 
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -510,10 +511,17 @@ footer{background:var(--cream);border-top:.5px solid var(--blush)}
     // 4. Soon Carousel
     let soonCurrent = 0;
     const soonSlides = document.querySelectorAll('.soon-slide');
+    soonSlides.forEach((slide, idx) => {
+      slide.style.opacity = idx === 0 ? '1' : '0';
+    });
     setInterval(() => {
-      soonSlides[soonCurrent].classList.remove('active');
+   soonSlides[soonCurrent].classList.remove('active');
+      soonSlides[soonCurrent].style.opacity = '0'; // Force fade out
+      
       soonCurrent = (soonCurrent + 1) % soonSlides.length;
+      
       soonSlides[soonCurrent].classList.add('active');
+      soonSlides[soonCurrent].style.opacity = '1'; // Force fade in
     }, 5000);
   });
 
