@@ -457,52 +457,70 @@ footer{background:var(--cream);border-top:.5px solid var(--blush)}
   </div>
 </footer>
 
-<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
 <script>
+  // Initialize EmailJS
   emailjs.init({ publicKey: "H8Lwq9IIsnMZ2zH0T" });
 
-  // Nav scroll
-  window.addEventListener('scroll', () => {
-    document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 60);
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Navigation Scroll Effect
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('main-nav');
+      if (window.scrollY > 60) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // 2. Hero Carousel
+    let current = 0;
+    const slides = document.querySelectorAll('.photo-slide');
+    const dots = document.querySelectorAll('.hero-dot');
+    const slideNum = document.getElementById('slide-num');
+
+    function goToSlide(n) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = (n + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+      slideNum.textContent = current + 1;
+    }
+    
+    // Expose goToSlide to global scope for the onclick attributes
+    window.goToSlide = goToSlide;
+    setInterval(() => goToSlide(current + 1), 5000);
+
+    // 3. About Carousel
+    let aboutCurrent = 0;
+    const aboutTrack = document.getElementById('about-track');
+    const aboutDots = document.querySelectorAll('.about-dot');
+
+    function aboutGoTo(n) {
+      aboutCurrent = n % 2;
+      aboutTrack.style.transform = `translateX(-${aboutCurrent * 100}%)`;
+      aboutDots.forEach((d, i) => {
+        d.style.background = i === aboutCurrent ? 'white' : 'rgba(255,255,255,.4)';
+      });
+    }
+    window.aboutGoTo = aboutGoTo;
+    setInterval(() => aboutGoTo(aboutCurrent + 1), 5000);
+
+    // 4. Soon Carousel
+    let soonCurrent = 0;
+    const soonSlides = document.querySelectorAll('.soon-slide');
+    setInterval(() => {
+      soonSlides[soonCurrent].classList.remove('active');
+      soonCurrent = (soonCurrent + 1) % soonSlides.length;
+      soonSlides[soonCurrent].classList.add('active');
+    }, 5000);
   });
 
-  // Mobile menu
+  // Mobile menu and Contact form (kept separate as they are interactive)
   function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
   function closeMenu() { document.getElementById('mobile-menu').classList.remove('open'); }
 
-  // Hero carousel
-  let current = 0;
-  const total = 4;
-  let autoTimer;
-
-  function goToSlide(n) {
-    document.getElementById('slide-'+current).classList.remove('active');
-    document.querySelectorAll('.hero-dot')[current].classList.remove('active');
-    current = n;
-    document.getElementById('slide-'+current).classList.add('active');
-    document.querySelectorAll('.hero-dot')[current].classList.add('active');
-    document.getElementById('slide-num').textContent = current + 1;
-    resetTimer();
-  }
-
-  function nextSlide() { goToSlide((current + 1) % total); }
-  function resetTimer() {
-    clearInterval(autoTimer);
-    autoTimer = setInterval(nextSlide, 5000);
-  }
-
-  // About carousel
-  let aboutCurrent = 0;
-  let aboutAutoTimer;
-  function aboutGoTo(n) {
-    aboutCurrent = n;
-    document.getElementById('about-track').style.transform = `translateX(-${n * 100}%)`;
-    document.querySelectorAll('.about-dot').forEach((d,i) => {
-      d.style.background = i === n ? 'white' : 'rgba(255,255,255,.4)';
-    });
-  }
-
-  // Contact form
   async function sendContactForm(event) {
     event.preventDefault();
     const form = document.getElementById('contact-form');
@@ -515,53 +533,18 @@ footer{background:var(--cream);border-top:.5px solid var(--blush)}
     try {
       await emailjs.sendForm('service_9iwnim1', 'template_hjb8edc', form);
       form.reset();
-      status.textContent = '* We have received your inquiry, Thank you. * ';
-      btn.textContent = 'Send another message'; // Changed from 'Message sent'
+      status.textContent = '* Thank you for your message. *';
+      btn.textContent = 'Message sent';
       setTimeout(() => { 
         status.textContent = ''; 
         btn.textContent = 'Send message';
         btn.disabled = false;
-      }, 5000);
+      }, 3000);
     } catch (error) {
-      console.error('EmailJS Error:', error);
-      status.textContent = 'Something went wrong. Please try again.';
-      btn.textContent = 'Send message';
+      status.textContent = 'Error. Please try again.';
       btn.disabled = false;
     }
   }
-
-  // STart Rotation Automatically
-  resetTimer();
-  aboutAutoTimer = setInterval(() => aboutGoTo((aboutCurrent + 1) % 2), 5000);
-  
-  const heroSection = document.getElementById('hero');
-  heroSection.addEventListener('mouseenter', () => clearInterval(autoTimer));
-  heroSection.addEventListener('mouseleave', resetTimer);
-
-  // Carousel Rotation
-// 2. Added Carousel Rotation
-let soonCurrent = 0;
-let soonAutoTimer;
-
-function nextSoonSlide() {
-    const slides = document.querySelectorAll('.soon-slide');
-    if (slides.length > 0) {
-        slides[soonCurrent].classList.remove('active');
-        soonCurrent = (soonCurrent + 1) % slides.length;
-        slides[soonCurrent].classList.add('active');
-    }
-}
-
-function resetSoonTimer() {
-    clearInterval(soonAutoTimer);
-    soonAutoTimer = setInterval(nextSoonSlide, 5000);
-}
-
-// Start rotation exactly once, after the page loads
-document.addEventListener('DOMContentLoaded', () => {
-    resetSoonTimer();
-}
-});
 </script>
 </body>
 </html>
