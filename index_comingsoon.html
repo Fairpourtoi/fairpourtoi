@@ -345,22 +345,42 @@ footer{background:var(--cream);border-top:.5px solid var(--blush)}
 <div class="divider-line"></div>
 
 <!-- BOOK -->
-<section id="book" class="book-bg" style="padding:80px 28px;">
-  <div style="max-width:1100px; margin:0 auto;">
+<section id="book" class="book-bg">
+  <div class="section-inner">
     <div class="book-grid">
+      
+      <!-- LEFT: Text Content -->
       <div class="book-left">
-        <h2>Coming Soon.</h2>
-        <p>Stay tuned for our upcoming arrivals.</p>
+        <div class="eyebrow">*Coming Soon* Reserve your spot</div>
+        <h2 class="serif" style="margin-bottom:20px;">Book your<br>arrival time.</h2>
+        <p style="margin-bottom:24px; font-size:14px; opacity:.75;">Appointments are private, unhurried access to the resell event.<br>New dates and times will be available soon.</p>
+        
+        <div class="book-detail" style="display:flex; align-items:center; gap:10px; margin-bottom:12px; font-size:13px; color:var(--taupe);">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <span>Santa Monica, CA</span>
+        </div>
+        
+        <div class="book-detail" style="display:flex; align-items:center; gap:10px; margin-bottom:32px; font-size:13px; color:var(--taupe);">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span>July 3&ndash;5 &amp; July 10&ndash;12</span>
+        </div>
+        
+        <div style="margin-top:32px;padding-top:24px;border-top:.5px solid var(--blush)">
+          <div class="eyebrow" style="margin-bottom:8px">Questions?</div>
+          <a href="#contact" style="font-size:12px;color:var(--taupe);letter-spacing:.06em;text-decoration:none;border-bottom:.5px solid var(--blush)">Send us a message</a>
+        </div>
       </div>
+
+      <!-- RIGHT: Carousel -->
       <div class="soon-carousel">
         <div class="soon-slide active" id="soon-0" style="background-image:url('assets/img/soon-1.jpg')"></div>
         <div class="soon-slide" id="soon-1" style="background-image:url('assets/img/soon-2.jpg')"></div>
         <div class="soon-slide" id="soon-2" style="background-image:url('assets/img/soon-3.jpg')"></div>
         <div class="soon-slide" id="soon-3" style="background-image:url('assets/img/soon-4.jpg')"></div>
       </div>
+
     </div>
   </div>
-</section>
 
 <div class="divider-line"></div>
 
