@@ -138,11 +138,11 @@ nav.scrolled .hamburger span{background:var(--espresso)}
     background-size: cover; 
     background-position: center;
     background-repeat: no-repeat; 
-  pointer-events: none;/* Good practice */
+    z-index: 0;
 }
-  .soon-slide.active { opacity: 1 !important; 
-    z-index: 10; 
-    pointer-events: auto;
+  .soon-slide.active { 
+    opacity: 1 !important; 
+    z-index: 1; 
 }
   
 /* IG CTA */
@@ -560,6 +560,7 @@ function resetSoonTimer() {
 // Start rotation exactly once, after the page loads
 document.addEventListener('DOMContentLoaded', () => {
     resetSoonTimer();
+}
 });
 </script>
 </body>
