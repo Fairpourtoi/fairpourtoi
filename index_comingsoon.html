@@ -153,6 +153,8 @@ nav.scrolled .hamburger span{background:var(--espresso)}
     image-rendering: -webkit-optimize-contrast;
     z-index: 0;
     pointer-events: none; /* Prevents interaction issues */
+    will-change: opacity;
+    transform: translateZ(0);
 }
 /* Force the first slide to be visible immediately for Chrome */
 .soon-slide:first-child {
@@ -528,8 +530,8 @@ footer{background:var(--cream);border-top:.5px solid var(--blush)}
     setInterval(() => aboutGoTo(aboutCurrent + 1), 5000);
 
     // 4. Soon Carousel
-   let soonCurrent = 0;
 const soonSlides = document.querySelectorAll('.soon-slide');
+   let soonCurrent = 0;
 
 // Force-sync state on load
 soonSlides.forEach((slide, idx) => {
