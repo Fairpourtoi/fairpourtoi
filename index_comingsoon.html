@@ -131,7 +131,9 @@ nav.scrolled .hamburger span{background:var(--espresso)}
 .book-grid { display: grid; grid-template-columns: 1fr 1.8fr; gap: 60px; align-items: start; }
 .soon-carousel { position: relative; height: 600px; width: 100%; overflow: hidden; background: var(--sand); border: .5px solid var(--blush); }
 .soon-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.6s ease-in-out; background-size: cover; background-position: center; }
-.soon-slide.active { opacity: 1; }
+.soon-slide.active { opacity: 1 !important; 
+    z-index: 1; 
+}
   
 /* IG CTA */
 .ig-bg{background:var(--espresso);text-align:center}
