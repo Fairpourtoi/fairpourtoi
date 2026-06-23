@@ -150,10 +150,15 @@ nav.scrolled .hamburger span{background:var(--espresso)}
     background-size: cover; 
     background-position: center;
     background-repeat: no-repeat; 
+    image-rendering: -webkit-optimize-contrast;
     z-index: 0;
     pointer-events: none; /* Prevents interaction issues */
 }
-
+/* Force the first slide to be visible immediately for Chrome */
+.soon-slide:first-child {
+    opacity: 1;
+    z-index: 1;
+}
 .soon-slide.active { 
     opacity: 1 !important; 
     z-index: 1; 
@@ -204,10 +209,10 @@ footer{background:var(--cream);border-top:.5px solid var(--blush)}
   .photo-slide{transition: opacity 1.6s ease-in-out !important}
 }
 #slide-0{background-image:url('assets/img/hero-1.jpg');}#slide-1{background-image:url('assets/img/hero-2.jpg');}#slide-2{background-image:url('assets/img/hero-3.jpg');}#slide-3{background-image:url('assets/img/hero-4.jpg');}
-#soon-0{background-image:url('assets/img/soon-1.jpg');}
-#soon-1{background-image:url('assets/img/soon-2.jpg');}
-#soon-2{background-image:url('assets/img/soon-3.jpg');}
-#soon-3{background-image:url('assets/img/soon-4.jpg');}
+#soon-0{background-image: url('assets/img/soon-1.jpg');}
+#soon-1{background-image: url('assets/img/soon-2.jpg');}
+#soon-2{background-image: url('assets/img/soon-3.jpg');}
+#soon-3{background-image: url('assets/img/soon-4.jpg');}
 </style>
 <link rel="preload" as="image" href="assets/img/hero-1.jpg" fetchpriority="high">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
