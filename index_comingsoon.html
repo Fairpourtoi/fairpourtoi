@@ -526,16 +526,19 @@ footer{background:var(--cream);border-top:.5px solid var(--blush)}
     let soonCurrent = 0;
     const soonSlides = document.querySelectorAll('.soon-slide');
     soonSlides.forEach((slide, idx) => {
-      slide.style.opacity = idx === 0 ? '1' : '0';
+      slide.style.opacity = (idx === 0) ? '1' : '0';
     });
-    setInterval(() => {
-   soonSlides[soonCurrent].classList.remove('active');
-      soonSlides[soonCurrent].style.opacity = '0'; // Force fade out
-      
-      soonCurrent = (soonCurrent + 1) % soonSlides.length;
-      
-      soonSlides[soonCurrent].classList.add('active');
-      soonSlides[soonCurrent].style.opacity = '1'; // Force fade in
+   setInterval(() => {
+        // Remove active class from old slide
+        soonSlides[soonCurrent].classList.remove('active');
+        soonSlides[soonCurrent].style.opacity = '0';
+        
+        // Advance index
+        soonCurrent = (soonCurrent + 1) % soonSlides.length;
+        
+        // Add active class to new slide
+        soonSlides[soonCurrent].classList.add('active');
+        soonSlides[soonCurrent].style.opacity = '1';
     }, 5000);
   });
 
