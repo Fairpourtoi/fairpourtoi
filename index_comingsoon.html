@@ -523,16 +523,27 @@ footer{background:var(--cream);border-top:.5px solid var(--blush)}
 
   // Carousel Rotation
 // 2. Added Carousel Rotation
-  let soonCurrent = 0;
-  function nextSoonSlide() {
-      const slides = document.querySelectorAll('.soon-slide');
-      if(slides.length > 0) {
-          slides[soonCurrent].classList.remove('active');
-          soonCurrent = (soonCurrent + 1) % slides.length;
-          slides[soonCurrent].classList.add('active');
-      }
-  }
-  setInterval(nextSoonSlide, 5000);
+let soonCurrent = 0;
+let soonAutoTimer;
+
+function nextSoonSlide() {
+    const slides = document.querySelectorAll('.soon-slide');
+    if (slides.length > 0) {
+        slides[soonCurrent].classList.remove('active');
+        soonCurrent = (soonCurrent + 1) % slides.length;
+        slides[soonCurrent].classList.add('active');
+    }
+}
+
+function resetSoonTimer() {
+    clearInterval(soonAutoTimer);
+    soonAutoTimer = setInterval(nextSoonSlide, 5000);
+}
+
+// Start rotation exactly once, after the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    resetSoonTimer();
+});
 </script>
 </body>
 </html>
