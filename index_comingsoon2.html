@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fair Pour Toi — Contemporary Resell Event</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<style>
+/* --- FULL SITE STYLES --- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--cream:#FAF8F6;--blush:#E6CCC8;--sand:#F6F0E9;--warm:#E8DDD6;--taupe:#C9B8B0;--espresso:#342828;}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;font-weight:300;color:var(--espresso);background:var(--cream)}
+.serif{font-family:'Cormorant Garamond',serif}
+.section-inner{max-width:1100px;margin:0 auto;padding:80px 28px}
+.divider-line{height:.5px;background:var(--blush)}
+.btn-espresso{background:var(--espresso);color:var(--cream);font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:400;padding:13px 32px;border:none;cursor:pointer;text-decoration:none;display:inline-block}
+
+/* --- NAV & HERO (FULL SITE) --- */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--cream);box-shadow:0 1px 0 rgba(52,40,40,.08)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:12px 28px;display:flex;justify-content:space-between;align-items:center}
+.nav-links a{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--taupe);text-decoration:none;margin-left:28px}
+
+/* --- NEW CAROUSEL & MODIFIED SECTION STYLES --- */
+.soon-carousel{position:relative;height:600px;width:100%;overflow:hidden;background:var(--sand);border:.5px solid var(--blush)}
+.soon-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease-in-out;background-size:cover;background-position:center}
+.soon-slide.active{opacity:1}
+.events-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+.event-card{background:var(--sand);border:.5px solid var(--blush);padding:32px 28px}
+.book-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <div style="font-size: 20px; font-weight: 500;">Fair Pour Toi</div>
+    <div class="nav-links">
+      <a href="#events">Events</a>
+      <a href="#book">Book</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO (Place your existing Hero section code here) -->
+<section id="hero" style="padding-top:120px;">
+    <div class="section-inner"><h1>Welcome to Fair Pour Toi</h1></div>
+</section>
+
+<!-- EVENTS -->
+<section id="events" style="background:var(--cream)">
+  <div class="section-inner">
+    <div class="eyebrow">Upcoming events</div>
+    <h2 class="serif" style="font-size:42px">Upcoming event dates</h2>
+    <div class="events-grid">
+      <div class="event-card">
+        <div class="eyebrow">Weekend one</div>
+        <div class="date serif" style="font-size: 28px; margin: 6px 0;">Coming this fall</div>
+        <a href="#contact" class="btn-espresso">Get Notified</a>
+      </div>
+      <div class="event-card">
+        <div class="eyebrow">Weekend two</div>
+        <div class="date serif" style="font-size: 28px; margin: 6px 0;">Coming this fall</div>
+        <a href="#contact" class="btn-espresso">Get Notified</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK / SOON -->
+<section id="book" style="background:var(--sand)">
+  <div class="section-inner">
+    <div class="book-grid">
+      <div class="book-left">
+        <h2 class="serif" style="font-size:48px;">Coming Soon.</h2>
+        <p>Stay tuned for our upcoming arrivals.</p>
+      </div>
+      <div class="soon-carousel">
+        <div class="soon-slide active" id="soon-0" style="background-image:url('assets/img/soon-1.jpg')"></div>
+        <div class="soon-slide" id="soon-1" style="background-image:url('assets/img/soon-2.jpg')"></div>
+        <div class="soon-slide" id="soon-2" style="background-image:url('assets/img/soon-3.jpg')"></div>
+        <div class="soon-slide" id="soon-3" style="background-image:url('assets/img/soon-4.jpg')"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT & FOOTER (Place your existing Contact/Footer code here) -->
+<section id="contact">
+    <div class="section-inner"><h2>Contact Us</h2></div>
+</section>
+
+<script>
+  // Carousel Rotation
+  let soonCurrent = 0;
+  function nextSoonSlide() {
+    document.getElementById('soon-' + soonCurrent).classList.remove('active');
+    soonCurrent = (soonCurrent + 1) % 4;
+    document.getElementById('soon-' + soonCurrent).classList.add('active');
+  }
+  setInterval(nextSoonSlide, 5000);
+</script>
+</body>
+</html>
