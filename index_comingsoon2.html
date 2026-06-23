@@ -1,86 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fair Pour Toi — Contemporary Resell Event</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
-<style>
-/* --- FULL SITE STYLES --- */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--cream:#FAF8F6;--blush:#E6CCC8;--sand:#F6F0E9;--warm:#E8DDD6;--taupe:#C9B8B0;--espresso:#342828;}
-html{scroll-behavior:smooth}
-body{font-family:'Jost',sans-serif;font-weight:300;color:var(--espresso);background:var(--cream)}
-.serif{font-family:'Cormorant Garamond',serif}
-.section-inner{max-width:1100px;margin:0 auto;padding:80px 28px}
-.nav-logo{height:40px;width:auto;}
-.hero{height:100vh;width:100%;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;}
-/* --- CAROUSEL & SECTIONS --- */
-.soon-carousel{position:relative;height:600px;width:100%;overflow:hidden;background:var(--sand);border:.5px solid var(--blush)}
-.soon-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease-in-out;background-size:cover;background-position:center}
-.soon-slide.active{opacity:1}
-.events-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
-.event-card{background:var(--sand);border:.5px solid var(--blush);padding:32px 28px}
-.book-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fair Pour Toi — Contemporary Resell Event</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* --- ORIGINAL SITE STYLES --- */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root { --cream:#FAF8F6; --blush:#E6CCC8; --sand:#F6F0E9; --taupe:#C9B8B0; --espresso:#342828; }
+        body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--espresso); }
+        nav { position: fixed; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; z-index: 1000; }
+        .nav-logo { height: 40px; filter: brightness(0) invert(1); }
+        .hero { height: 100vh; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; }
+        .section-inner { max-width: 1100px; margin: 0 auto; padding: 80px 28px; }
+        
+        /* --- CAROUSEL STYLES --- */
+        .soon-carousel { position: relative; height: 600px; width: 100%; overflow: hidden; background: var(--sand); }
+        .soon-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.6s ease-in-out; background-size: cover; background-position: center; }
+        .soon-slide.active { opacity: 1; }
+    </style>
 </head>
 <body>
 
 <!-- NAVIGATION -->
-<nav style="padding:20px; position:absolute; top:0; width:100%; z-index:10;">
-  <div class="nav-inner" style="max-width:1100px; margin:0 auto; display:flex; justify-content:space-between;">
-    <img src="assets/img/logo.png" alt="Fair Pour Toi Logo" class="nav-logo">
-    <div>
+<nav id="main-nav">
+    <img src="assets/img/logo.png" alt="Logo" class="nav-logo">
+    <div class="nav-links">
         <a href="#events" style="color:white; text-decoration:none; margin-left:20px;">Events</a>
         <a href="#book" style="color:white; text-decoration:none; margin-left:20px;">Book</a>
     </div>
-  </div>
 </nav>
 
-<!-- HERO SECTION -->
-<section id="hero" class="hero" style="background-image:url('assets/img/hero-1.jpg');">
-    <h1 class="serif" style="color:white; font-size: 80px;">Fair Pour Toi</h1>
+<!-- HERO -->
+<section class="hero" style="background-image: url('assets/img/hero-1.jpg');">
+    <h1 style="color:white; font-family: 'Cormorant Garamond', serif; font-size: 80px;">Fair Pour Toi</h1>
 </section>
 
 <!-- EVENTS -->
-<section id="events" style="background:var(--cream)">
-  <div class="section-inner">
+<section id="events" class="section-inner">
     <h2>Upcoming event dates</h2>
-    <div class="events-grid">
-      <div class="event-card">
-        <h3>Coming this fall</h3>
-        <p>Santa Monica, CA</p>
-      </div>
-    </div>
-  </div>
 </section>
 
-<!-- BOOK / SOON CAROUSEL -->
-<section id="book" style="background:var(--sand)">
-  <div class="section-inner">
-    <div class="book-grid">
-      <div>
-        <h2>Coming Soon.</h2>
-      </div>
-      <div class="soon-carousel">
+<!-- BOOK / CAROUSEL -->
+<section id="book" class="section-inner">
+    <h2>Coming Soon.</h2>
+    <div class="soon-carousel">
         <div class="soon-slide active" id="soon-0" style="background-image:url('assets/img/soon-1.jpg')"></div>
         <div class="soon-slide" id="soon-1" style="background-image:url('assets/img/soon-2.jpg')"></div>
         <div class="soon-slide" id="soon-2" style="background-image:url('assets/img/soon-3.jpg')"></div>
         <div class="soon-slide" id="soon-3" style="background-image:url('assets/img/soon-4.jpg')"></div>
-      </div>
     </div>
-  </div>
 </section>
 
 <script>
-  let soonCurrent = 0;
-  function nextSoonSlide() {
-    document.getElementById('soon-' + soonCurrent).classList.remove('active');
-    soonCurrent = (soonCurrent + 1) % 4;
-    document.getElementById('soon-' + soonCurrent).classList.add('active');
-  }
-  setInterval(nextSoonSlide, 5000);
+    // Carousel Rotation Logic
+    let soonCurrent = 0;
+    function nextSoonSlide() {
+        const slides = document.querySelectorAll('.soon-slide');
+        slides[soonCurrent].classList.remove('active');
+        soonCurrent = (soonCurrent + 1) % slides.length;
+        slides[soonCurrent].classList.add('active');
+    }
+    setInterval(nextSoonSlide, 5000);
 </script>
 </body>
 </html>
