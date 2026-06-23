@@ -546,6 +546,7 @@ soonSlides.forEach((slide, idx) => {
 
 setInterval(() => {
     // 1. Remove active state from current
+   requestAnimationFrame(() => {
     soonSlides[soonCurrent].classList.remove('active');
     soonSlides[soonCurrent].style.opacity = '0';
     
@@ -555,8 +556,11 @@ setInterval(() => {
     // 3. Add active state to next
     soonSlides[soonCurrent].classList.add('active');
     soonSlides[soonCurrent].style.opacity = '1';
-}, 5000);
-  });
+   });
+ }, 5000);
+  }, 100);
+  
+});
 
   // Mobile menu and Contact form (kept separate as they are interactive)
   function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
