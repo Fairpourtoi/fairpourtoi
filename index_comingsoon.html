@@ -496,7 +496,7 @@ footer{background:var(--cream);border-top:.5px solid var(--blush)}
       }
     });
 
-    // 2. Hero Carousel
+    // 2. Hero Carousel Logic
     let current = 0;
     const slides = document.querySelectorAll('.photo-slide');
     const dots = document.querySelectorAll('.hero-dot');
@@ -513,7 +513,7 @@ footer{background:var(--cream);border-top:.5px solid var(--blush)}
     window.goToSlide = goToSlide;
     setInterval(() => goToSlide(current + 1), 5000);
 
-    // 3. About Carousel
+    // 3. About Carousel Logic
     let aboutCurrent = 0;
     const aboutTrack = document.getElementById('about-track');
     const aboutDots = document.querySelectorAll('.about-dot');
@@ -528,15 +528,10 @@ footer{background:var(--cream);border-top:.5px solid var(--blush)}
     window.aboutGoTo = aboutGoTo;
     setInterval(() => aboutGoTo(aboutCurrent + 1), 5000);
 
-    // 4. Soon Carousel
+    // 4. Soon Carousel Logic
     const soonSlides = document.querySelectorAll('.soon-slide');
     let soonCurrent = 0;
-
-    soonSlides.forEach((slide, idx) => {
-        slide.style.opacity = (idx === 0) ? '1' : '0';
-        if (idx === 0) slide.classList.add('active');
-    });
-
+    
     setInterval(() => {
         requestAnimationFrame(() => {
             soonSlides[soonCurrent].classList.remove('active');
@@ -548,7 +543,7 @@ footer{background:var(--cream);border-top:.5px solid var(--blush)}
     }, 5000);
   });
 
-  // Mobile menu and Contact form functions remain outside DOMContentLoaded
+  // Global helper functions
   function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
   function closeMenu() { document.getElementById('mobile-menu').classList.remove('open'); }
 
@@ -562,7 +557,7 @@ footer{background:var(--cream);border-top:.5px solid var(--blush)}
     try {
       await emailjs.sendForm('service_9iwnim1', 'template_hjb8edc', form);
       form.reset();
-      status.textContent = '* Thank you for your message. *';
+      status.textContent = '* Message sent successfully *';
       btn.textContent = 'Message sent';
       setTimeout(() => { status.textContent = ''; btn.textContent = 'Send message'; btn.disabled = false; }, 3000);
     } catch (error) { status.textContent = 'Error. Please try again.'; btn.disabled = false; }
