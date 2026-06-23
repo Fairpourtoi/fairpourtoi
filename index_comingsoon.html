@@ -510,8 +510,6 @@ footer{background:var(--cream);border-top:.5px solid var(--blush)}
       dots[current].classList.add('active');
       slideNum.textContent = current + 1;
     }
-    
-    // Expose goToSlide to global scope for the onclick attributes
     window.goToSlide = goToSlide;
     setInterval(() => goToSlide(current + 1), 5000);
 
@@ -531,39 +529,26 @@ footer{background:var(--cream);border-top:.5px solid var(--blush)}
     setInterval(() => aboutGoTo(aboutCurrent + 1), 5000);
 
     // 4. Soon Carousel
-const soonSlides = document.querySelectorAll('.soon-slide');
-   let soonCurrent = 0;
+    const soonSlides = document.querySelectorAll('.soon-slide');
+    let soonCurrent = 0;
 
-// Force-sync state on load
-soonSlides.forEach((slide, idx) => {
-    if (idx === 0) {
-        slide.classList.add('active');
-        slide.style.opacity = '1';
-    } else {
-        slide.classList.remove('active');
-        slide.style.opacity = '0';
-    }
-});
+    soonSlides.forEach((slide, idx) => {
+        slide.style.opacity = (idx === 0) ? '1' : '0';
+        if (idx === 0) slide.classList.add('active');
+    });
 
-setInterval(() => {
-    // 1. Remove active state from current
-   requestAnimationFrame(() => {
-    soonSlides[soonCurrent].classList.remove('active');
-    soonSlides[soonCurrent].style.opacity = '0';
-    
-    // 2. Advance
-    soonCurrent = (soonCurrent + 1) % soonSlides.length;
-    
-    // 3. Add active state to next
-    soonSlides[soonCurrent].classList.add('active');
-    soonSlides[soonCurrent].style.opacity = '1';
-   });
- }, 5000);
-  }, 100);
-  
-});
+    setInterval(() => {
+        requestAnimationFrame(() => {
+            soonSlides[soonCurrent].classList.remove('active');
+            soonSlides[soonCurrent].style.opacity = '0';
+            soonCurrent = (soonCurrent + 1) % soonSlides.length;
+            soonSlides[soonCurrent].classList.add('active');
+            soonSlides[soonCurrent].style.opacity = '1';
+        });
+    }, 5000);
+  });
 
-  // Mobile menu and Contact form (kept separate as they are interactive)
+  // Mobile menu and Contact form functions remain outside DOMContentLoaded
   function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
   function closeMenu() { document.getElementById('mobile-menu').classList.remove('open'); }
 
@@ -572,24 +557,15 @@ setInterval(() => {
     const form = document.getElementById('contact-form');
     const status = document.getElementById('form-status');
     const btn = document.getElementById('submit-btn');
-
     btn.textContent = 'Sending...';
     btn.disabled = true;
-
     try {
       await emailjs.sendForm('service_9iwnim1', 'template_hjb8edc', form);
       form.reset();
       status.textContent = '* Thank you for your message. *';
       btn.textContent = 'Message sent';
-      setTimeout(() => { 
-        status.textContent = ''; 
-        btn.textContent = 'Send message';
-        btn.disabled = false;
-      }, 3000);
-    } catch (error) {
-      status.textContent = 'Error. Please try again.';
-      btn.disabled = false;
-    }
+      setTimeout(() => { status.textContent = ''; btn.textContent = 'Send message'; btn.disabled = false; }, 3000);
+    } catch (error) { status.textContent = 'Error. Please try again.'; btn.disabled = false; }
   }
 </script>
 </body>
