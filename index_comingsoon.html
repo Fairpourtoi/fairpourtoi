@@ -129,18 +129,32 @@ nav.scrolled .hamburger span{background:var(--espresso)}
 /* BOOK */
 .book-bg { background: var(--sand); }
 .book-grid { display: grid; grid-template-columns: 1fr 1.8fr; gap: 60px; align-items: start; }
-.soon-carousel { position: relative; height: 600px; width: 100%; overflow: hidden; background: var(--sand); border: .5px solid var(--blush); }
+.soon-carousel { 
+  position: relative; 
+  height: 600px; 
+  width: 100%; 
+  overflow: hidden; 
+  background: var(--sand); 
+  border: .5px solid var(--blush);
+  display: block; /* Ensure it's not set to none */
+}
+
 .soon-slide { 
     position: absolute; 
-    inset: 0; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     opacity: 0; 
     transition: opacity 1.6s ease-in-out; 
     background-size: cover; 
     background-position: center;
     background-repeat: no-repeat; 
     z-index: 0;
+    pointer-events: none; /* Prevents interaction issues */
 }
-  .soon-slide.active { 
+
+.soon-slide.active { 
     opacity: 1 !important; 
     z-index: 1; 
 }
