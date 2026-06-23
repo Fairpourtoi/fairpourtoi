@@ -525,8 +525,15 @@ footer{background:var(--cream);border-top:.5px solid var(--blush)}
     // 4. Soon Carousel
     let soonCurrent = 0;
     const soonSlides = document.querySelectorAll('.soon-slide');
+    
+    // Ensure state matches index on load
     soonSlides.forEach((slide, idx) => {
-      slide.style.opacity = (idx === 0) ? '1' : '0';
+        slide.style.opacity = (idx === soonCurrent) ? '1' : '0';
+        if (idx === soonCurrent) {
+            slide.classList.add('active');
+        } else {
+            slide.classList.remove('active');
+        }
     });
    setInterval(() => {
         // Remove active class from old slide
