@@ -3,58 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fair Pour Toi — Contemporary Resell Event</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+    <title>Fair Pour Toi</title>
     <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        :root { --cream:#FAF8F6; --sand:#F6F0E9; --espresso:#342828; }
-        body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--espresso); }
-        nav { position: fixed; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; z-index: 1000; }
-        .nav-logo { height: 40px; }
-        .hero { height: 100vh; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; }
-        .section-inner { max-width: 1100px; margin: 0 auto; padding: 80px 28px; }
-        .soon-carousel { position: relative; height: 600px; width: 100%; overflow: hidden; background: var(--sand); }
-        .soon-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.6s ease-in-out; background-size: cover; background-position: center; }
-        .soon-slide.active { opacity: 1; }
+        /* CSS is now INSIDE the HTML so the browser doesn't have to "find" it */
+        body { margin: 0; padding: 0; background-color: #FAF8F6; font-family: sans-serif; }
+        .nav { padding: 20px; display: flex; justify-content: space-between; align-items: center; }
+        .hero { height: 80vh; display: flex; align-items: center; justify-content: center; background-color: #E6CCC8; }
+        .carousel-container { width: 80%; margin: 50px auto; height: 400px; background-color: #342828; color: white; display: flex; align-items: center; justify-content: center; }
     </style>
 </head>
 <body>
-
-<!-- NAVIGATION -->
-<nav id="main-nav">
-    <img src="logo.png" alt="Logo" class="nav-logo">
-    <div class="nav-links">
-        <a href="#events" style="color:white; text-decoration:none; margin-left:20px;">Events</a>
-        <a href="#book" style="color:white; text-decoration:none; margin-left:20px;">Book</a>
+    <div class="nav">
+        <strong>Fair Pour Toi</strong>
+        <div>Events | Book</div>
     </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero" style="background-image: url('hero-1.jpg');">
-    <h1 style="color:white; font-family: 'Cormorant Garamond', serif; font-size: 80px;">Fair Pour Toi</h1>
-</section>
-
-<!-- BOOK / CAROUSEL -->
-<section id="book" class="section-inner">
-    <h2>Coming Soon.</h2>
-    <div class="soon-carousel">
-        <div class="soon-slide active" id="soon-0" style="background-image:url('soon-1.jpg')"></div>
-        <div class="soon-slide" id="soon-1" style="background-image:url('soon-2.jpg')"></div>
-        <div class="soon-slide" id="soon-2" style="background-image:url('soon-3.jpg')"></div>
-        <div class="soon-slide" id="soon-3" style="background-image:url('soon-4.jpg')"></div>
+    
+    <div class="hero">
+        <h1>Fair Pour Toi</h1>
     </div>
-</section>
 
-<script>
-    let soonCurrent = 0;
-    function nextSoonSlide() {
-        const slides = document.querySelectorAll('.soon-slide');
-        slides[soonCurrent].classList.remove('active');
-        soonCurrent = (soonCurrent + 1) % slides.length;
-        slides[soonCurrent].classList.add('active');
-    }
-    setInterval(nextSoonSlide, 5000);
-</script>
+    <div class="carousel-container">
+        <p>Carousel Placeholder — If this renders, your structure is fixed.</p>
+    </div>
 </body>
 </html>
