@@ -176,19 +176,27 @@ nav.scrolled .hamburger span{background:var(--espresso)}
 }
 
 .btn-espresso {
-    background: var(--espresso);
+background: var(--espresso);
     color: var(--cream);
     font-family: 'Jost', sans-serif;
     font-size: 11px;
     letter-spacing: .16em;
     text-transform: uppercase;
     font-weight: 400;
-    padding: 13px 32px;
+    
+    /* Layout & Sizing */
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 32px;
+    min-height: 44px !important;
+    min-width: 160px !important;
+    
     border: none;
     cursor: pointer;
     text-decoration: none;
-    display: inline-block;
     border-radius: 4px;
+    box-sizing: border-box !important;
 }
 
 
