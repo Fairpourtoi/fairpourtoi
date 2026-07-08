@@ -317,74 +317,78 @@ footer{background:var(--cream);border-top:.5px solid var(--blush)}
 
 <div class="divider-line"></div>
 
-<section id="fair-experience" style="background:var(--warm); padding: 40px 20px;">
-  <!-- Centered container locked at 1000px max-width -->
-  <div class="section-inner" style="max-width: 1000px; margin: 0 auto;">
+<!-- FAIR EXPERIENCE + BRANDS -->  
+<section id="fair-experience" style="background:var(--warm); padding: 20px 20px; width: 100%; box-sizing: border-box;">
+  
+  <style>
+    #fair-experience .section-inner {
+      max-width: 1100px !important;
+      margin: 0 auto !important;
+      width: 100% !important;
+      padding: 20px 0 !important;
+      display: flex !important;
+      flex-wrap: nowrap !important;
+      gap: 40px !important;
+      align-items: start !important;
+    }
+    @media (max-width: 768px) {
+      #fair-experience .section-inner {
+        flex-wrap: wrap !important;
+      }
+    }
+  </style>
+
+  <div class="section-inner">
     
-    <!-- Stable 2-column grid -->
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">  
-
-      <!-- LEFT: A Fair Experience -->
-      <div style="background:var(--cream); border:.5px solid var(--blush); border-radius:8px; padding:24px;">
-        <div class="eyebrow" style="margin-bottom:20px;">The Fair Experience</div>
-        
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
-          <!-- A VIP Experience -->
-          <div>
-            <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:10px"><path d="M9 2c0 4 1.5 6 3 6s3-2 3-6M9 2h6M12 8v11M8 19h8"/></svg>
-            <div style="font-size:0.85em; font-weight:400; margin-bottom:6px;">A VIP Experience</div>
-            <div style="font-size:0.78em; line-height:1.6; opacity:.75">Private, appointment-only, sip champagne and explore elevated looks at your own pace.</div>
-          </div>
-          <!-- One-of-a-Kind Finds -->
-          <div>
-            <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:10px"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"/></svg>
-            <div style="font-size:0.85em; font-weight:400; margin-bottom:6px;">One-of-a-Kind Finds</div>
-            <div style="font-size:0.78em; line-height:1.6; opacity:.75">Every piece is a unique discovery, guaranteed exclusive with limited availability anywhere.</div>
-          </div>
-          <!-- Curated Designer Labels -->
-          <div>
-            <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:10px"><path d="M12 2l2.5 7.5H22l-6 4.5 2.5 7.5-6-4.5-6 4.5 2.5-7.5-6-4.5h7.5z"/></svg>
-            <div style="font-size:0.85em; font-weight:400; margin-bottom:6px;">Curated Designer Labels</div>
-            <div style="font-size:0.78em; line-height:1.6; opacity:.75">Reformation, Mirror Palais, Nana Jacqueline, Aritzia, Favorite Daughter, Christian Louboutin + More.</div>
-          </div>
-          <!-- Considered Pricing -->
-          <div>
-            <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:10px"><circle cx="9" cy="12" r="7"/><circle cx="15" cy="12" r="7"/></svg>
-            <div style="font-size:0.85em; font-weight:400; margin-bottom:6px;">Considered Pricing</div>
-            <div style="font-size:0.78em; line-height:1.6; opacity:.75">Thoughtful pricing that reflects each piece's quality and rarity &mdash; at a fraction of retail &amp; always <em>Fair!</em></div>
-          </div>
-        </div> 
-
-        <br>
-
-        <!-- Button Row -->
-        <div style="display: block; margin-top: 24px; width: 100%; box-sizing: border-box;">  
-          <a href="#book" 
-             style="display: flex !important; align-items: center !important; justify-content: center !important; width: 100% !important; max-width: 300px !important; height: 44px !important; margin: 0 0 12px 0 !important; white-space: nowrap !important; background: var(--warm) !important; color: var(--espresso) !important; border: 1px solid var(--warm) !important; text-decoration: none !important; border-radius: 4px !important; font-size: 14px !important; line-height: 1 !important; box-sizing: border-box !important;">
-             Join Us. Book Now!
-          </a>
-          <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" 
-             style="display: flex !important; align-items: center !important; justify-content: center !important; width: 100% !important; max-width: 300px !important; height: 44px !important; margin: 0 !important; white-space: nowrap !important; background: var(--cream) !important; color: var(--espresso) !important; border: 1px solid var(--blush) !important; text-decoration: none !important; border-radius: 4px !important; font-size: 14px !important; line-height: 1 !important; box-sizing: border-box !important;">
-             Follow @fair.pourtoi
-          </a>
-</div>
+    <!-- LEFT: A Fair Experience -->
+    <div style="flex: 1 1 500px; background:var(--cream); border:.5px solid var(--blush); border-radius:8px; padding:24px; box-sizing: border-box;">
+      <div class="eyebrow" style="margin-bottom:20px;">The Fair Experience</div>
+      
+      <!-- Icon Grid -->
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:24px;">
+        <div>
+          <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:10px"><path d="M9 2c0 4 1.5 6 3 6s3-2 3-6M9 2h6M12 8v11M8 19h8"/></svg>
+          <div style="font-size:0.85em; font-weight:400; margin-bottom:6px;">A VIP Experience</div>
+          <div style="font-size:0.78em; line-height:1.6; opacity:.75">Private, appointment-only, sip champagne and explore elevated looks at your own pace.</div>
         </div>
-      </div>
-
-      <!-- RIGHT: More Brands You'll Find -->
-      <div>
-        <div class="eyebrow" style="margin-bottom:20px;">+ More Designers You&rsquo;ll Love</div>
-        <div class="brands-list">
-          <div class="brands-list-item">Free People</div>
-          <div class="brands-list-item">Alice + Olivia</div>
-          <div class="brands-list-item">Indah</div>
-          <div class="brands-list-item">Prada</div>
-          <div class="brands-list-item">Réalisation Par</div>
-          <div class="brands-list-item">Lululemon</div>
-          <div class="brands-list-item" style="font-style:italic; opacity:.7;">+ More</div>
+        <div>
+          <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:10px"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"/></svg>
+          <div style="font-size:0.85em; font-weight:400; margin-bottom:6px;">One-of-a-Kind Finds</div>
+          <div style="font-size:0.78em; line-height:1.6; opacity:.75">Every piece is a unique discovery, guaranteed exclusive with limited availability anywhere.</div>
         </div>
+        <div>
+          <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:10px"><path d="M12 2l2.5 7.5H22l-6 4.5 2.5 7.5-6-4.5-6 4.5 2.5-7.5-6-4.5h7.5z"/></svg>
+          <div style="font-size:0.85em; font-weight:400; margin-bottom:6px;">Curated Designer Labels</div>
+          <div style="font-size:0.78em; line-height:1.6; opacity:.75">Reformation, Mirror Palais, Nana Jacqueline, Aritzia, Favorite Daughter, Christian Louboutin + More.</div>
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:10px"><circle cx="9" cy="12" r="7"/><circle cx="15" cy="12" r="7"/></svg>
+          <div style="font-size:0.85em; font-weight:400; margin-bottom:6px;">Considered Pricing</div>
+          <div style="font-size:0.78em; line-height:1.6; opacity:.75">Thoughtful pricing that reflects each piece's quality and rarity &mdash; at a fraction of retail &amp; always <em>Fair!</em></div>
+        </div>
+      </div> 
+
+      <!-- Button Row -->
+      <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 24px; width: 100%;">  
+        <a href="#book" style="display: flex !important; align-items: center !important; justify-content: center !important; width: 100% !important; max-width: 300px !important; height: 44px !important; margin: 0 !important; background: var(--warm) !important; color: var(--espresso) !important; border: 1px solid var(--warm) !important; text-decoration: none !important; border-radius: 4px !important; font-size: 14px !important; box-sizing: border-box !important;">Join Us. Book Now!</a>
+        <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" style="display: flex !important; align-items: center !important; justify-content: center !important; width: 100% !important; max-width: 300px !important; height: 44px !important; margin: 0 !important; background: var(--cream) !important; color: var(--espresso) !important; border: 1px solid var(--blush) !important; text-decoration: none !important; border-radius: 4px !important; font-size: 14px !important; box-sizing: border-box !important;">Follow @fair.pourtoi</a>
       </div>
     </div>
+
+    <!-- RIGHT: More Brands -->
+    <div style="flex: 1 1 300px; box-sizing: border-box;">
+      <div class="eyebrow" style="margin-bottom:20px;">+ More Designers You&rsquo;ll Love</div>
+      <div class="brands-list">
+        <div class="brands-list-item">Free People</div>
+        <div class="brands-list-item">Alice + Olivia</div>
+        <div class="brands-list-item">Indah</div>
+        <div class="brands-list-item">Prada</div>
+        <div class="brands-list-item">Réalisation Par</div>
+        <div class="brands-list-item">Lululemon</div>
+        <div class="brands-list-item" style="font-style:italic; opacity:.7;">+ More</div>
+      </div>
+    </div>
+    
   </div>
 </section>
 
