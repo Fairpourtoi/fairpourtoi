@@ -295,12 +295,15 @@ footer{background:var(--cream);border-top:.5px solid var(--blush)}
     </div>
 
     <div class="events-grid">
-      <div class="event-card">
-        <div class="eyebrow">Weekend One</div>
-        <div class="date serif"><del>July 3 &ndash; 5</del></div>
-        <div class="loc">Santa Monica, CA</div>
-        <a href="#book" class="btn-espresso" style="font-size: 10px; padding: 9px 20px;"><del>Reserve Your Spot</del></a>
-      </div>
+     <div class="event-card">
+  <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+    <div class="eyebrow" style="margin-bottom:0">Weekend One</div>
+    <span style="font-size:9px; letter-spacing:.1em; text-transform:uppercase; color:var(--taupe); border:.5px solid var(--blush); padding:4px 10px; border-radius:999px;">Past Event</span>
+  </div>
+  <div class="date serif" style="opacity:.5">July 3 &ndash; 5</div>
+  <div class="loc" style="opacity:.5">Santa Monica, CA</div>
+  <span class="btn-espresso" style="font-size: 10px; padding: 9px 20px; opacity:.4; cursor:default; pointer-events:none;">Reserve Your Spot</span>
+</div>
       
       <div class="event-card">
         <div class="eyebrow">Weekend Two</div>
