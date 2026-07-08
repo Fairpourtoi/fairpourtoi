@@ -127,11 +127,14 @@ nav.scrolled .hamburger span{background:var(--espresso)}
 .about-copy h2{font-size:clamp(28px,4vw,42px);line-height:1.2;margin-bottom:20px}
 .about-copy p{font-size:13px;line-height:1.95;opacity:.75;margin-bottom:28px}
 
+/* FAIR EXPERIENCE + BRANDS */
+.fair-experience-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+
 /* BRANDS */
-.brands-row{display:flex;justify-content:center;flex-wrap:wrap;border:.5px solid var(--blush);margin-top:40px}
-.brand-box{flex:1;min-width:120px;height:64px;display:flex;align-items:center;justify-content:center;font-size:11px;letter-spacing:.1em;color:#5b463f;font-weight:400;border-right:.5px solid var(--blush);transition:background .2s}
-.brand-box:last-child{border-right:none}
-.brand-box:hover{background:var(--sand)}
+.brands-list{border:.5px solid var(--blush)}
+.brands-list-item{padding:16px 20px;font-size:11px;letter-spacing:.1em;color:#5b463f;font-weight:400;border-bottom:.5px solid var(--blush);transition:background .2s}
+.brands-list-item:last-child{border-bottom:none}
+.brands-list-item:hover{background:var(--sand)}
 
 /* STUDIO ADDRESS */
 .studio-address {font-family: inherit;color: inherit;text-decoration: none;font-weight: inherit;transition: font-weight 0.15s ease;}
@@ -178,13 +181,11 @@ footer{background:var(--cream);border-top:.5px solid var(--blush)}
   .about-grid{grid-template-columns:1fr;gap:28px}
   .about-photo{aspect-ratio:3/2}
   .book-grid{grid-template-columns:1fr;gap:32px}
-  .brands-row{flex-direction:column}
-  .brand-box{border-right:none;border-bottom:.5px solid var(--blush)}
-  .brand-box:last-child{border-bottom:none}
   .footer-inner{flex-direction:column;align-items:flex-start;gap:10px}
   .ig-inner{padding:72px 20px}
   .nav-inner{padding:6px 20px}
   .hero-counter{display:none}
+  .fair-experience-grid{grid-template-columns:1fr !important; gap:32px !important}
 }
 @media(max-width:480px){
   .btn-row{flex-direction:column}
@@ -347,7 +348,7 @@ footer{background:var(--cream);border-top:.5px solid var(--blush)}
   <p style="margin-bottom:12px">It means <em>for you</em> in French &mdash; and that&rsquo;s exactly the point.</p>
   <p style="margin-bottom:24px">Fair Pour Toi brings a private, invitation-style contemporary resale event to Santa Monica. Shopping that&rsquo;s fun, intimate, and curated just for you.</p>
   
-  <h3 style="font-size:1.0em; margin-bottom:12px;">Our Mission</h3>
+  <h3 class="serif" style="font-size:1.2em; margin-bottom:12px;">Our Mission</h3>
   <p style="margin-bottom:24px">
     We curate a deliberate, intimate resale experience designed for you.<br> 
     By moving away from the noise of traditional retail or warehouse sales, we foster direct connections between sellers and those seeking high-quality style. 
@@ -356,33 +357,6 @@ footer{background:var(--cream);border-top:.5px solid var(--blush)}
     Our mission is to provide an exclusive, focused selection that honors both the garment and the person who enjoys it next.
   </p>
 
-  <div style="margin:32px 0; padding:24px; background:var(--cream); border:.5px solid var(--blush)">
-    <div class="eyebrow" style="margin-bottom:20px;font-size:14px;">A Fair Experience</div>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:24px;">
-      <div>
-        <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:10px"><path d="M12 2l2.5 7.5H22l-6 4.5 2.5 7.5-6-4.5-6 4.5 2.5-7.5-6-4.5h7.5z"/></svg>
-        <div style="font-size:0.85em; font-weight:400; margin-bottom:6px;">Curated Designer Labels</div>
-        <div style="font-size:0.78em; line-height:1.6; opacity:.75">Reformation, Mirror Palais, Nana Jacqueline, Aritzia, Favorite Daughter, and Christian Louboutin.</div>
-      </div>
-      <div>
-        <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:10px"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"/></svg>
-        <div style="font-size:0.85em; font-weight:400; margin-bottom:6px;">One-of-a-Kind Finds</div>
-        <div style="font-size:0.78em; line-height:1.6; opacity:.75">Every piece is a unique discovery, guaranteed exclusive with limited availability anywhere.</div>
-      </div>
-      <div>
-        <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:10px"><path d="M9 2c0 4 1.5 6 3 6s3-2 3-6M9 2h6M12 8v11M8 19h8"/></svg>
-        <div style="font-size:0.85em; font-weight:400; margin-bottom:6px;">A VIP Experience</div>
-        <div style="font-size:0.78em; line-height:1.6; opacity:.75">Private, appointment-only, sip champagne and explore elevated looks at your own pace.</div>
-      </div>
-      <div>
-        <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:10px"><circle cx="9" cy="12" r="7"/><circle cx="15" cy="12" r="7"/></svg>
-        <div style="font-size:0.85em; font-weight:400; margin-bottom:6px;">Considered Pricing</div>
-        <div style="font-size:0.78em; line-height:1.6; opacity:.75">Thoughtful pricing that reflects each piece's quality and rarity &mdash; at a fraction of retail &amp; always <em>Fair!</em></div>
-      </div>
-    </div>
-    <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" class="btn-espresso" style="font-size:10px; display:inline-block; margin-top:24px;">Follow us on Instagram</a>
-  </div>
-
 </div> <!-- Closes about-copy -->
 </div> <!-- Closes about-grid -->
 </div> <!-- Closes section-inner -->
@@ -390,16 +364,58 @@ footer{background:var(--cream);border-top:.5px solid var(--blush)}
 
 <div class="divider-line"></div>
 
-<!-- BRANDS -->
-<section style="background:var(--cream)">
+<!-- FAIR EXPERIENCE + BRANDS -->
+<section id="fair-experience" style="background:var(--cream)">
   <div class="section-inner">
-    <div class="eyebrow" style="text-align:center">Brands you&rsquo;ll find</div>
-    <div class="brands-row">
-      <div class="brand-box">Christian Louboutin</div>
-      <div class="brand-box">Mirror Palais</div>
-      <div class="brand-box">Nana Jacqueline</div>
-      <div class="brand-box">Reformation</div>
-      <div class="brand-box">Aritzia</div>
+    <div class="fair-experience-grid">
+
+      <!-- LEFT: A Fair Experience -->
+      <div>
+        <div class="eyebrow" style="font-size:14px; margin-bottom:20px;">A Fair Experience</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+
+          <div>
+            <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:10px"><path d="M9 2c0 4 1.5 6 3 6s3-2 3-6M9 2h6M12 8v11M8 19h8"/></svg>
+            <div style="font-size:0.85em; font-weight:400; margin-bottom:6px;">A VIP Experience</div>
+            <div style="font-size:0.78em; line-height:1.6; opacity:.75">Private, appointment-only, sip champagne and explore elevated looks at your own pace.</div>
+          </div>
+
+          <div>
+            <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:10px"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"/></svg>
+            <div style="font-size:0.85em; font-weight:400; margin-bottom:6px;">One-of-a-Kind Finds</div>
+            <div style="font-size:0.78em; line-height:1.6; opacity:.75">Every piece is a unique discovery, guaranteed exclusive with limited availability anywhere.</div>
+          </div>
+
+          <div>
+            <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:10px"><path d="M12 2l2.5 7.5H22l-6 4.5 2.5 7.5-6-4.5-6 4.5 2.5-7.5-6-4.5h7.5z"/></svg>
+            <div style="font-size:0.85em; font-weight:400; margin-bottom:6px;">Curated Designer Labels</div>
+            <div style="font-size:0.78em; line-height:1.6; opacity:.75">Reformation, Mirror Palais, Nana Jacqueline, Aritzia, Favorite Daughter, Christian Louboutin + More.</div>
+          </div>
+
+          <div>
+            <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:10px"><circle cx="9" cy="12" r="7"/><circle cx="15" cy="12" r="7"/></svg>
+            <div style="font-size:0.85em; font-weight:400; margin-bottom:6px;">Considered Pricing</div>
+            <div style="font-size:0.78em; line-height:1.6; opacity:.75">Thoughtful pricing that reflects each piece's quality and rarity &mdash; at a fraction of retail &amp; always <em>Fair!</em></div>
+          </div>
+
+        </div>
+        <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" class="btn-espresso" style="font-size:10px; display:inline-block; margin-top:24px;">Follow us on Instagram</a>
+      </div>
+
+      <!-- RIGHT: More Brands You'll Find -->
+      <div>
+        <div class="eyebrow" style="font-size:14px; margin-bottom:20px;">More Brands You&rsquo;ll Find</div>
+        <div class="brands-list">
+          <div class="brands-list-item">Free People</div>
+          <div class="brands-list-item">Alice + Olivia</div>
+          <div class="brands-list-item">Indah</div>
+          <div class="brands-list-item">Prada</div>
+          <div class="brands-list-item">Réalisation Par</div>
+          <div class="brands-list-item">Lululemon</div>
+          <div class="brands-list-item"style="font-style:italic; opacity:.7;">+ More</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
