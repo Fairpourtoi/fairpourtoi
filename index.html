@@ -690,6 +690,14 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
   function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
   function closeMenu() { document.getElementById('mobile-menu').classList.remove('open'); }
 
+  // Close mobile menu on scroll
+  window.addEventListener('scroll', () => {
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenu.classList.contains('open')) {
+      closeMenu();
+    }
+  });
+
   // Hero carousel
   let current = 0;
   const total = 4;
