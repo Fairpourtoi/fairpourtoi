@@ -245,7 +245,7 @@ nav.scrolled .hamburger span{background:var(--espresso)}
 }
 
 /* IG CTA */
-.ig-bg{background:var(--espresso);text-align:center}
+.ig-bg{background:var(--espresso);text-align:center;padding: 0;margin: 0;}
 .ig-inner{max-width:600px;margin:0 auto;padding: 60px 28px}
 .ig-inner h2{font-size:clamp(36px,5vw,64px);color:var(--cream);margin-bottom:16px}
 .ig-inner p{font-size:13px;color:var(--taupe);letter-spacing:.08em;line-height:1.9;margin-bottom:36px}
@@ -287,7 +287,8 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); }
   }
   .footer-logo {height: 60px;} /* Smaller logo on mobile to prevent excessive space */
   footer {padding-bottom: 0px !important; margin-bottom: 0 !important;} 
-.ig-inner {padding: 40px 20px 0px 20px !important;} /* Forces the bottom space to be small */   
+  .ig-inner {padding: 40px 20px 0px 20px !important;} /* Forces the bottom space to be small */   
+  .ig-bg {padding-bottom: 0 !important;}   /* Forces the background color to hug the footer */
   .nav-inner{padding:6px 20px}
   .hero-counter{display:none}
   .fair-experience-grid{grid-template-columns:1fr !important; gap:32px !important}
