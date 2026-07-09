@@ -61,14 +61,14 @@ background: rgba(255, 255, 255, .15);
   transition: background .4s, color .4s, border-color .4s;
 }
 nav.scrolled .nav-cta {
-background: rgba(230, 204, 200, 0.8); /* 80% opaque blush */
+  background: rgba(230, 204, 200, 0.8); /* 80% opaque blush */
   backdrop-filter: blur(8px);           /* Adds the frosted glass effect */
   border: .5px solid rgba(230, 204, 200, 0.9);
   color: var(--espresso);
   font-weight: 500;
 }
 .nav-cta:hover, nav.scrolled .nav-cta:hover {
-  background: var(--taupe);
+  background: var(--blush);
   border-color: var(--taupe);
   color: white;
 }
@@ -123,7 +123,7 @@ nav.scrolled .hamburger span{background:var(--espresso)}
     border-radius: 4px;
 }
 .btn-blush {
-    background: var(--blush);
+    background: rgba(230, 204, 200, 0.8);
     color: var(--espresso);
     border: .5px solid rgba(255, 255, 255, .5);
     font-family: 'Jost', sans-serif;
@@ -137,7 +137,6 @@ nav.scrolled .hamburger span{background:var(--espresso)}
     text-decoration: none;
     display: inline-block;
     border-radius: 4px;
-    opacity: .70;
     transition: opacity 0.2s ease;
 }
   }
