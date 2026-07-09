@@ -122,7 +122,21 @@ nav.scrolled .hamburger span{background:var(--espresso)}
     display: inline-block;
     border-radius: 4px;
 }
-
+.btn-blush {
+    background: var(--blush);
+    color: var(--espresso);
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    font-weight: 400;
+    padding: 13px 36px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+}
 .btn-dark {
     background: white;
     color: var(--espresso);
@@ -279,18 +293,18 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
   .about-grid{grid-template-columns:1fr;gap:28px}
   .about-photo{aspect-ratio:3/2}
   .book-grid{grid-template-columns:1fr;gap:32px}
-  .btn-light {display: block; width: calc(100% - 0px);margin: 0 auto;text-align: center;box-sizing: border-box;}
+  .btn-light,.btn-blush {display: block; width: calc(100% - 0px);margin: 0 auto;text-align: center;box-sizing: border-box;}
   .footer-inner { 
       flex-direction: column; 
-      align-items: center; /* Changed to center for better mobile balance */
-      text-align: center;  /* Ensures copy and link align nicely */
-      gap: 10px;           /* Increased gap slightly for breathing room */
-      padding: 30px 20px 20px 20px;  /* Cleaned up padding */
+      align-items: center; 
+      text-align: center;  
+      gap: 10px;           
+      padding: 30px 20px 20px 20px;
   }
-  .footer-logo {height: 60px !important;} /* Smaller logo on mobile to prevent excessive space */
+  .footer-logo {height: 60px !important;} 
    footer {padding-top: 20px !important; padding-bottom: 20px !important; margin: 0 !important;height: auto !important; min-height: 0 !important;}  
-  .ig-inner {padding: 40px 20px 10px 20px !important;} /* Forces the bottom space to be small */   
-  .ig-bg {padding-bottom: 10px !important;}   /* Forces the background color to hug the footer */
+  .ig-inner {padding: 40px 20px 10px 20px !important;}    
+  .ig-bg {padding-bottom: 10px !important;}   
   .nav-inner{padding:6px 20px}
   .hero-counter{display:none}
   .fair-experience-grid{grid-template-columns:1fr !important; gap:32px !important}
@@ -639,7 +653,7 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
   <div class="ig-inner">
     <h2 class="serif">Stay in the know.</h2>
     <p>All updates, new brands, and sale announcements<br>drop on Instagram first.</p>
-    <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" class="btn-light">Follow @fair.pourtoi</a>
+    <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" class="btn-blush">Follow @fair.pourtoi</a>
   </div>
 </section>
 
