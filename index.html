@@ -184,12 +184,15 @@ nav.scrolled .hamburger span{background:var(--espresso)}
     text-transform: uppercase;
     font-weight: 400;
     
-    /* Exact sizing to match Fair Experience */
-    display: inline-flex !important;
+    /* Force size and alignment */
+    display: flex !important; /* Changed from inline-flex */
+    flex: 1 !important;      /* Forces the button to fill its container */
     align-items: center !important;
     justify-content: center !important;
     padding: 0 20px !important; 
     min-height: 44px !important;
+    width: 100% !important;   /* Ensures it doesn't shrink */
+    
     border: none;
     cursor: pointer;
     text-decoration: none;
