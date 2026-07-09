@@ -732,6 +732,32 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
     });
   }
 
+  // Swipe support for about-carousel
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  const aboutCarouselEl = document.querySelector('.about-carousel');
+
+  aboutCarouselEl.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  aboutCarouselEl.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  }, { passive: true });
+
+  function handleSwipe() {
+    const swipeThreshold = 40;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        aboutGoTo((aboutCurrent + 1) % 2); // swiped left → next
+      } else {
+        aboutGoTo((aboutCurrent - 1 + 2) % 2); // swiped right → previous
+      }
+    }
+  }
   // Contact form
   async function sendContactForm(event) {
     event.preventDefault();
