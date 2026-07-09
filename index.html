@@ -280,16 +280,15 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); }
   .about-grid{grid-template-columns:1fr;gap:28px}
   .about-photo{aspect-ratio:3/2}
   .book-grid{grid-template-columns:1fr;gap:32px}
-.footer-inner { 
+  .footer-inner { 
       flex-direction: column; 
       align-items: center; /* Changed to center for better mobile balance */
       text-align: center;  /* Ensures copy and link align nicely */
       gap: 20px;           /* Increased gap slightly for breathing room */
-      padding: 40px 20px;  /* Cleaned up padding */
+      padding: 40px 20px 12px 20px;  /* Cleaned up padding */
   }
-  .footer-logo { 
-      height: 60px;        /* Smaller logo on mobile to prevent excessive space */
-  }
+  .footer-logo {height: 60px;} /* Smaller logo on mobile to prevent excessive space */
+  footer {padding-bottom: 10px !important;} /* Force this to be very small */
   .ig-inner{padding:72px 20px}
   .nav-inner{padding:6px 20px}
   .hero-counter{display:none}
