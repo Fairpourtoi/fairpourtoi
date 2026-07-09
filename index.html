@@ -253,12 +253,21 @@ nav.scrolled .hamburger span{background:var(--espresso)}
 .ig-inner p{font-size:13px;color:var(--taupe);letter-spacing:.08em;line-height:1.9;margin-bottom:36px}
 
 /* FOOTER */
-footer{background:var(--cream);border-top:.5px solid var(--blush)}
-.footer-inner{max-width:1100px;margin:0 auto;padding:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;align-content: center;}
-.footer-logo{height:88px;width:auto;flex-shrink: 0;}
-.footer-copy{font-size:10px;color:var(--taupe);letter-spacing:.1em}
-.footer-ig{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--taupe);text-decoration:none}
-.footer-ig:hover{color:var(--espresso)}
+footer { background: var(--cream); border-top: .5px solid var(--blush); }
+.footer-inner { 
+    max-width: 1100px; 
+    margin: 0 auto; 
+    padding: 28px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    flex-wrap: wrap; 
+    gap: 14px; 
+}
+.footer-logo { height: 88px; width: auto; flex-shrink: 0; }
+.footer-copy { font-size: 10px; color: var(--taupe); letter-spacing: .1em; }
+.footer-ig { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--taupe); text-decoration: none; }
+.footer-ig:hover { color: var(--espresso); }
 
 /* RESPONSIVE */
 @media(max-width:768px){
@@ -271,7 +280,16 @@ footer{background:var(--cream);border-top:.5px solid var(--blush)}
   .about-grid{grid-template-columns:1fr;gap:28px}
   .about-photo{aspect-ratio:3/2}
   .book-grid{grid-template-columns:1fr;gap:32px}
-  .footer-inner{flex-direction:column;align-items:flex-start;gap:10px}
+.footer-inner { 
+      flex-direction: column; 
+      align-items: center; /* Changed to center for better mobile balance */
+      text-align: center;  /* Ensures copy and link align nicely */
+      gap: 20px;           /* Increased gap slightly for breathing room */
+      padding: 40px 20px;  /* Cleaned up padding */
+  }
+  .footer-logo { 
+      height: 60px;        /* Smaller logo on mobile to prevent excessive space */
+  }
   .ig-inner{padding:72px 20px}
   .nav-inner{padding:6px 20px}
   .hero-counter{display:none}
