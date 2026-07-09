@@ -123,7 +123,7 @@ nav.scrolled .hamburger span{background:var(--espresso)}
     border-radius: 4px;
 }
 .btn-blush {
-    background: rgba(230, 204, 200, 0.8);
+    background: rgba(230, 204, 200, 0.15);
     backdrop-filter: blur(8px);   
     color: var(--espresso);
     border: .5px solid rgba(255, 255, 255, .5);
@@ -141,7 +141,10 @@ nav.scrolled .hamburger span{background:var(--espresso)}
     transition: opacity .4s ease;
 }
   }
-.btn-blush:hover { opacity: 1; }
+.btn-blush:hover { 
+  background: var(--blush);
+  border-color: white;
+  color: white;; }
   
 .btn-dark {
     background: white;
