@@ -255,16 +255,17 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); }
 .footer-inner { 
     max-width: 1100px; 
     margin: 0 auto; 
-    padding: 28px; 
+    padding: 28px 20px; 
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
     flex-wrap: wrap; 
     gap: 14px; 
+    line-height: 0;
 }
-.footer-logo { height: 88px; width: auto; flex-shrink: 0; }
-.footer-copy { font-size: 10px; color: var(--taupe); letter-spacing: .1em; }
-.footer-ig { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--taupe); text-decoration: none; }
+.footer-logo { height: 88px; width: auto; flex-shrink: 0; display: block;}
+.footer-copy { display: block; font-size: 10px; color: var(--taupe); letter-spacing: .1em; line-height: 1;margin: 0;}
+.footer-ig { display: block; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--taupe); text-decoration: none; line-height: 1; margin: 0;}
 .footer-ig:hover { color: var(--espresso); }
 
 /* RESPONSIVE */
@@ -282,10 +283,10 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); }
       flex-direction: column; 
       align-items: center; /* Changed to center for better mobile balance */
       text-align: center;  /* Ensures copy and link align nicely */
-      gap: 12px;           /* Increased gap slightly for breathing room */
+      gap: 10px;           /* Increased gap slightly for breathing room */
       padding: 30px 20px 20px 20px;  /* Cleaned up padding */
   }
-  .footer-logo {height: 60px;} /* Smaller logo on mobile to prevent excessive space */
+  .footer-logo {height: 60px !important;} /* Smaller logo on mobile to prevent excessive space */
   footer {padding-bottom: 0px !important; margin-bottom: 0 !important;} 
   .ig-inner {padding: 40px 20px 0px 20px !important;} /* Forces the bottom space to be small */   
   .ig-bg {padding-bottom: 0 !important;}   /* Forces the background color to hug the footer */
