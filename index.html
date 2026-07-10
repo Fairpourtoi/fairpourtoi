@@ -553,9 +553,9 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
         </div>
 
         <!-- Prev / Next arrows -->
-        <button onclick="aboutCarousel(-1)" aria-label="Previous image" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);background:rgba(250,248,246,.85);border:.5px solid var(--blush);width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:var(--espresso);z-index:5;">&#8592;</button>
-        <button onclick="aboutCarousel(1)" aria-label="Next image" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);background:rgba(250,248,246,.85);border:.5px solid var(--blush);width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:var(--espresso);z-index:5;">&#8594;</button>
-
+        <button onclick="aboutCarousel(-1)" aria-label="Previous image" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);background:transparent;border:none;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:22px;color:white;mix-blend-mode:difference;z-index:5;transition:opacity .2s;opacity:.9;">&#8592;</button>
+        <button onclick="aboutCarousel(1)" aria-label="Next image" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);background:transparent;border:none;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:22px;color:white;mix-blend-mode:difference;z-index:5;transition:opacity .2s;opacity:.9;">&#8594;</button>
+      
         <!-- Dots -->
         <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:5;">
           <button onclick="aboutGoTo(0)" class="about-dot about-dot-active" aria-label="Slide 1" style="width:28px;height:.5px;background:white;border:none;cursor:pointer;padding:0;transition:opacity .3s"></button>
