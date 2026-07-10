@@ -540,31 +540,38 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
     <div class="about-grid">
 
       <!-- Editorial photo carousel -->
-      <div class="about-carousel" style="position:relative;overflow:hidden;">
-        <div class="carousel-track" id="about-track" style="display:flex;transition:transform 1.5s cubic-bezier(.4,0,.2,1);">
-          <!-- Slide 1: pronunciation card grid -->
-          <div class="carousel-slide" style="min-width:100%;position:relative;">
-            <picture><source type="image/avif" srcset="assets/img/about-1.avif"><img src="assets/img/about-1.jpg" alt="How to pronounce Fair Pour Toi" width="958" height="1192" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/5;"></picture>
-          </div>
-          <!-- Slide 2: notes reveal with signature -->
-          <div class="carousel-slide" style="min-width:100%;position:relative;">
-            <picture><source type="image/avif" srcset="assets/img/about-2.avif"><img src="assets/img/about-2.jpg" alt="Fair Pour Toi — for you, by Grace Fairest" width="958" height="1192" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/5;"></picture>
-          </div>
-        </div>
-
-        <!-- Prev / Next arrows -->
-<button onclick="aboutCarousel(-1)" aria-label="Previous image" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;padding:8px;z-index:5;">
-  <svg viewBox="0 0 24 24" width="48" height="48" style="stroke:white; fill:none; stroke-width:1.1; filter:drop-shadow(0 1px 4px rgba(0,0,0,.4));"><path d="M15 18l-6-6 6-6"/></svg>
-</button>
-<button onclick="aboutCarousel(1)" aria-label="Next image" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;padding:8px;z-index:5;">
-  <svg viewBox="0 0 24 24" width="48" height="48" style="stroke:white; fill:none; stroke-width:1.1; filter:drop-shadow(0 1px 4px rgba(0,0,0,.4));"><path d="M9 18l6-6-6-6"/></svg>
-</button>
-        <!-- Dots -->
-        <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:5;">
-          <button onclick="aboutGoTo(0)" class="about-dot about-dot-active" aria-label="Slide 1" style="width:28px;height:.5px;background:white;border:none;cursor:pointer;padding:0;transition:opacity .3s"></button>
-          <button onclick="aboutGoTo(1)" class="about-dot" aria-label="Slide 2" style="width:28px;height:.5px;background:rgba(255,255,255,.4);border:none;cursor:pointer;padding:0;transition:opacity .3s"></button>
-        </div>
+<div class="about-carousel" style="position:relative;overflow:hidden;">
+  <div class="carousel-track" id="about-track" style="display:flex;transition:transform 1.5s cubic-bezier(.4,0,.2,1);">
+    <!-- Slide 1: pronunciation card grid -->
+    <div class="carousel-slide" style="min-width:100%;position:relative;">
+      <picture><source type="image/avif" srcset="assets/img/about-1.avif"><img src="assets/img/about-1.jpg" alt="How to pronounce Fair Pour Toi" width="958" height="1192" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/5;"></picture>
+      <div class="swipe-hint" style="position:absolute;top:16px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:6px;background:rgba(0,0,0,.35);backdrop-filter:blur(4px);color:white;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:7px 16px;border-radius:20px;z-index:4;pointer-events:none;">
+        <svg viewBox="0 0 24 24" width="13" height="13" style="stroke:white; fill:none; stroke-width:1.5;"><path d="M13 4l4 4-4 4M17 8H7M11 20l-4-4 4-4M7 16h10"/></svg>
+        Swipe
       </div>
+    </div>
+    <!-- Slide 2: notes reveal with signature -->
+    <div class="carousel-slide" style="min-width:100%;position:relative;">
+      <picture><source type="image/avif" srcset="assets/img/about-2.avif"><img src="assets/img/about-2.jpg" alt="Fair Pour Toi — for you, by Grace Fairest" width="958" height="1192" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/5;"></picture>
+    </div>
+  </div>
+
+  <!-- Prev / Next arrows, centered at bottom -->
+  <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:28px;z-index:5;">
+    <button onclick="aboutCarousel(-1)" aria-label="Previous image" style="background:none;border:none;cursor:pointer;padding:6px;">
+      <svg viewBox="0 0 24 24" width="22" height="22" style="stroke:white; fill:none; stroke-width:1.4; filter:drop-shadow(0 1px 3px rgba(0,0,0,.4));"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button onclick="aboutCarousel(1)" aria-label="Next image" style="background:none;border:none;cursor:pointer;padding:6px;">
+      <svg viewBox="0 0 24 24" width="22" height="22" style="stroke:white; fill:none; stroke-width:1.4; filter:drop-shadow(0 1px 3px rgba(0,0,0,.4));"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+
+  <!-- Dots -->
+  <div style="position:absolute;bottom:44px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:5;">
+    <button onclick="aboutGoTo(0)" class="about-dot about-dot-active" aria-label="Slide 1" style="width:28px;height:.5px;background:white;border:none;cursor:pointer;padding:0;transition:opacity .3s"></button>
+    <button onclick="aboutGoTo(1)" class="about-dot" aria-label="Slide 2" style="width:28px;height:.5px;background:rgba(255,255,255,.4);border:none;cursor:pointer;padding:0;transition:opacity .3s"></button>
+  </div>
+</div>
 
 <div class="about-copy">
   <div class="eyebrow">About</div>
@@ -720,7 +727,7 @@ Our mission is simple: an exclusive, focused edit that honors both the garment a
     autoTimer = setInterval(nextSlide, 5000);
   }
 
-  // About carousel
+ // About carousel
   let aboutCurrent = 0;
   let aboutAutoTimer;
   function aboutGoTo(n) {
@@ -731,9 +738,15 @@ Our mission is simple: an exclusive, focused edit that honors both the garment a
     });
   }
 
+  function hideSwipeHint() {
+    const hint = document.querySelector('.swipe-hint');
+    if (hint) hint.style.display = 'none';
+  }
+
   function aboutCarousel(direction) {
     const next = (aboutCurrent + direction + 2) % 2;
     aboutGoTo(next);
+    hideSwipeHint();
   }
 
   // Swipe support for about-carousel
@@ -756,6 +769,7 @@ Our mission is simple: an exclusive, focused edit that honors both the garment a
       } else {
         aboutGoTo((aboutCurrent - 1 + 2) % 2); // swiped right → previous
       }
+      hideSwipeHint();
     }
   }
   // Contact form
