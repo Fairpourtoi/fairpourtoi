@@ -788,7 +788,7 @@ Our mission is simple: an exclusive, focused edit that honors both the garment a
 
   // STart Rotation Automatically
   resetTimer();
-  aboutAutoTimer = setInterval(() => aboutGoTo((aboutCurrent + 1) % 2), 5000);
+  aboutAutoTimer = setInterval(() => aboutGoTo((aboutCurrent + 1) % 2), 8000);
   
   const heroSection = document.getElementById('hero');
   heroSection.addEventListener('mouseenter', () => clearInterval(autoTimer));
