@@ -731,21 +731,22 @@ Our mission is simple: an exclusive, focused edit that honors both the garment a
     });
   }
 
+  function aboutCarousel(direction) {
+    const next = (aboutCurrent + direction + 2) % 2;
+    aboutGoTo(next);
+  }
+
   // Swipe support for about-carousel
   let touchStartX = 0;
   let touchEndX = 0;
-
   const aboutCarouselEl = document.querySelector('.about-carousel');
-
   aboutCarouselEl.addEventListener('touchstart', (e) => {
     touchStartX = e.changedTouches[0].screenX;
   }, { passive: true });
-
   aboutCarouselEl.addEventListener('touchend', (e) => {
     touchEndX = e.changedTouches[0].screenX;
     handleSwipe();
   }, { passive: true });
-
   function handleSwipe() {
     const swipeThreshold = 40;
     const diff = touchStartX - touchEndX;
