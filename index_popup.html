@@ -767,17 +767,13 @@ Our mission is simple: an exclusive, focused edit that honors both the garment a
     }
   }
 
-  function checkPopup() {
-    const isClosed = localStorage.getItem('popupClosed');
-    if (!isClosed) {
-      document.getElementById('sale-popup').style.display = 'flex';
-    }
-  }
+function checkPopup() {
+  document.getElementById('sale-popup').style.display = 'flex';
+}
 
-  function closePopup() {
-    document.getElementById('sale-popup').style.display = 'none';
-    localStorage.setItem('popupClosed', 'true');
-  }
+function closePopup() {
+  document.getElementById('sale-popup').style.display = 'none';
+}
 
 window.addEventListener('load', () => {
   resetTimer();
