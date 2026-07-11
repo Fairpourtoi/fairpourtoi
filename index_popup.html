@@ -252,6 +252,17 @@ nav.scrolled .hamburger span{background:var(--espresso)}
   .calendly-inline-widget { height: 600px; }
 }
 /*  POP-UP */
+@keyframes slideFadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); /* Starts slightly lower */
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0);    /* Ends at its natural position */
+  }
+}
+
 .popup-overlay {
   position: fixed;
   top: 0; left: 0;
@@ -273,6 +284,7 @@ nav.scrolled .hamburger span{background:var(--espresso)}
   max-width: 400px;
   width: 90%;
   position: relative;
+  animation: slideFadeIn 0.8s ease-out;
 }
 .popup-content h2 { font-family: 'Cormorant Garamond', serif; margin-bottom: 10px; }
 .close-btn {
