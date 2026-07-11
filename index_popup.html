@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +36,7 @@ img{display:block;max-width:100%}
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:transparent;transition:background .4s,box-shadow .4s}
 nav.scrolled{background:var(--cream);box-shadow:0 1px 0 rgba(52,40,40,.08)}
-.nav-inner{max-width:1100px;margin:0 auto;:6px 28px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.nav-inner{max-width:1100px;margin:0 auto;padding:6px 28px;display:flex;justify-content:space-between;align-items:center;gap:16px}
 .nav-logo{height:128px;width:auto;filter:brightness(0) invert(1);transition:filter .4s}
 nav.scrolled .nav-logo{filter:none}
 .nav-links{display:flex;gap:28px;align-items:center}
@@ -61,8 +62,8 @@ nav.scrolled .nav-links a:hover{color:var(--espresso)}
   transition: background .4s, color .4s, border-color .4s;
 }
 nav.scrolled .nav-cta {
-  background: rgba(230, 204, 200, 0.8); /* 80% opaque blush */
-  backdrop-filter: blur(8px);           /* Adds the frosted glass effect */
+  background: rgba(230, 204, 200, 0.8);
+  backdrop-filter: blur(8px);
   border: .5px solid rgba(230, 204, 200, 0.9);
   color: white !important;
   font-weight: 500;
@@ -82,23 +83,14 @@ nav.scrolled .hamburger span{background:var(--espresso)}
 /* HERO */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;background:#1a1010}
 .hero-bg{position:absolute;inset:0;z-index:0}
-
-/* Video carousel */
 .photo-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease-in-out; will-change: opacity;
   transform: translateZ(0); z-index:0;background-size:cover;background-position:center}
 .photo-slide.active{opacity:1;z-index:1}
-
-/* Overlay: gradient from dark left to transparent right on desktop */
 .hero-overlay{position:absolute;inset:0;z-index:2;background:linear-gradient(105deg,rgba(26,16,16,.82) 0%,rgba(26,16,16,.55) 50%,rgba(26,16,16,.2) 100%)}
-
-/* Carousel dots */
 .hero-dots{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:10;display:flex;gap:8px}
 .hero-dot{width:24px;height:.5px;background:rgba(255,255,255,.3);cursor:pointer;transition:background .3s,width .3s}
 .hero-dot.active{background:white;width:40px}
-
-/* Slide counter */
 .hero-counter{position:absolute;bottom:36px;right:28px;z-index:10;font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.4)}
-
 .hero-inner{position:relative;z-index:5;max-width:1100px;margin:0 auto;width:100%;padding:200px 28px 80px}
 .pill{display:inline-block;background:rgba(255,255,255,.12);backdrop-filter:blur(4px);color:rgba(255,255,255,.9);font-size:10px;letter-spacing:.18em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:24px;border:.5px solid rgba(255,255,255,.2)}
 .hero h1{font-size:clamp(44px,7vw,92px);line-height:1.04;max-width:680px;margin-bottom:20px;color:white}
@@ -106,7 +98,6 @@ nav.scrolled .hamburger span{background:var(--espresso)}
 
 /* BUTTONS */
 .btn-row { display: flex; gap: 14px; flex-wrap: wrap;}
-
 .btn-light {
     background: var(--cream);
     color: var(--espresso);
@@ -133,7 +124,6 @@ nav.scrolled .hamburger span{background:var(--espresso)}
     text-transform: uppercase;
     font-weight: 400;
     padding: 13px 36px;
-    border: .5px solid rgba(255, 255, 255, .5);
     cursor: pointer;
     text-decoration: none;
     display: inline-block;
@@ -142,7 +132,6 @@ nav.scrolled .hamburger span{background:var(--espresso)}
 }
 .btn-blush:hover { 
   background: var(--blush); border-color: white; color: white;}
-  
 .btn-dark {
     background: white;
     color: var(--espresso);
@@ -162,7 +151,6 @@ nav.scrolled .hamburger span{background:var(--espresso)}
     border-radius: 4px;
 }
 .btn-dark:hover { opacity: .88; }
-
 .btn-ghost {
     background: transparent;
     color: white;
@@ -182,7 +170,6 @@ nav.scrolled .hamburger span{background:var(--espresso)}
     border-radius: 4px;
 }
 .btn-ghost:hover { border-color: white; }
-
 .btn-outline-dark {
     background: transparent;
     color: var(--espresso);
@@ -198,7 +185,6 @@ nav.scrolled .hamburger span{background:var(--espresso)}
     display: inline-block;
     border-radius: 4px;
 }
-
 .btn-espresso {
     background: var(--espresso);
     color: var(--cream);
@@ -223,7 +209,6 @@ nav.scrolled .hamburger span{background:var(--espresso)}
 }
 .btn-espresso:hover { 
   background: var(--blush); border-color: white; color: white; font-weight: 400;}
-  
 
 /* SHARED */
 .eyebrow{font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--taupe);margin-bottom:10px;font-weight:400}
@@ -265,24 +250,21 @@ nav.scrolled .hamburger span{background:var(--espresso)}
 .calendly-wrap{background:var(--cream);border:.5px solid var(--blush);overflow:hidden;height: 950px;}
 .calendly-inline-widget{min-width:280px;width:100%;}
 @media(max-width: 768px) {
-  .calendly-inline-widget {
-    height: 600px; /* Adjust to fit mobile view */
-  }
+  .calendly-inline-widget { height: 600px; }
 }
 /*  POP-UP */
-  .popup-overlay {
+.popup-overlay {
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0,0,0,0.5); /* Dimmed backdrop */
+  background: rgba(0,0,0,0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999; /* Ensures it sits on top of everything */
+  z-index: 9999;
 }
-
 .popup-content {
-  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('prada_popup.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('assets/img/prada_popup.jpg');
   background-size: cover;
   background-position: center;
   padding: 60px 40px;
@@ -293,9 +275,7 @@ nav.scrolled .hamburger span{background:var(--espresso)}
   width: 90%;
   position: relative;
 }
-
-.popup-content h2 { font-family: 'Jost', sans-serif; margin-bottom: 10px; }
-
+.popup-content h2 { font-family: 'Cormorant Garamond', serif; margin-bottom: 10px; }
 .close-btn {
   position: absolute;
   top: 10px; right: 10px;
@@ -359,8 +339,6 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
   .btn-dark,.btn-ghost{text-align:center}
 }
 @media(prefers-reduced-motion:reduce){
-/*  .photo-slide{transition:none}
-  *{transition:none!important} */
   .photo-slide{transition: opacity 1.6s ease-in-out !important}
 }
 #slide-0{background-image:url('assets/img/hero-1.jpg');}#slide-1{background-image:url('assets/img/hero-2.jpg');}#slide-2{background-image:url('assets/img/hero-3.jpg');}#slide-3{background-image:url('assets/img/hero-4.jpg');}
@@ -376,8 +354,8 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
 <!-- NAV -->
 <nav id="main-nav">
   <div class="nav-inner">
-<a href="#hero" aria-label="Fair Pour Toi — back to top">
-  <img src="assets/img/logo.png" alt="Fair pour toi" class="nav-logo" width="384" height="384" decoding="async">
+    <a href="#hero" aria-label="Fair Pour Toi — back to top">
+      <img src="assets/img/logo.png" alt="Fair pour toi" class="nav-logo" width="384" height="384" decoding="async">
     </a>    
     <div class="nav-links">
       <a href="#events">Events</a>
@@ -403,35 +381,19 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
 <!-- HERO with video carousel background -->
 <section class="hero" id="hero">
   <div class="hero-bg" aria-hidden="true">
-
-    <!-- Slide 1 -->
     <div class="photo-slide active" id="slide-0"></div>
-
-    <!-- Slide 2 -->
     <div class="photo-slide" id="slide-1"></div>
-
-    <!-- Slide 3 -->
     <div class="photo-slide" id="slide-2"></div>
-
-    <!-- Slide 4 -->
     <div class="photo-slide" id="slide-3"></div>
-
   </div>
-
-  <!-- Dark overlay -->
   <div class="hero-overlay" aria-hidden="true"></div>
-
-  <!-- Dot nav -->
   <div class="hero-dots" role="tablist" aria-label="Photo slides">
     <button class="hero-dot active" onclick="goToSlide(0)" aria-label="Slide 1" role="tab"></button>
     <button class="hero-dot" onclick="goToSlide(1)" aria-label="Slide 2" role="tab"></button>
     <button class="hero-dot" onclick="goToSlide(2)" aria-label="Slide 3" role="tab"></button>
     <button class="hero-dot" onclick="goToSlide(3)" aria-label="Slide 4" role="tab"></button>
   </div>
-
   <div class="hero-counter" aria-live="polite"><span id="slide-num">1</span> / 4</div>
-
-  <!-- Hero content -->
   <div class="hero-inner">
     <div class="pill">Santa Monica &middot; Curated Contemporary Resale</div>
     <h1 class="serif">Luxury fashion,<br>made accessible.</h1>
@@ -449,7 +411,6 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
 <section id="events" style="background: var(--cream); padding: 60px 20px;">
   <div class="section-inner">
     <div class="eyebrow">Upcoming events</div>
-    
     <h2 class="serif" style="font-size: clamp(28px, 3.5vw, 42px); line-height: 1.2; margin-bottom: 20px;">
       <strong>Final Weekend. Join Us!</strong>
       <br>
@@ -457,11 +418,9 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
         Experience the collection before it closes.
       </span>
     </h2>
-    
     <div style="margin-bottom: 30px; font-size: 0.9em; color: #666;">
       Limited appointments available.
     </div>
-
     <div class="events-grid">
      <div class="event-card">
   <div style="display:flex; justify-content:space-between; align-items:flex-start;">
@@ -472,7 +431,6 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
   <div class="loc" style="opacity:.5">Santa Monica, CA</div>
   <span class="btn-espresso" style="font-size: 10px; padding: 9px 20px; opacity:.4; cursor:default; pointer-events:none;">Reserve Your Spot</span>
 </div>
-      
       <div class="event-card">
         <div class="eyebrow">Weekend Two</div>
         <div class="date serif">July 10 &ndash; 12</div>
@@ -487,9 +445,7 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
 
 <!-- FAIR EXPERIENCE + BRANDS -->  
 <section id="fair-experience" style="background:var(--warm); padding: 20px 20px; width: 100%; box-sizing: border-box;">
-  
   <style>
-    /* Section Layout */
     #fair-experience .section-inner {
       max-width: 1100px !important;
       margin: 0 auto !important;
@@ -500,25 +456,17 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
       gap: 40px !important;
       align-items: start !important;
     }
-    
-    /* Responsive stacking for section */
     @media (max-width: 768px) {
       #fair-experience .section-inner { flex-wrap: wrap !important; }
     }
-
-    /* Button Row Responsive Logic */
     @media (max-width: 600px) {
       .button-row-stack { flex-direction: column !important; }
     }
   </style>
-
   <div class="section-inner">
-    
     <!-- LEFT: A Fair Experience -->
     <div style="flex: 1 1 500px; background:var(--cream); border:.5px solid var(--blush); border-radius:8px; padding:24px; box-sizing: border-box;">
       <div class="eyebrow" style="margin-bottom:20px;">The Fair Experience</div>
-      
-      <!-- Icon Grid -->
       <div style="display:grid; grid-template-columns: 1fr 1fr; gap:24px;">
         <div>
           <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:10px"><path d="M9 2c0 4 1.5 6 3 6s3-2 3-6M9 2h6M12 8v11M8 19h8"/></svg>
@@ -541,13 +489,11 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
           <div style="font-size:0.78em; line-height:1.6; opacity:.75">Thoughtful pricing that reflects each piece's quality and rarity &mdash; at a fraction of retail &amp; always <em>Fair!</em></div>
         </div>
       </div> 
-
-      <!-- Button Row -->
       <div class="button-row-stack" style="display: flex; flex-direction: row; gap: 12px; margin-top: 24px; width: 100%;">  
         <a href="#book" style="display: flex !important; align-items: center !important; justify-content: center !important; flex: 1; padding: 0 20px !important; min-height: 44px !important; margin: 0 !important; background: var(--warm) !important; color: var(--espresso) !important; border: 1px solid var(--warm) !important; text-decoration: none !important; border-radius: 4px !important; font-size: 14px !important; box-sizing: border-box !important;">Join Us. Book Now!</a>     
-        <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" style="display: flex !important; align-items: center !important; justify-content: center !important; flex: 1; padding: 0 20px !important; min-height: 44px !important; margin: 0 !important; background: var(--cream) !important; color: var(--espresso) !important; border: 1px solid var(--blush) !important; text-decoration: none !important; border-radius: 4px !important; font-size: 14px !important; box-sizing: border-box !important;">Follow @fair.pourtoi</a>      </div>
+        <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" style="display: flex !important; align-items: center !important; justify-content: center !important; flex: 1; padding: 0 20px !important; min-height: 44px !important; margin: 0 !important; background: var(--cream) !important; color: var(--espresso) !important; border: 1px solid var(--blush) !important; text-decoration: none !important; border-radius: 4px !important; font-size: 14px !important; box-sizing: border-box !important;">Follow @fair.pourtoi</a>
+      </div>
     </div>
-
     <!-- RIGHT: More Brands -->
     <div style="flex: 1 1 300px; box-sizing: border-box;">
       <div class="eyebrow" style="margin-bottom:20px;">+ More Designers You&rsquo;ll Love</div>
@@ -561,7 +507,6 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
         <div class="brands-list-item" style="font-style:italic; opacity:.7;">+ More</div>
       </div>
     </div>
-    
   </div>
 </section>
 
@@ -571,11 +516,9 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
 <section id="about" style="background:var(--cream)">
   <div class="section-inner">
     <div class="about-grid">
-
       <!-- Editorial photo carousel -->
 <div class="about-carousel" style="position:relative;overflow:hidden;">
   <div class="carousel-track" id="about-track" style="display:flex;transition:transform 1.5s cubic-bezier(.4,0,.2,1);">
-    <!-- Slide 1: pronunciation card grid -->
     <div class="carousel-slide" style="min-width:100%;position:relative;">
       <picture><source type="image/avif" srcset="assets/img/about-1.avif"><img src="assets/img/about-1.jpg" alt="How to pronounce Fair Pour Toi" width="958" height="1192" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/5;"></picture>
       <div class="swipe-hint" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);line-height: 1;display:flex;align-items:center;gap:6px;background:rgba(0,0,0,.35);backdrop-filter:blur(4px);color:white;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:7px 16px;border-radius:20px;z-index:4;pointer-events:none;">
@@ -583,13 +526,10 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
         Swipe
       </div>
     </div>
-    <!-- Slide 2: notes reveal with signature -->
     <div class="carousel-slide" style="min-width:100%;position:relative;">
       <picture><source type="image/avif" srcset="assets/img/about-2.avif"><img src="assets/img/about-2.jpg" alt="Fair Pour Toi — for you, by Grace Fairest" width="958" height="1192" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/5;"></picture>
     </div>
   </div>
-
-<!-- Prev / Next arrows, centered at bottom -->
 <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:36px;z-index:5;">
   <button onclick="aboutCarousel(-1)" aria-label="Previous image" style="background:none;border:none;cursor:pointer;padding:6px;">
     <svg viewBox="0 0 24 24" width="44" height="44" style="stroke:white; fill:none; stroke-width:1.1; filter:drop-shadow(0 1px 4px rgba(0,0,0,.4));"><path d="M15 18l-6-6 6-6"/></svg>
@@ -598,30 +538,24 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
     <svg viewBox="0 0 24 24" width="44" height="44" style="stroke:white; fill:none; stroke-width:1.1; filter:drop-shadow(0 1px 4px rgba(0,0,0,.4));"><path d="M9 18l6-6-6-6"/></svg>
   </button>
 </div>
-
-  <!-- Dots -->
   <div style="position:absolute;bottom:44px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:5;">
     <button onclick="aboutGoTo(0)" class="about-dot about-dot-active" aria-label="Slide 1" style="width:28px;height:.5px;background:white;border:none;cursor:pointer;padding:0;transition:opacity .3s"></button>
     <button onclick="aboutGoTo(1)" class="about-dot" aria-label="Slide 2" style="width:28px;height:.5px;background:rgba(255,255,255,.4);border:none;cursor:pointer;padding:0;transition:opacity .3s"></button>
   </div>
 </div>
-
 <div class="about-copy">
   <div class="eyebrow">About</div>
   <h2 class="serif">Fair Pour Toi.<br><em style="font-style:italic;font-size:.85em;opacity:.8">/fair &middot; pour &middot; twa/</em></h2>
-  
   <p style="margin-bottom:12px">It means <em>for you</em> in French &mdash; and that&rsquo;s exactly the point.</p>
   <p style="margin-bottom:24px">Fair Pour Toi brings private, appointment only resale events to Santa Monica.  Offering a variety of contemporary and luxury pieces where you can shop at your own pace, curated just for you.</p>
-  
   <h3 class="serif" style="font-size:1.2em; margin-bottom:12px;">Our Mission</h3>
   <p style="margin-bottom:24px">
 We built Fair Pour Toi around a simple idea: resale should feel considered, not chaotic. Away from the noise of warehouse sales and traditional retail, we connect sellers directly with people who care about quality. Every piece is hand-selected for its craftsmanship and lasting style, not just for the label. <br><br>
 Our mission is simple: an exclusive, focused edit that honors both the garment and the person who wears it next.  </p>
 </div>
-</div> <!-- Closes about-copy -->
-</div> <!-- Closes about-grid -->
-</div> <!-- Closes section-inner -->
-</section> <!-- Closes About Section -->
+</div>
+</div>
+</section>
 
 <div class="divider-line"></div>
 
@@ -668,7 +602,6 @@ Our mission is simple: an exclusive, focused edit that honors both the garment a
     <div class="eyebrow" style="text-align:center">Contact</div>
     <h2 class="serif" style="text-align:center;font-size:clamp(28px,4vw,42px);margin-bottom:14px">Get in touch.</h2>
     <p style="text-align:center;font-size:13px;line-height:1.8;opacity:.7;max-width:420px;margin:0 auto 40px">For brand inquiries, press, or general questions.<br>We&rsquo;d love to hear from you.</p>
-
     <form id="contact-form" onsubmit="sendContactForm(event)" style="display:flex;flex-direction:column;gap:16px">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
         <div>
@@ -718,20 +651,27 @@ Our mission is simple: an exclusive, focused edit that honors both the garment a
   </div>
 </footer>
 
+<!-- SALE POPUP -->
+<div class="popup-overlay" id="sale-popup" style="display:none;">
+  <div class="popup-content">
+    <button class="close-btn" onclick="closePopup()" aria-label="Close popup">&times;</button>
+    <h2 class="serif">Prada Has Arrived.</h2>
+    <p style="font-size:13px; letter-spacing:.05em; line-height:1.7; margin-top:10px;">Limited pieces. Private appointment only.</p>
+    <a href="#book" class="btn-light" style="margin-top:20px; display:inline-block;" onclick="closePopup()">Reserve Your Spot</a>
+  </div>
+</div>
+
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <script>
   emailjs.init({ publicKey: "H8Lwq9IIsnMZ2zH0T" });
 
-  // Nav scroll
   window.addEventListener('scroll', () => {
     document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 60);
   });
 
-  // Mobile menu
   function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
   function closeMenu() { document.getElementById('mobile-menu').classList.remove('open'); }
 
-  // Close mobile menu on scroll
   window.addEventListener('scroll', () => {
     const mobileMenu = document.getElementById('mobile-menu');
     if (mobileMenu.classList.contains('open')) {
@@ -739,7 +679,6 @@ Our mission is simple: an exclusive, focused edit that honors both the garment a
     }
   });
 
-  // Hero carousel
   let current = 0;
   const total = 4;
   let autoTimer;
@@ -760,7 +699,6 @@ Our mission is simple: an exclusive, focused edit that honors both the garment a
     autoTimer = setInterval(nextSlide, 5000);
   }
 
- // About carousel
   let aboutCurrent = 0;
   let aboutAutoTimer;
   function aboutGoTo(n) {
@@ -782,7 +720,6 @@ Our mission is simple: an exclusive, focused edit that honors both the garment a
     hideSwipeHint();
   }
 
-  // Swipe support for about-carousel
   let touchStartX = 0;
   let touchEndX = 0;
   const aboutCarouselEl = document.querySelector('.about-carousel');
@@ -798,28 +735,26 @@ Our mission is simple: an exclusive, focused edit that honors both the garment a
     const diff = touchStartX - touchEndX;
     if (Math.abs(diff) > swipeThreshold) {
       if (diff > 0) {
-        aboutGoTo((aboutCurrent + 1) % 2); // swiped left → next
+        aboutGoTo((aboutCurrent + 1) % 2);
       } else {
-        aboutGoTo((aboutCurrent - 1 + 2) % 2); // swiped right → previous
+        aboutGoTo((aboutCurrent - 1 + 2) % 2);
       }
       hideSwipeHint();
     }
   }
-  // Contact form
+
   async function sendContactForm(event) {
     event.preventDefault();
     const form = document.getElementById('contact-form');
     const status = document.getElementById('form-status');
     const btn = document.getElementById('submit-btn');
-
     btn.textContent = 'Sending...';
     btn.disabled = true;
-
     try {
       await emailjs.sendForm('service_9iwnim1', 'template_hjb8edc', form);
       form.reset();
       status.textContent = '* We have received your inquiry, Thank you. * ';
-      btn.textContent = 'Send another message'; // Changed from 'Message sent'
+      btn.textContent = 'Send another message';
       setTimeout(() => { 
         status.textContent = ''; 
         btn.textContent = 'Send message';
@@ -833,33 +768,6 @@ Our mission is simple: an exclusive, focused edit that honors both the garment a
     }
   }
 
-  // Start Rotation Automatically
-  resetTimer();
-  aboutAutoTimer = setInterval(() => aboutGoTo((aboutCurrent + 1) % 2), 8000);
-  
-  const heroSection = document.getElementById('hero');
-  heroSection.addEventListener('mouseenter', () => clearInterval(autoTimer));
-  heroSection.addEventListener('mouseleave', resetTimer);
-</script>
-  // Start Rotation Automatically
-  resetTimer();
-  aboutAutoTimer = setInterval(() => aboutGoTo((aboutCurrent + 1) % 2), 8000);
-  
-  const heroSection = document.getElementById('hero');
-  heroSection.addEventListener('mouseenter', () => clearInterval(autoTimer));
-  heroSection.addEventListener('mouseleave', resetTimer);
-<script>
-  // Combine your existing startup code with the popup logic
-  window.onload = function() {
-    // 1. Your existing carousel/header logic
-    resetTimer();
-    aboutAutoTimer = setInterval(() => aboutGoTo((aboutCurrent + 1) % 2), 8000);
-    
-    // 2. Your new popup logic
-    checkPopup();
-  };
-
-  // Popup helper functions
   function checkPopup() {
     const isClosed = localStorage.getItem('popupClosed');
     if (!isClosed) {
@@ -871,7 +779,17 @@ Our mission is simple: an exclusive, focused edit that honors both the garment a
     document.getElementById('sale-popup').style.display = 'none';
     localStorage.setItem('popupClosed', 'true');
   }
+
+window.addEventListener('load', () => {
+  resetTimer();
+  aboutAutoTimer = setInterval(() => aboutGoTo((aboutCurrent + 1) % 2), 8000);
+  const heroSection = document.getElementById('hero');
+  heroSection.addEventListener('mouseenter', () => clearInterval(autoTimer));
+  heroSection.addEventListener('mouseleave', resetTimer);
+
+  setTimeout(checkPopup, 14000);
+});
 </script>
-  
+
 </body>
 </html>
