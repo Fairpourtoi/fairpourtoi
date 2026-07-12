@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -370,7 +369,6 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
       <img src="assets/img/logo.png" alt="Fair pour toi" class="nav-logo" width="384" height="384" decoding="async">
     </a>    
     <div class="nav-links">
-      <a href="#events">Shop</a>
       <a href="#events">Events</a>
       <a href="#fair-experience">The Experience</a>
       <a href="#book">Book</a>
@@ -382,7 +380,6 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
     </button>
   </div>
   <div class="mobile-menu" id="mobile-menu">
-    <a href="#shop" onclick="closeMenu()">Shop</a>
     <a href="#events" onclick="closeMenu()">Events</a>
     <a href="#fair-experience" onclick="closeMenu()">The Experience</a>
     <a href="#about" onclick="closeMenu()">About</a>
@@ -421,48 +418,12 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
 
 <div class="divider-line"></div>
 
-<!-- SHOP -->
-<section id="shop" style="background: var(--espresso); padding: 60px 20px;">
-  <div class="section-inner">
-    <div class="eyebrow">Shopping Coming Soom</div>
-    <h2 class="serif" style="font-size: clamp(28px, 3.5vw, 42px); line-height: 1.2; margin-bottom: 20px;">
-      <strong>Exclusive Offerings</strong>
-      <br>
-      <span style="font-size: 0.6em; display: block; margin-top: 10px; font-weight: normal; line-height: 1.3;">
-        Experience the collection before it closes.
-      </span>
-    </h2>
-    <div style="margin-bottom: 30px; font-size: 0.9em; color: #666;">
-      Limited Selection, buy now!
-    </div>
-    <div class="events-grid">
-     <div class="event-card">
-  <div style="display:flex; justify-content:space-between; align-items:flex-start;">
-    <div class="eyebrow" style="margin-bottom:0">Weekend One</div>
-    <span style="font-size:9px; letter-spacing:.1em; text-transform:uppercase; color:var(--taupe); border:.5px solid var(--blush); padding:4px 10px; border-radius:999px;">Past Event</span>
-  </div>
-  <div class="date serif" style="opacity:.5">July 3 &ndash; 5</div>
-  <div class="loc" style="opacity:.5">Santa Monica, CA</div>
-  <span class="btn-espresso" style="font-size: 10px; padding: 9px 20px; opacity:.4; cursor:default; pointer-events:none;">Reserve Your Spot</span>
-</div>
-      <div class="event-card">
-        <div class="eyebrow">Weekend Two</div>
-        <div class="date serif">July 10 &ndash; 12</div>
-        <div class="loc">Santa Monica, CA</div>
-        <a href="#book" class="btn-espresso" style="font-size: 10px; padding: 9px 20px;">Reserve Before It's Gone</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider-line"></div>
-
-  <!-- EVENTS -->
+<!-- EVENTS -->
 <section id="events" style="background: var(--cream); padding: 60px 20px;">
   <div class="section-inner">
     <div class="eyebrow">Upcoming events</div>
     <h2 class="serif" style="font-size: clamp(28px, 3.5vw, 42px); line-height: 1.2; margin-bottom: 20px;">
-      <strong>Final Weekend. Join Us!</strong>
+      <strong>Final Day. Join Us!</strong>
       <br>
       <span style="font-size: 0.6em; display: block; margin-top: 10px; font-weight: normal; line-height: 1.3;">
         Experience the collection before it closes.
@@ -705,7 +666,7 @@ Our mission is simple: an exclusive, focused edit that honors both the garment a
 <div class="popup-overlay" id="sale-popup" style="display:none;">
   <div class="popup-content">
     <button class="close-btn" onclick="closePopup()" aria-label="Close popup">&times;</button>
-    <h2 class="serif">FINAL HOURS<br><strong>ENDS SUNDAY</strong></h2>
+    <h2 class="serif">FINAL HOURS <br>Don't miss your chance!</h2>
     <p style="font-size:13px; letter-spacing:.05em; line-height:1.7; margin-top:10px;"><strong>Hurry. Only a few spots remain.</strong></p>
     <a href="#book" class="btn-light" style="margin-top:20px; display:inline-block;" onclick="closePopup()">Join Us. Book Now!</a>
   </div>
