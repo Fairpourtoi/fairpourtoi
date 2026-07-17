@@ -872,7 +872,7 @@ Our mission is simple: an exclusive, focused edit that honors both the garment a
         subject: formData.get('subject'),
         message: formData.get('message'),
         // Only include this if the box is actually checked
-        subscribe: formData.has('subscribe') ? 'Yes, please add to newsletter.' : ''
+        subscribe: formData.has('subscribe') ? 'YES!' : ''
     };
     console.log("Sending data:", templateParams);
     btn.textContent = 'Sending...';
