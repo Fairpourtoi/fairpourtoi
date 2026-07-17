@@ -33,6 +33,19 @@ body{font-family:'Jost',sans-serif;font-weight:300;color:var(--espresso);backgro
 img{display:block;max-width:100%}
 .serif{font-family:'Cormorant Garamond',serif;font-weight:300}
 
+/* FADE IN */
+  .fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* The state once triggered */
+.fade-in-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+  
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:transparent;transition:background .4s,box-shadow .4s}
 nav.scrolled{background:var(--cream);box-shadow:0 1px 0 rgba(52,40,40,.08)}
