@@ -37,7 +37,7 @@ img{display:block;max-width:100%}
   .fade-in-up {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition: opacity 0.8s ease-out 0.2s, transform 0.8s ease-out 0.2s;
 }
 
 /* The state once triggered */
@@ -45,7 +45,9 @@ img{display:block;max-width:100%}
   opacity: 1;
   transform: translateY(0);
 }
-  
+.event-card:nth-child(2) {
+  transition-delay: 0.4s;
+}
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:transparent;transition:background .4s,box-shadow .4s}
 nav.scrolled{background:var(--cream);box-shadow:0 1px 0 rgba(52,40,40,.08)}
@@ -989,7 +991,7 @@ window.addEventListener('load', () => {
   }, { threshold: 0.1 });
 
   // This tells the script which elements to look for
-  document.querySelectorAll('.fade-in-up').forEach((el) => {
+  document.querySelectorAll('.event-card, .shop-card, .brands-list, .shop-card, .brand-partner-card ').forEach((el) => {
     observer.observe(el);
   });
 </script>
