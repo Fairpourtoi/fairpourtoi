@@ -48,6 +48,9 @@ img{display:block;max-width:100%}
 .event-card:nth-child(2) {
   transition-delay: 0.4s;
 }
+  .brand-partner-card:nth-child(2) {
+  transition-delay: 0.4s;
+}
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:transparent;transition:background .4s,box-shadow .4s}
 nav.scrolled{background:var(--cream);box-shadow:0 1px 0 rgba(52,40,40,.08)}
@@ -600,7 +603,7 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
     <!-- RIGHT: More Brands -->
     <div style="flex: 1 1 300px; box-sizing: border-box;">
       <div class="eyebrow" style="margin-bottom:20px;">+ More Designers You&rsquo;ll Love</div>
-      <div class="brands-list">
+      <div class="brands-list fade-in-up">
         <div class="brands-list-item">Free People</div>
         <div class="brands-list-item">Alice + Olivia</div>
         <div class="brands-list-item">Indah</div>
@@ -710,25 +713,25 @@ Our mission is simple: an exclusive, focused edit that honors both the garment a
 
     <div class="brand-partners-grid">
 
-      <div class="brand-partner-card">
+      <div class="brand-partner-card fade-in-up">
         <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:10px"><path d="M12 2l7 4v6c0 5-3 8-7 10-4-2-7-5-7-10V6l7-4z"/></svg>
         <div style="font-size:0.9em; font-weight:400; margin-bottom:6px;">Brand Integrity, Protected</div>
         <div style="font-size:0.78em; line-height:1.6; opacity:.75">No public markdown racks or discount signage. Your pieces are presented with the same care as our curated sales &mdash; never positioned as overstock.</div>
       </div>
 
-      <div class="brand-partner-card">
+      <div class="brand-partner-card fade-in-up ">
         <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:10px"><path d="M4 21V9l8-6 8 6v12M9 21v-6h6v6"/></svg>
         <div style="font-size:0.9em; font-weight:400; margin-bottom:6px;">A True Boutique Setting</div>
         <div style="font-size:0.78em; line-height:1.6; opacity:.75">Private, appointment-only events in Santa Monica, not a warehouse liquidation. Shoppers experience your pieces the way they were meant to be seen.</div>
       </div>
 
-      <div class="brand-partner-card">
+      <div class="brand-partner-card fade-in-up">
         <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:10px"><path d="M12 12c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4zM4 20c0-3.3 3.6-6 8-6s8 2.7 8 6"/></svg>
         <div style="font-size:0.9em; font-weight:400; margin-bottom:6px;">A Personal Experience</div>
         <div style="font-size:0.78em; line-height:1.6; opacity:.75">Every guest is guided through the collection one-on-one while sipping champagne, trying pieces on and hearing the story behind them.</div>
       </div>
 
-      <div class="brand-partner-card">
+      <div class="brand-partner-card fade-in-up">
         <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:10px"><path d="M3 12h18M12 3c2.5 2.5 4 5.7 4 9s-1.5 6.5-4 9c-2.5-2.5-4-5.7-4-9s1.5-6.5 4-9z"/></svg>
         <div style="font-size:0.9em; font-weight:400; margin-bottom:6px;">Reach Beyond the Room</div>
         <div style="font-size:0.78em; line-height:1.6; opacity:.75">Pieces that don't sell in person continue their story online at shop.fairpourtoi.com thereby extending your reach without ever feeling like a clearance bin.</div>
