@@ -616,7 +616,7 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
 <!-- ABOUT -->
 <section id="about" style="background:var(--cream)">
   <div class="section-inner">
-    <div class="about-grid">
+    <div class="about-grid fade-in-up">
       <!-- Editorial photo carousel -->
 <div class="about-carousel" style="position:relative;overflow:hidden;">
   <div class="carousel-track" id="about-track" style="display:flex;transition:transform 1.5s cubic-bezier(.4,0,.2,1);">
@@ -631,6 +631,8 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
       <picture><source type="image/avif" srcset="assets/img/about-2.avif"><img src="assets/img/about-2.jpg" alt="Fair Pour Toi — for you, by Grace Fairest" width="958" height="1192" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/5;"></picture>
     </div>
   </div>
+</div>
+
 <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:36px;z-index:5;">
   <button onclick="aboutCarousel(-1)" aria-label="Previous image" style="background:none;border:none;cursor:pointer;padding:6px;">
     <svg viewBox="0 0 24 24" width="44" height="44" style="stroke:white; fill:none; stroke-width:1.1; filter:drop-shadow(0 1px 4px rgba(0,0,0,.4));"><path d="M15 18l-6-6 6-6"/></svg>
@@ -974,6 +976,25 @@ window.addEventListener('load', () => {
   setTimeout(checkPopup, 10000);
 });
 </script>
+ <!-- closes fade -->
+<script>
+  // This watches for the elements to appear on screen
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // This adds the "is-visible" class to trigger your CSS
+        entry.target.classList.add('is-visible');
+        // This stops watching it once it has animated
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
 
+  // This tells the script which elements to look for
+  document.querySelectorAll('.fade-in-up').forEach((el) => {
+    observer.observe(el);
+  });
+</script>
+  
 </body>
 </html>
