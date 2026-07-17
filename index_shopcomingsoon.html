@@ -118,24 +118,23 @@ nav.scrolled .nav-coming-soon{color:var(--taupe);opacity:.6}
 .hero p{font-size:14px;letter-spacing:.06em;color:rgba(255,255,255,.7);max-width:380px;line-height:1.9;margin-bottom:36px}
 
 /* BUTTONS */
-.btn-row { display: flex; gap: 14px; flex-wrap: wrap;width: 100%;}
-.btn-dark {
-    background: transparent;
-    color: white;
+.btn-row { display: flex; gap: 14px; flex-wrap: wrap;}
+  .btn-dark {
+    background: white;
+    color: var(--espresso);
     font-family: 'Jost', sans-serif;
     font-size: 11px;
     letter-spacing: .16em;
     text-transform: uppercase;
     font-weight: 400;
-    min-width: 240px;
-    max-width: 300px;
-    flex: 1 1 240px;
-    padding: 13px;  
-    text-align: center;
+    min-width: 220px;
+    padding: 13px;
+    text-align: center;  
     border: .5px solid rgba(255, 255, 255, .5);
     cursor: pointer;
     text-decoration: none;
-    transition: border-color .2s;
+    display: inline-block;
+    transition: opacity .4s ease;
     border-radius: 4px;
 }
 .btn-dark:hover { opacity: .88; }
@@ -147,14 +146,13 @@ nav.scrolled .nav-coming-soon{color:var(--taupe);opacity:.6}
     letter-spacing: .16em;
     text-transform: uppercase;
     font-weight: 400;
-    min-width: 240px;
-    max-width: 300px;
-    flex: 1 1 240px;
+    min-width: 220px;
     padding: 13px;  
     text-align: center;
     border: .5px solid rgba(255, 255, 255, .5);
     cursor: pointer;
     text-decoration: none;
+    display: inline-block;
     transition: border-color .2s;
     border-radius: 4px;
 }
@@ -469,8 +467,8 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
     <h1 class="serif">Luxury fashion,<br>made accessible.</h1>
     <p style="font-size: 1.1em; line-height: 1.5;"><strong>Private resale events:</strong> Shop our exclusive edit of contemporary &amp; luxury clothing, handbags, shoes, and accessories<br> &mdash; all priced at a fraction of retail.<br><br>By appointment.</p>
     <div class="btn-row">
-    <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" class="btn-blush">Follow @fair.pourtoi</a>
     <a href="#book" class="btn-dark">Reserve your spot</a>
+    <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" class="btn-blush">Follow @fair.pourtoi</a>
     </div>
   </div>
 </section>
