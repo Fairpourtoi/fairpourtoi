@@ -327,6 +327,43 @@ nav.scrolled .nav-coming-soon{color:var(--taupe);opacity:.6}
 .book-detail svg{width:14px;height:14px;stroke:var(--taupe);fill:none;stroke-width:1.5;flex-shrink:0}
 .calendly-wrap{background:var(--cream);border:.5px solid var(--blush);overflow:hidden;height: 950px;}
 .calendly-inline-widget{min-width:280px;width:100%;}
+
+  .soon-carousel { 
+  position: relative; 
+  height: 600px; 
+  width: 100%; 
+  overflow: hidden; 
+  background: var(--sand); 
+  border: .5px solid var(--blush);
+  display: block; /* Ensure it's not set to none */
+}
+
+.soon-slide { 
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; 
+    transition: opacity 1.6s ease-in-out; 
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
+    image-rendering: -webkit-optimize-contrast;
+    z-index: 0;
+    pointer-events: none; /* Prevents interaction issues */
+    will-change: opacity;
+    transform: translateZ(0);
+}
+/* Force the first slide to be visible immediately for Chrome */
+.soon-slide:first-child {
+    opacity: 1;
+    z-index: 1;
+}
+.soon-slide.active { 
+    opacity: 1 !important; 
+    z-index: 1; 
+}
 @media(max-width: 768px) {
   .calendly-inline-widget { height: 600px; }
 }
@@ -690,11 +727,20 @@ Our mission is simple: an exclusive, focused edit that honors both the garment a
           <a href="#contact" style="font-size:12px;color:var(--taupe);letter-spacing:.06em;text-decoration:none;border-bottom:.5px solid var(--blush)">Send us a message</a>
         </div>
       </div>
+     <!-- RIGHT: Carousel -->
+      <div class="soon-carousel">
+    <div class="soon-slide active" id="soon-0"></div>
+  <div class="soon-slide" id="soon-1"></div>
+  <div class="soon-slide" id="soon-2"></div>
+  <div class="soon-slide" id="soon-3"></div>
+      </div>
+      <!--
+      
       <div class="calendly-wrap" style="height: 950px;">
         <div class="calendly-inline-widget"
              data-url="https://calendly.com/fairpourtoi/20min?hide_gdpr_banner=1&primary_color=E6Ccc8&text_color=342828&background_color=faf8f6"
              style="min-width:280px; width:100%; height:100%;">
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -996,6 +1042,27 @@ window.addEventListener('load', () => {
   // This tells the script which elements to look for
   document.querySelectorAll('.event-card, .shop-card, .brands-list, .shop-card, .brand-partner-card, .fade-in-up').forEach((el) => {
     observer.observe(el);
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const soonSlides = document.querySelectorAll('.soon-slide');
+    let soonCurrent = 0;
+    
+    setInterval(() => {
+      requestAnimationFrame(() => {
+        // Hide the current
+        soonSlides[soonCurrent].classList.remove('active');
+        soonSlides[soonCurrent].style.opacity = '0';
+        
+        // Advance the index
+        soonCurrent = (soonCurrent + 1) % soonSlides.length;
+        
+        // Show the next
+        soonSlides[soonCurrent].classList.add('active');
+        soonSlides[soonCurrent].style.opacity = '1';
+      });
+    }, 5000);
   });
 </script>
   
