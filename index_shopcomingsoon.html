@@ -120,8 +120,8 @@ nav.scrolled .nav-coming-soon{color:var(--taupe);opacity:.6}
 /* BUTTONS */
 .btn-row { display: flex; gap: 14px; flex-wrap: wrap;width: 100%;}
 .btn-dark {
-    background: white;
-    color: var(--espresso);
+    background: transparent;
+    color: white;
     font-family: 'Jost', sans-serif;
     font-size: 11px;
     letter-spacing: .16em;
@@ -130,12 +130,12 @@ nav.scrolled .nav-coming-soon{color:var(--taupe);opacity:.6}
     min-width: 240px;
     max-width: 300px;
     flex: 1 1 240px;
-    padding: 13px;
-    text-align: center;  
+    padding: 13px;  
+    text-align: center;
     border: .5px solid rgba(255, 255, 255, .5);
     cursor: pointer;
     text-decoration: none;
-    transition: opacity .4s ease;
+    transition: border-color .2s;
     border-radius: 4px;
 }
 .btn-dark:hover { opacity: .88; }
