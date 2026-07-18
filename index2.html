@@ -334,7 +334,8 @@ nav.scrolled .nav-coming-soon{color:var(--taupe);opacity:.6}
 .soon-carousel { 
   position: relative; 
   width: 100%; 
-  aspect-ratio: 4/5;
+  height: 100%;
+  min-height: 320px;
   overflow: hidden; 
   border-radius: 8px;   
   background: var(--sand); 
@@ -570,7 +571,7 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
       display: flex !important;
       flex-wrap: nowrap !important;
       gap: 40px !important;
-      align-items: start !important;
+      align-items: stretch !important;
     }
     @media (max-width: 768px) {
       #fair-experience .section-inner { flex-wrap: wrap !important; }
