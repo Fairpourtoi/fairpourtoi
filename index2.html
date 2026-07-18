@@ -93,11 +93,14 @@ nav.scrolled .nav-cta {
 .hamburger span{display:block;width:22px;height:.5px;background:white;transition:background .4s}
 nav.scrolled .hamburger span{background:var(--espresso)}
 .mobile-menu{display:none;flex-direction:column;background:var(--cream);border-top:.5px solid var(--blush);max-height:80vh;overflow-y:auto}
-.mobile-menu a{padding:14px 28px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--taupe);text-decoration:none;border-bottom:.5px solid var(--blush)}
+.mobile-menu a{padding:14px 28px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--taupe);text-decoration:none;border-bottom:.5px solid var(--blush);transition:background .15s ease}
+.mobile-menu a:active{background:var(--blush)}
 .mobile-menu.open{display:flex}
 .mobile-menu-cta-row{padding:16px 28px 22px;display:flex;flex-direction:column;gap:10px}
-.mobile-menu-book{background:var(--espresso);color:var(--cream);text-align:center;padding:13px;border-radius:4px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;display:block}
-.mobile-menu-ig{border:.5px solid var(--espresso);color:var(--espresso);text-align:center;padding:13px;border-radius:4px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;display:block}
+.mobile-menu-book{background:var(--espresso);color:var(--cream);text-align:center;padding:13px;border-radius:4px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;display:block;transition:background .15s ease}
+.mobile-menu-book:active{background:var(--blush);color:var(--espresso)}
+.mobile-menu-ig{border:.5px solid var(--espresso);color:var(--espresso);text-align:center;padding:13px;border-radius:4px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;display:block;transition:background .15s ease, border-color .15s ease}
+.mobile-menu-ig:active{background:var(--blush);border-color:var(--blush)}
 
 /* DESKTOP SHOP DROPDOWN (legacy, currently unused but kept for future use) */
 .nav-dropdown{position:relative}
@@ -577,29 +580,29 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
     }
   </style>
 
-  <!-- Coming Soon photo carousel, arrow-driven like the About carousel -->
-  <div style="max-width:560px; margin:0 auto 40px;">
-    <div class="soon-carousel">
-      <div class="soon-slide active" id="soon-0"></div>
-      <div class="soon-slide" id="soon-1"></div>
-      <div class="soon-slide" id="soon-2"></div>
-      <div class="soon-slide" id="soon-3"></div>
-      <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:36px;z-index:5;">
-        <button onclick="soonCarousel(-1)" aria-label="Previous image" style="background:none;border:none;cursor:pointer;padding:6px;">
-          <svg viewBox="0 0 24 24" width="44" height="44" style="stroke:white; fill:none; stroke-width:1.1; filter:drop-shadow(0 1px 4px rgba(0,0,0,.4));"><path d="M15 18l-6-6 6-6"/></svg>
-        </button>
-        <button onclick="soonCarousel(1)" aria-label="Next image" style="background:none;border:none;cursor:pointer;padding:6px;">
-          <svg viewBox="0 0 24 24" width="44" height="44" style="stroke:white; fill:none; stroke-width:1.1; filter:drop-shadow(0 1px 4px rgba(0,0,0,.4));"><path d="M9 18l6-6-6-6"/></svg>
-        </button>
+  <div class="section-inner">
+    <!-- LEFT: Coming Soon photo carousel -->
+    <div class="fade-in-up" style="flex: 1 1 300px; box-sizing: border-box;">
+      <div class="soon-carousel">
+        <div class="soon-slide active" id="soon-0"></div>
+        <div class="soon-slide" id="soon-1"></div>
+        <div class="soon-slide" id="soon-2"></div>
+        <div class="soon-slide" id="soon-3"></div>
+        <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:36px;z-index:5;">
+          <button onclick="soonCarousel(-1)" aria-label="Previous image" style="background:none;border:none;cursor:pointer;padding:6px;">
+            <svg viewBox="0 0 24 24" width="44" height="44" style="stroke:white; fill:none; stroke-width:1.1; filter:drop-shadow(0 1px 4px rgba(0,0,0,.4));"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button onclick="soonCarousel(1)" aria-label="Next image" style="background:none;border:none;cursor:pointer;padding:6px;">
+            <svg viewBox="0 0 24 24" width="44" height="44" style="stroke:white; fill:none; stroke-width:1.1; filter:drop-shadow(0 1px 4px rgba(0,0,0,.4));"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="section-inner">
-    <!-- LEFT: A Fair Experience -->
-    <div class="fade-in-up" style="flex: 1 1 500px; background:var(--cream); border:.5px solid var(--blush); border-radius:8px; padding:24px; box-sizing: border-box;">
+    <!-- CENTER: A Fair Experience -->
+    <div class="fade-in-up" style="flex: 1 1 380px; background:var(--cream); border:.5px solid var(--blush); border-radius:8px; padding:24px; box-sizing: border-box;">
       <div class="eyebrow" style="margin-bottom:20px;">The Fair Experience</div>
-      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:24px;">
+      <div style="display:grid; grid-template-columns: 1fr; gap:20px;">
         <div>
           <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:10px"><path d="M9 2c0 4 1.5 6 3 6s3-2 3-6M9 2h6M12 8v11M8 19h8"/></svg>
           <div style="font-size:0.85em; font-weight:400; margin-bottom:6px;">A VIP Experience</div>
@@ -626,8 +629,9 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
         <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" style="display: flex !important; align-items: center !important; justify-content: center !important; flex: 1; padding: 0 20px !important; min-height: 44px !important; margin: 0 !important; background: var(--cream) !important; color: var(--espresso) !important; border: 1px solid var(--blush) !important; text-decoration: none !important; border-radius: 4px !important; font-size: 14px !important; box-sizing: border-box !important;">Follow @fair.pourtoi</a>
       </div>
     </div>
+
     <!-- RIGHT: More Brands -->
-    <div style="flex: 1 1 300px; box-sizing: border-box;">
+    <div style="flex: 1 1 240px; box-sizing: border-box;">
       <div class="eyebrow" style="margin-bottom:20px;">+ More Designers You&rsquo;ll Love</div>
       <div class="brands-list fade-in-up">
         <div class="brands-list-item">Free People</div>
