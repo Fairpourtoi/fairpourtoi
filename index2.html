@@ -669,6 +669,10 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
           <div class="carousel-slide" style="min-width:100%;position:relative;">
             <picture><source type="image/avif" srcset="assets/img/about-2.avif"><img src="assets/img/about-2.jpg" alt="Fair Pour Toi — for you, by Grace Fairest" width="958" height="1192" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/5;border-radius:8px;"></picture>
           </div>
+          <!-- Clone of slide 1, enables seamless forward loop -->
+          <div class="carousel-slide" style="min-width:100%;position:relative;" aria-hidden="true">
+            <picture><source type="image/avif" srcset="assets/img/about-1.avif"><img src="assets/img/about-1.jpg" alt="" width="958" height="1192" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/5;border-radius:8px;"></picture>
+          </div>
         </div>
 
         <!-- Carousel Controls -->
@@ -918,12 +922,24 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
 
   let aboutCurrent = 0;
   let aboutAutoTimer;
-  function aboutGoTo(n) {
+  const ABOUT_REAL_SLIDES = 2; // real slides (clone at index 2 is not counted here)
+
+  function aboutGoTo(n, animate = true) {
+    const track = document.getElementById('about-track');
+    track.style.transition = animate ? 'transform 1.5s cubic-bezier(.4,0,.2,1)' : 'none';
+    track.style.transform = `translateX(-${n * 100}%)`;
     aboutCurrent = n;
-    document.getElementById('about-track').style.transform = `translateX(-${n * 100}%)`;
     document.querySelectorAll('.about-dot').forEach((d,i) => {
-      d.style.background = i === n ? 'white' : 'rgba(255,255,255,.4)';
+      d.style.background = (i === n % ABOUT_REAL_SLIDES) ? 'white' : 'rgba(255,255,255,.4)';
     });
+    // If we've landed on the clone (index 2), silently snap back to real slide 0 once the transition finishes
+    if (n === ABOUT_REAL_SLIDES) {
+      setTimeout(() => {
+        track.style.transition = 'none';
+        track.style.transform = 'translateX(0%)';
+        aboutCurrent = 0;
+      }, 1500);
+    }
   }
 
   function hideSwipeHint() {
@@ -932,8 +948,11 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
   }
 
   function aboutCarousel(direction) {
-    const next = (aboutCurrent + direction + 2) % 2;
-    aboutGoTo(next);
+    if (direction > 0) {
+      aboutGoTo(aboutCurrent + 1); // always continues forward, loops seamlessly via the clone
+    } else {
+      aboutGoTo((aboutCurrent - 1 + ABOUT_REAL_SLIDES) % ABOUT_REAL_SLIDES);
+    }
     hideSwipeHint();
   }
 
@@ -951,12 +970,7 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
     const swipeThreshold = 40;
     const diff = touchStartX - touchEndX;
     if (Math.abs(diff) > swipeThreshold) {
-      if (diff > 0) {
-        aboutGoTo((aboutCurrent + 1) % 2);
-      } else {
-        aboutGoTo((aboutCurrent - 1 + 2) % 2);
-      }
-      hideSwipeHint();
+      aboutCarousel(diff > 0 ? 1 : -1);
     }
   }
 
@@ -1076,7 +1090,7 @@ function closePopup() {
 }
 
 window.addEventListener('load', () => {
-  aboutAutoTimer = setInterval(() => aboutGoTo((aboutCurrent + 1) % 2), 8000);
+  aboutAutoTimer = setInterval(() => aboutCarousel(1), 8000);
   setInterval(() => fairEventCarousel(1), 6000);
   setTimeout(checkPopup, 10000);
 });
