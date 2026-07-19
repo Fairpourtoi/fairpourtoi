@@ -1,6 +1,6 @@
 name: Auto-Watermark New Photos
 
-# Runs automatically whenever new files are pushed into assets/img/incoming/
+# Runs *automatically whenever new files are pushed into assets/img/incoming/
 on:
   push:
     branches: [main]
