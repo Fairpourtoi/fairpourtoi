@@ -22,7 +22,7 @@ import os
 import sys
 from PIL import Image
 
-SUPPORTED_EXTS = {".jpg", ".jpeg", ".png", ".webp"}
+SUPPORTED_EXTS = {".jpg", ".jpeg", ".png", ".webp", ".avif"}
 
 def parse_ratio(ratio_str):
     """Parse a 'W:H' string like '4:5' into a float (width / height)."""
