@@ -34,7 +34,8 @@ jobs:
             --logo scripts/logo.png \
             --position bottom-right \
             --opacity 0.55 \
-            --scale 0.16
+            --scale 0.16 \
+            --crop-ratio 4:5
 
       - name: Clear processed photos from incoming
         run: |
