@@ -262,7 +262,7 @@ nav.scrolled .nav-coming-soon{color:var(--taupe);opacity:.6}
 
 /* EVENTS */
 .events-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
-.event-card{background:var(--sand);border:.5px solid var(--blush);border-radius:8px;padding:32px 28px}
+.event-card{background:var(--sand);border:.5px solid var(--blush);padding:32px 28px;border-radius:8px}
 .event-card .date{font-size:32px;margin:6px 0}
 .event-card .loc{font-size:11px;color:var(--taupe);letter-spacing:.1em;margin-bottom:24px}
 
@@ -444,8 +444,12 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
 @media(max-width:768px){
   .nav-links{display:none}
   .hamburger{display:flex}
-  .hero-inner{padding:160px 20px 60px}
+  .hero-inner{padding:140px 20px 50px}
   .hero-overlay{background:linear-gradient(180deg,rgba(26,16,16,.75) 0%,rgba(26,16,16,.55) 100%)}
+  .pill{margin-bottom:16px}
+  .hero h1{margin-bottom:14px}
+  .hero-inner p{margin-bottom:14px !important}
+  .hero-inner p:nth-of-type(2){margin-bottom:22px !important}
   .section-inner{padding:60px 20px}
   .events-grid{grid-template-columns:1fr}
   .about-grid{grid-template-columns:1fr;gap:28px}
@@ -537,6 +541,7 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
     <div class="pill">Curated Contemporary Sales + Events  &middot;  Santa Monica </div>
     <h1 class="serif">Luxury fashion,<br>made accessible.</h1>
     <p style="font-size: 1.1em; line-height: 1.5;"><strong>Private sales &amp; events:</strong> Shop our exclusive edit of contemporary &amp; luxury clothing, handbags, shoes, and accessories<br> &mdash; all priced at a fraction of retail.</p>
+    <p style="font-size:16px; letter-spacing:.05em; color:rgba(255,255,255,.85); line-height:1.65; max-width:440px; margin-bottom:18px;">No crowds, no compromises: just exceptional finds and an experience as refined as your eye for style.</p>
     <div class="btn-row">
     <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" class="btn-blush">Follow @fair.pourtoi</a>
     <a href="#brand-partners" class="btn-blush">Sell with us</a>
