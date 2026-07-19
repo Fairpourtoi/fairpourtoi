@@ -1,0 +1,78 @@
+FAIR POUR TOI — AUTOMATIC WATERMARKING VIA GITHUB
+====================================================
+
+WHAT THIS DOES
+Once set up, watermarking becomes fully automatic:
+1. You drop new raw photos into assets/img/incoming/ in your repo
+2. You push/commit
+3. GitHub automatically watermarks them and moves the finished
+   versions into assets/img/, committing the result for you
+4. The originals are cleared out of "incoming" once processed
+
+Nothing to install on your computer. This all runs on GitHub's servers.
+
+
+SETUP STEPS (one-time)
+
+1. In your GitHub repo, create this exact folder structure by adding
+   these files (GitHub will create the folders automatically as you
+   add files to these paths):
+
+     .github/workflows/watermark.yml   <- the automation itself
+     scripts/watermark.py              <- the watermarking script
+     scripts/logo.png                  <- your logo (already extracted)
+
+   You can do this by uploading each file through GitHub's web
+   interface ("Add file" > "Upload files") at the correct path, or
+   by copying them into your local repo folder and pushing as usual.
+
+2. Create an empty folder marker so "incoming" exists in your repo:
+
+     assets/img/incoming/.gitkeep      <- can be a blank file
+
+   (GitHub doesn't track empty folders, so this placeholder file
+   keeps the folder from disappearing when it's empty.)
+
+3. That's it. No settings to change — the "permissions: contents: write"
+   line in the workflow file already grants it what it needs.
+
+
+HOW TO USE IT GOING FORWARD
+
+Whenever you have new photos for the site:
+  1. Add them to assets/img/incoming/ in your repo (upload via GitHub's
+     web UI, or copy into your local clone and push)
+  2. Push/commit
+  3. Wait about 30-60 seconds — check the "Actions" tab in your GitHub
+     repo to watch it run
+  4. Refresh assets/img/ — your watermarked photos will be there,
+     ready to reference in your HTML
+
+
+CUSTOMIZING THE WATERMARK
+
+Edit the "Watermark new photos" step inside .github/workflows/watermark.yml
+to change these values:
+
+  --position     bottom-right (default), bottom-left, bottom-center,
+                 top-right, top-left, or center
+  --opacity      0 to 1, default 0.55 (lower = more transparent)
+  --scale        logo width as a fraction of photo width, default 0.16
+  --margin       distance from the edge, default 0.03
+
+After editing, commit the change to watermark.yml — no other setup needed.
+
+
+UPDATING YOUR LOGO LATER
+
+If your logo ever changes, just replace scripts/logo.png in the repo
+with the new file (same filename), commit, and future watermarks will
+use the new version automatically.
+
+
+TROUBLESHOOTING
+
+- Nothing happens after pushing: check the "Actions" tab in your GitHub
+  repo for any red X / error — click into it to see what went wrong.
+- "Permission denied" on push: make sure your repo's Settings > Actions
+  > General > Workflow permissions is set to "Read and write permissions."
