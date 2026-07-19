@@ -466,6 +466,7 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
   .ig-bg {padding-bottom: 10px !important;}   
   .nav-inner{padding:6px 20px}
   .fair-experience-grid{grid-template-columns:1fr !important; gap:32px !important}
+  .soon-carousel{height:auto !important; aspect-ratio:4/5 !important; min-height:0 !important}
   .brand-partners-grid{grid-template-columns:1fr !important}
 }
 @media(max-width:600px){
@@ -582,13 +583,23 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
   </style>
 
   <div class="section-inner">
-    <!-- LEFT: Coming Soon photo carousel -->
-    <div class="fade-in-up" style="flex: 1 1 300px; box-sizing: border-box;">
+    <!-- LEFT: Coming Soon photo carousel, with More Designers overlay -->
+    <div class="fade-in-up" style="flex: 1 1 440px; box-sizing: border-box;">
       <div class="soon-carousel">
         <div class="soon-slide active" id="soon-0"></div>
         <div class="soon-slide" id="soon-1"></div>
         <div class="soon-slide" id="soon-2"></div>
         <div class="soon-slide" id="soon-3"></div>
+
+        <!-- Bottom scrim for text legibility -->
+        <div style="position:absolute; bottom:0; left:0; right:0; height:58%; background:linear-gradient(to top, rgba(26,16,16,.85) 0%, rgba(26,16,16,.4) 55%, rgba(26,16,16,0) 100%); z-index:2; pointer-events:none; border-radius:0 0 8px 8px;"></div>
+
+        <!-- More Designers overlay text -->
+        <div style="position:absolute; bottom:56px; left:20px; right:20px; z-index:3; pointer-events:none;">
+          <div style="font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.7); margin-bottom:8px;">+ More Designers You&rsquo;ll Love</div>
+          <div style="font-size:12.5px; color:white; line-height:1.7;">Free People &middot; Alice + Olivia &middot; Indah &middot; Prada &middot; R&eacute;alisation Par &middot; Lululemon <span style="opacity:.7;">+ More</span></div>
+        </div>
+
         <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:36px;z-index:5;">
           <button onclick="soonCarousel(-1)" aria-label="Previous image" style="background:none;border:none;cursor:pointer;padding:6px;">
             <svg viewBox="0 0 24 24" width="44" height="44" style="stroke:white; fill:none; stroke-width:1.1; filter:drop-shadow(0 1px 4px rgba(0,0,0,.4));"><path d="M15 18l-6-6 6-6"/></svg>
@@ -600,10 +611,10 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
       </div>
     </div>
 
-    <!-- CENTER: A Fair Experience -->
-    <div class="fade-in-up" style="flex: 1 1 380px; background:var(--cream); border:.5px solid var(--blush); border-radius:8px; padding:24px; box-sizing: border-box;">
+    <!-- RIGHT: A Fair Experience -->
+    <div class="fade-in-up" style="flex: 1 1 460px; background:var(--cream); border:.5px solid var(--blush); border-radius:8px; padding:24px; box-sizing: border-box;">
       <div class="eyebrow" style="margin-bottom:20px;">The Fair Experience</div>
-      <div style="display:grid; grid-template-columns: 1fr; gap:20px;">
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:24px;">
         <div>
           <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:10px"><path d="M9 2c0 4 1.5 6 3 6s3-2 3-6M9 2h6M12 8v11M8 19h8"/></svg>
           <div style="font-size:0.85em; font-weight:400; margin-bottom:6px;">A VIP Experience</div>
@@ -628,20 +639,6 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
       <div class="button-row-stack" style="display: flex; flex-direction: row; gap: 12px; margin-top: 24px; width: 100%;">  
         <a href="#book" style="display: flex !important; align-items: center !important; justify-content: center !important; flex: 1; padding: 0 20px !important; min-height: 44px !important; margin: 0 !important; background: var(--warm) !important; color: var(--espresso) !important; border: 1px solid var(--warm) !important; text-decoration: none !important; border-radius: 4px !important; font-size: 14px !important; box-sizing: border-box !important;">Join Us. Book Now!</a>     
         <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" style="display: flex !important; align-items: center !important; justify-content: center !important; flex: 1; padding: 0 20px !important; min-height: 44px !important; margin: 0 !important; background: var(--cream) !important; color: var(--espresso) !important; border: 1px solid var(--blush) !important; text-decoration: none !important; border-radius: 4px !important; font-size: 14px !important; box-sizing: border-box !important;">Follow @fair.pourtoi</a>
-      </div>
-    </div>
-
-    <!-- RIGHT: More Brands -->
-    <div style="flex: 1 1 240px; box-sizing: border-box;">
-      <div class="eyebrow" style="margin-bottom:20px;">+ More Designers You&rsquo;ll Love</div>
-      <div class="brands-list fade-in-up">
-        <div class="brands-list-item">Free People</div>
-        <div class="brands-list-item">Alice + Olivia</div>
-        <div class="brands-list-item">Indah</div>
-        <div class="brands-list-item">Prada</div>
-        <div class="brands-list-item">Réalisation Par</div>
-        <div class="brands-list-item">Lululemon</div>
-        <div class="brands-list-item" style="font-style:italic; opacity:.7;">+ More</div>
       </div>
     </div>
   </div>
