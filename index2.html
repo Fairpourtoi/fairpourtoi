@@ -582,9 +582,6 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
     @media (max-width: 768px) {
       #fair-experience .section-inner { flex-wrap: wrap !important; }
     }
-    @media (max-width: 600px) {
-      .button-row-stack { flex-direction: column !important; }
-    }
   </style>
 
   <div class="section-inner">
@@ -600,7 +597,7 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
         <div style="position:absolute; bottom:0; left:0; right:0; height:58%; background:linear-gradient(to top, rgba(26,16,16,.85) 0%, rgba(26,16,16,.4) 55%, rgba(26,16,16,0) 100%); z-index:2; pointer-events:none; border-radius:0 0 8px 8px;"></div>
 
         <!-- More Designers overlay text -->
-        <div style="position:absolute; bottom:56px; left:20px; right:20px; z-index:3; pointer-events:none;">
+        <div style="position:absolute; bottom:32px; left:32px; right:32px; z-index:3; pointer-events:none;">
           <div style="font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.7); margin-bottom:8px;">+ More Designers You&rsquo;ll Love</div>
           <div style="font-size:12.5px; color:white; line-height:1.7;">Free People &middot; Alice + Olivia &middot; Indah &middot; Prada &middot; R&eacute;alisation Par &middot; Lululemon <span style="opacity:.7;">+ More</span></div>
         </div>
@@ -639,9 +636,9 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
           <div style="font-size:0.78em; line-height:1.7; opacity:.75">Thoughtful pricing that reflects each piece's quality and rarity &mdash; at a fraction of retail &amp; always <em>Fair!</em></div>
         </div>
       </div> 
-      <div class="button-row-stack" style="display: flex; flex-direction: row; gap: 12px; margin-top: 32px; width: 100%;">  
-        <a href="#book" style="display: flex !important; align-items: center !important; justify-content: center !important; flex: 1; padding: 0 20px !important; min-height: 44px !important; margin: 0 !important; background: var(--warm) !important; color: var(--espresso) !important; border: 1px solid var(--warm) !important; text-decoration: none !important; border-radius: 4px !important; font-size: 14px !important; box-sizing: border-box !important;">Join Us. Book Now!</a>     
-        <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" style="display: flex !important; align-items: center !important; justify-content: center !important; flex: 1; padding: 0 20px !important; min-height: 44px !important; margin: 0 !important; background: var(--cream) !important; color: var(--espresso) !important; border: 1px solid var(--blush) !important; text-decoration: none !important; border-radius: 4px !important; font-size: 14px !important; box-sizing: border-box !important;">Follow @fair.pourtoi</a>
+      <div class="button-row-stack" style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; width: 100%;">  
+        <a href="#book" style="display: flex !important; align-items: center !important; justify-content: center !important; flex: 1 1 180px; padding: 0 20px !important; min-height: 44px !important; margin: 0 !important; background: var(--warm) !important; color: var(--espresso) !important; border: 1px solid var(--warm) !important; text-decoration: none !important; border-radius: 4px !important; font-size: 14px !important; box-sizing: border-box !important; white-space: nowrap;">Join Us. Book Now!</a>     
+        <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" style="display: flex !important; align-items: center !important; justify-content: center !important; flex: 1 1 180px; padding: 0 20px !important; min-height: 44px !important; margin: 0 !important; background: var(--cream) !important; color: var(--espresso) !important; border: 1px solid var(--blush) !important; text-decoration: none !important; border-radius: 4px !important; font-size: 14px !important; box-sizing: border-box !important; white-space: nowrap;">Follow @fair.pourtoi</a>
       </div>
     </div>
   </div>
