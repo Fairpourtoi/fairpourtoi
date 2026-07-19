@@ -20,7 +20,7 @@ originals are never modified.
 import argparse
 import os
 import sys
-from PIL import Image
+from PIL import Image, ImageColor
 
 SUPPORTED_EXTS = {".jpg", ".jpeg", ".png", ".webp", ".avif"}
 
@@ -59,13 +59,21 @@ def center_crop_to_ratio(img, target_ratio):
 
     return img.crop(box)
 
-def load_logo(logo_path, target_width, opacity):
+def load_logo(logo_path, target_width, opacity, recolor=None):
     """Load the logo, resize it to target_width (preserving aspect ratio),
-    and scale its alpha channel by `opacity` (0-1)."""
+    optionally recolor it (keeping its original shape/alpha), and scale
+    its alpha channel by `opacity` (0-1)."""
     logo = Image.open(logo_path).convert("RGBA")
     aspect = logo.height / logo.width
     target_height = int(target_width * aspect)
     logo = logo.resize((target_width, target_height), Image.LANCZOS)
+
+    if recolor is not None:
+        # Replace RGB with the target color, keep the original alpha (shape) untouched
+        _, _, _, a = logo.split()
+        solid = Image.new("RGBA", logo.size, recolor + (255,))
+        solid.putalpha(a)
+        logo = solid
 
     if opacity < 1.0:
         r, g, b, a = logo.split()
@@ -90,7 +98,7 @@ def get_position(base_size, logo_size, position, margin):
         raise ValueError(f"Unknown position '{position}'. Choose from: {', '.join(positions)}")
     return positions[position]
 
-def watermark_image(src_path, dest_path, logo_path, position, opacity, scale, margin_pct, crop_ratio):
+def watermark_image(src_path, dest_path, logo_path, position, opacity, scale, margin_pct, crop_ratio, recolor):
     base = Image.open(src_path).convert("RGBA")
 
     if crop_ratio is not None:
@@ -99,7 +107,7 @@ def watermark_image(src_path, dest_path, logo_path, position, opacity, scale, ma
     bw, bh = base.size
 
     logo_target_width = max(1, int(bw * scale))
-    logo = load_logo(logo_path, logo_target_width, opacity)
+    logo = load_logo(logo_path, logo_target_width, opacity, recolor)
 
     margin = int(bw * margin_pct)
     pos = get_position((bw, bh), logo.size, position, margin)
@@ -132,6 +140,10 @@ def main():
                          help="Optional: center-crop to this WIDTH:HEIGHT ratio BEFORE watermarking, "
                               "so the watermark lines up with how the image will actually display "
                               "(e.g. 4:5 to match a portrait carousel). Omit to skip cropping.")
+    parser.add_argument("--color", default=None,
+                         help="Optional: recolor the watermark to this color, keeping its exact shape "
+                              "and transparency. Accepts names like 'white' or 'black', or a hex code "
+                              "like '#ffffff'. Omit to use the logo file's own original color.")
     args = parser.parse_args()
 
     if not os.path.isdir(args.input_folder):
@@ -145,6 +157,10 @@ def main():
         print(f"Logo file not found: {logo_path}")
         sys.exit(1)
 
+    recolor = None
+    if args.color:
+        recolor = ImageColor.getrgb(args.color)
+
     processed = 0
     for filename in sorted(os.listdir(args.input_folder)):
         ext = os.path.splitext(filename)[1].lower()
@@ -152,7 +168,7 @@ def main():
             continue
         src = os.path.join(args.input_folder, filename)
         dest = os.path.join(args.output_folder, filename)
-        watermark_image(src, dest, logo_path, args.position, args.opacity, args.scale, args.margin, args.crop_ratio)
+        watermark_image(src, dest, logo_path, args.position, args.opacity, args.scale, args.margin, args.crop_ratio, recolor)
         print(f"  watermarked: {filename}")
         processed += 1
 
