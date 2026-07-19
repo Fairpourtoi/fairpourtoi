@@ -5,8 +5,12 @@ Fair Pour Toi — batch photo watermarking tool.
 Usage:
     python3 watermark.py <input_folder> <output_folder> [options]
 
-Example:
+Example (no cropping, watermark applied to the original photo shape):
     python3 watermark.py ./new_photos ./watermarked --position bottom-right --opacity 0.55 --scale 0.16
+
+Example (crop to match a carousel's display shape BEFORE watermarking,
+so the watermark placement matches exactly what visitors will see):
+    python3 watermark.py ./new_photos ./watermarked --crop-ratio 4:5
 
 Drop any new event/product photos into an input folder, run this script,
 and get finished, watermarked, web-ready copies in the output folder —
@@ -19,6 +23,41 @@ import sys
 from PIL import Image
 
 SUPPORTED_EXTS = {".jpg", ".jpeg", ".png", ".webp"}
+
+def parse_ratio(ratio_str):
+    """Parse a 'W:H' string like '4:5' into a float (width / height)."""
+    try:
+        w, h = ratio_str.split(":")
+        w, h = float(w), float(h)
+        if w <= 0 or h <= 0:
+            raise ValueError
+        return w / h
+    except Exception:
+        raise argparse.ArgumentTypeError(
+            f"Invalid --crop-ratio '{ratio_str}'. Use the format WIDTH:HEIGHT, e.g. 4:5"
+        )
+
+def center_crop_to_ratio(img, target_ratio):
+    """Center-crop img (a PIL Image) to match target_ratio (width/height),
+    trimming the longer dimension evenly from both sides."""
+    w, h = img.size
+    current_ratio = w / h
+
+    if abs(current_ratio - target_ratio) < 1e-6:
+        return img  # already the right shape
+
+    if current_ratio > target_ratio:
+        # image is too wide -> trim left/right
+        new_w = int(h * target_ratio)
+        left = (w - new_w) // 2
+        box = (left, 0, left + new_w, h)
+    else:
+        # image is too tall -> trim top/bottom
+        new_h = int(w / target_ratio)
+        top = (h - new_h) // 2
+        box = (0, top, w, top + new_h)
+
+    return img.crop(box)
 
 def load_logo(logo_path, target_width, opacity):
     """Load the logo, resize it to target_width (preserving aspect ratio),
@@ -51,8 +90,12 @@ def get_position(base_size, logo_size, position, margin):
         raise ValueError(f"Unknown position '{position}'. Choose from: {', '.join(positions)}")
     return positions[position]
 
-def watermark_image(src_path, dest_path, logo_path, position, opacity, scale, margin_pct):
+def watermark_image(src_path, dest_path, logo_path, position, opacity, scale, margin_pct, crop_ratio):
     base = Image.open(src_path).convert("RGBA")
+
+    if crop_ratio is not None:
+        base = center_crop_to_ratio(base, crop_ratio)
+
     bw, bh = base.size
 
     logo_target_width = max(1, int(bw * scale))
@@ -85,6 +128,10 @@ def main():
     parser.add_argument("--opacity", type=float, default=0.55, help="Watermark opacity, 0-1 (default: 0.55)")
     parser.add_argument("--scale", type=float, default=0.16, help="Logo width as a fraction of photo width (default: 0.16)")
     parser.add_argument("--margin", type=float, default=0.03, help="Margin from edge as a fraction of photo width (default: 0.03)")
+    parser.add_argument("--crop-ratio", type=parse_ratio, default=None,
+                         help="Optional: center-crop to this WIDTH:HEIGHT ratio BEFORE watermarking, "
+                              "so the watermark lines up with how the image will actually display "
+                              "(e.g. 4:5 to match a portrait carousel). Omit to skip cropping.")
     args = parser.parse_args()
 
     if not os.path.isdir(args.input_folder):
@@ -105,7 +152,7 @@ def main():
             continue
         src = os.path.join(args.input_folder, filename)
         dest = os.path.join(args.output_folder, filename)
-        watermark_image(src, dest, logo_path, args.position, args.opacity, args.scale, args.margin)
+        watermark_image(src, dest, logo_path, args.position, args.opacity, args.scale, args.margin, args.crop_ratio)
         print(f"  watermarked: {filename}")
         processed += 1
 
