@@ -330,8 +330,8 @@ nav.scrolled .nav-coming-soon{color:var(--taupe);opacity:.6}
 .calendly-wrap{background:var(--cream);border:.5px solid var(--blush);overflow:hidden;border-radius:8px;height:900px;}
 .calendly-inline-widget{min-width:280px;width:100%;border-radius:8px;}
 
-/* COMING SOON CAROUSEL (reused component, arrow-driven) */
-.soon-carousel { 
+/* FAIR EVENT CAROUSEL (reused component, arrow-driven) */
+.fair-event-carousel { 
   position: relative; 
   width: 100%; 
   height: 100%;
@@ -342,7 +342,12 @@ nav.scrolled .nav-coming-soon{color:var(--taupe);opacity:.6}
   border: 0.7px solid var(--blush); 
   display: block;
 }
-.soon-slide { 
+.fair-event-arrow{position:absolute;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;padding:8px;z-index:6;opacity:0;transition:opacity .2s}
+.fair-event-carousel:hover .fair-event-arrow{opacity:1}
+.fair-event-arrow.prev{left:6px}
+.fair-event-arrow.next{right:6px}
+.fair-event-arrow svg{width:18px;height:18px;stroke:white;fill:none;stroke-width:1.5;filter:drop-shadow(0 1px 3px rgba(0,0,0,.5))}
+.fair-event-slide { 
     position: absolute; 
     top: 0;
     left: 0;
@@ -360,11 +365,11 @@ nav.scrolled .nav-coming-soon{color:var(--taupe);opacity:.6}
     will-change: opacity;
     transform: translateZ(0);
 }
-.soon-slide:first-child {
+.fair-event-slide:first-child {
     opacity: 1;
     z-index: 1;
 }
-.soon-slide.active { 
+.fair-event-slide.active { 
     opacity: 1 !important; 
     z-index: 1; 
 }
@@ -466,7 +471,7 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
   .ig-bg {padding-bottom: 10px !important;}   
   .nav-inner{padding:6px 20px}
   .fair-experience-grid{grid-template-columns:1fr !important; gap:32px !important}
-  .soon-carousel{height:auto !important; aspect-ratio:4/5 !important; min-height:0 !important}
+  .fair-event-carousel{height:auto !important; aspect-ratio:4/5 !important; min-height:0 !important}
   .brand-partners-grid{grid-template-columns:1fr !important}
 }
 @media(max-width:600px){
@@ -480,10 +485,10 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
   .hero-video{display:none}
   .hero-bg{background-image:url('assets/img/hero-1.jpg');background-size:cover;background-position:center}
 }
-#soon-0{background-image: url('assets/img/soon-1.jpg');}
-#soon-1{background-image: url('assets/img/soon-2.jpg');}
-#soon-2{background-image: url('assets/img/soon-3.jpg');}
-#soon-3{background-image: url('assets/img/soon-4.jpg');}
+#fair-event-0{background-image: url('assets/img/soon-1.jpg');}
+#fair-event-1{background-image: url('assets/img/soon-2.jpg');}
+#fair-event-2{background-image: url('assets/img/soon-3.jpg');}
+#fair-event-3{background-image: url('assets/img/soon-4.jpg');}
 </style>
 <link rel="preload" as="image" href="assets/img/hero-1.jpg" fetchpriority="high">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
@@ -585,11 +590,11 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
   <div class="section-inner">
     <!-- LEFT: Coming Soon photo carousel, with More Designers overlay -->
     <div class="fade-in-up" style="flex: 1 1 440px; box-sizing: border-box;">
-      <div class="soon-carousel">
-        <div class="soon-slide active" id="soon-0"></div>
-        <div class="soon-slide" id="soon-1"></div>
-        <div class="soon-slide" id="soon-2"></div>
-        <div class="soon-slide" id="soon-3"></div>
+      <div class="fair-event-carousel">
+        <div class="fair-event-slide active" id="fair-event-0"></div>
+        <div class="fair-event-slide" id="fair-event-1"></div>
+        <div class="fair-event-slide" id="fair-event-2"></div>
+        <div class="fair-event-slide" id="fair-event-3"></div>
 
         <!-- Bottom scrim for text legibility -->
         <div style="position:absolute; bottom:0; left:0; right:0; height:58%; background:linear-gradient(to top, rgba(26,16,16,.85) 0%, rgba(26,16,16,.4) 55%, rgba(26,16,16,0) 100%); z-index:2; pointer-events:none; border-radius:0 0 8px 8px;"></div>
@@ -600,14 +605,12 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
           <div style="font-size:12.5px; color:white; line-height:1.7;">Free People &middot; Alice + Olivia &middot; Indah &middot; Prada &middot; R&eacute;alisation Par &middot; Lululemon <span style="opacity:.7;">+ More</span></div>
         </div>
 
-        <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:36px;z-index:5;">
-          <button onclick="soonCarousel(-1)" aria-label="Previous image" style="background:none;border:none;cursor:pointer;padding:6px;">
-            <svg viewBox="0 0 24 24" width="44" height="44" style="stroke:white; fill:none; stroke-width:1.1; filter:drop-shadow(0 1px 4px rgba(0,0,0,.4));"><path d="M15 18l-6-6 6-6"/></svg>
-          </button>
-          <button onclick="soonCarousel(1)" aria-label="Next image" style="background:none;border:none;cursor:pointer;padding:6px;">
-            <svg viewBox="0 0 24 24" width="44" height="44" style="stroke:white; fill:none; stroke-width:1.1; filter:drop-shadow(0 1px 4px rgba(0,0,0,.4));"><path d="M9 18l6-6-6-6"/></svg>
-          </button>
-        </div>
+        <button class="fair-event-arrow prev" onclick="fairEventCarousel(-1)" aria-label="Previous image">
+          <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="fair-event-arrow next" onclick="fairEventCarousel(1)" aria-label="Next image">
+          <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
       </div>
     </div>
 
@@ -955,17 +958,33 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
     }
   }
 
-  /* COMING SOON CAROUSEL (arrow-driven, same pattern as About) */
-  let soonCurrent = 0;
-  const soonSlides = document.querySelectorAll('.soon-slide');
-  function soonGoTo(n) {
-    if (!soonSlides.length) return;
-    soonSlides[soonCurrent].classList.remove('active');
-    soonCurrent = (n + soonSlides.length) % soonSlides.length;
-    soonSlides[soonCurrent].classList.add('active');
+  /* FAIR EVENT CAROUSEL (arrow-driven, same pattern as About) */
+  let fairEventCurrent = 0;
+  const fairEventSlides = document.querySelectorAll('.fair-event-slide');
+  function fairEventGoTo(n) {
+    if (!fairEventSlides.length) return;
+    fairEventSlides[fairEventCurrent].classList.remove('active');
+    fairEventCurrent = (n + fairEventSlides.length) % fairEventSlides.length;
+    fairEventSlides[fairEventCurrent].classList.add('active');
   }
-  function soonCarousel(direction) {
-    soonGoTo(soonCurrent + direction);
+  function fairEventCarousel(direction) {
+    fairEventGoTo(fairEventCurrent + direction);
+  }
+
+  let fairEventTouchStartX = 0;
+  let fairEventTouchEndX = 0;
+  const fairEventCarouselEl = document.querySelector('.fair-event-carousel');
+  if (fairEventCarouselEl) {
+    fairEventCarouselEl.addEventListener('touchstart', (e) => {
+      fairEventTouchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    fairEventCarouselEl.addEventListener('touchend', (e) => {
+      fairEventTouchEndX = e.changedTouches[0].screenX;
+      const diff = fairEventTouchStartX - fairEventTouchEndX;
+      if (Math.abs(diff) > 40) {
+        fairEventCarousel(diff > 0 ? 1 : -1);
+      }
+    }, { passive: true });
   }
 
   /* SHOP CARD CAROUSELS (4 cards, 4 images each) */
@@ -1056,7 +1075,7 @@ function closePopup() {
 
 window.addEventListener('load', () => {
   aboutAutoTimer = setInterval(() => aboutGoTo((aboutCurrent + 1) % 2), 8000);
-  setInterval(() => soonCarousel(1), 6000);
+  setInterval(() => fairEventCarousel(1), 6000);
   setTimeout(checkPopup, 10000);
 });
 </script>
