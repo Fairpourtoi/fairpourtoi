@@ -32,10 +32,10 @@ jobs:
             assets/img/incoming \
             assets/img \
             --logo scripts/logo.png \
-            --position bottom-center \
+            --position bottom-left \
             --opacity 0.7 \
             --scale 0.14 \
-            --margin 0.08 \
+            --margin 0.16 \
             --color white
 
       - name: Clear processed photos from incoming
