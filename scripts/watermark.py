@@ -20,7 +20,7 @@ originals are never modified.
 import argparse
 import os
 import sys
-from PIL import Image, ImageColor
+from PIL import Image, ImageColor, ImageFilter
 
 SUPPORTED_EXTS = {".jpg", ".jpeg", ".png", ".webp", ".avif"}
 
@@ -98,7 +98,30 @@ def get_position(base_size, logo_size, position, margin):
         raise ValueError(f"Unknown position '{position}'. Choose from: {', '.join(positions)}")
     return positions[position]
 
-def watermark_image(src_path, dest_path, logo_path, position, opacity, scale, margin_pct, crop_ratio, recolor):
+def make_glow(logo, blur_radius, glow_opacity, glow_color=(0, 0, 0)):
+    """Build a soft, blurred glow matching the logo's exact shape (via its alpha
+    channel), on a padded canvas so the blur can spread outward without being
+    clipped by the logo's own bounding box. Used to guarantee the watermark
+    stays visible against any photo background, light or dark."""
+    pad = blur_radius * 3
+    padded_size = (logo.width + pad * 2, logo.height + pad * 2)
+
+    glow_alpha_base = Image.new("L", padded_size, 0)
+    glow_alpha_base.paste(logo.split()[3], (pad, pad))
+
+    glow = Image.new("RGBA", padded_size, glow_color + (0,))
+    solid_glow_color = Image.new("RGBA", padded_size, glow_color + (255,))
+    glow = Image.composite(solid_glow_color, glow, glow_alpha_base)
+
+    r, g, b, a = glow.split()
+    a = a.point(lambda px: int(px * glow_opacity))
+    glow = Image.merge("RGBA", (r, g, b, a))
+
+    glow = glow.filter(ImageFilter.GaussianBlur(blur_radius))
+    return glow, pad
+
+def watermark_image(src_path, dest_path, logo_path, position, opacity, scale, margin_pct, crop_ratio, recolor,
+                     glow=False, glow_blur=6, glow_opacity=0.65, glow_color=(0, 0, 0)):
     base = Image.open(src_path).convert("RGBA")
 
     if crop_ratio is not None:
@@ -113,6 +136,12 @@ def watermark_image(src_path, dest_path, logo_path, position, opacity, scale, ma
     pos = get_position((bw, bh), logo.size, position, margin)
 
     composited = Image.alpha_composite(base, Image.new("RGBA", base.size, (0, 0, 0, 0)))
+
+    if glow:
+        glow_img, pad = make_glow(logo, glow_blur, glow_opacity, glow_color)
+        glow_pos = (pos[0] - pad, pos[1] - pad)
+        composited.paste(glow_img, glow_pos, glow_img)
+
     composited.paste(logo, pos, logo)
 
     out = composited.convert("RGB")
@@ -144,6 +173,14 @@ def main():
                          help="Optional: recolor the watermark to this color, keeping its exact shape "
                               "and transparency. Accepts names like 'white' or 'black', or a hex code "
                               "like '#ffffff'. Omit to use the logo file's own original color.")
+    parser.add_argument("--glow", action="store_true",
+                         help="Add a soft dark glow behind the watermark, so it stays visible even "
+                              "against light or busy areas of a photo. Recommended when using --color white.")
+    parser.add_argument("--glow-blur", type=int, default=6, help="Glow softness in pixels (default: 6)")
+    parser.add_argument("--glow-opacity", type=float, default=0.65, help="Glow strength, 0-1 (default: 0.65)")
+    parser.add_argument("--glow-color", default="black",
+                         help="Glow color, e.g. 'black' (default) or a hex code. Dark glows work best "
+                              "behind light-colored watermarks, and vice versa.")
     args = parser.parse_args()
 
     if not os.path.isdir(args.input_folder):
@@ -161,6 +198,8 @@ def main():
     if args.color:
         recolor = ImageColor.getrgb(args.color)
 
+    glow_color = ImageColor.getrgb(args.glow_color)
+
     processed = 0
     for filename in sorted(os.listdir(args.input_folder)):
         ext = os.path.splitext(filename)[1].lower()
@@ -168,7 +207,8 @@ def main():
             continue
         src = os.path.join(args.input_folder, filename)
         dest = os.path.join(args.output_folder, filename)
-        watermark_image(src, dest, logo_path, args.position, args.opacity, args.scale, args.margin, args.crop_ratio, recolor)
+        watermark_image(src, dest, logo_path, args.position, args.opacity, args.scale, args.margin, args.crop_ratio, recolor,
+                         glow=args.glow, glow_blur=args.glow_blur, glow_opacity=args.glow_opacity, glow_color=glow_color)
         print(f"  watermarked: {filename}")
         processed += 1
 
