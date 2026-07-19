@@ -24,7 +24,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install Pillow
-        run: pip install Pillow
+        run: pip install Pillow pillow-avif-plugin
 
       - name: Watermark new photos
         run: |
