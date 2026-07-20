@@ -294,7 +294,7 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
 <!-- NAV -->
 <nav id="main-nav">
   <div class="nav-inner">
-    <a href="#hero" aria-label="Fair Pour Toi — back to top">
+    <a href="#hero" aria-label="Fair Pour Toi — BACK TO TOP &uarr">
       <img src="assets/img/logo.png" alt="Fair pour toi" class="nav-logo" width="384" height="384" decoding="async">
     </a>    
     <div class="nav-links">
@@ -849,7 +849,7 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
     addToMailchimp(email, (alreadySubscribed) => {
       emailField.value = '';
       status.innerHTML = alreadySubscribed
-        ? "Looks like you're already on the list! <a href=\"#hero\" style=\"color:white; text-decoration:underline;\">Back to top &uarr;</a>"
+        ? "Looks like you're already on the list! <a href=\"#hero\" style=\"color:white; text-decoration:underline;\">BACK TO TOP &uarr;</a>"
         : "Thank you for subscribing 🥂! <a href=\"#hero\" style=\"color:white; text-decoration:underline;\">BACK TO TOP &uarr;</a>";
       btn.textContent = 'Subscribed';
       setTimeout(() => { status.innerHTML = ''; btn.textContent = 'Subscribe'; btn.disabled = false; }, 12000);
