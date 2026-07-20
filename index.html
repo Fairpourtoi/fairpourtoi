@@ -843,16 +843,16 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
     const emailField = document.getElementById('subscribe-email');
     const email = emailField.value;
 
-    btn.textContent = '...';
+    btn.textContent = 'Subscribing...';
     btn.disabled = true;
 
     addToMailchimp(email, (alreadySubscribed) => {
       emailField.value = '';
       status.innerHTML = alreadySubscribed
-        ? "Looks like you're already on the list! <a href=\"#hero\" style=\"color:white; text-decoration:underline;\">Back to top</a>"
-        : "Thank you for subscribing 🥂! <a href=\"#hero\" style=\"color:white; text-decoration:underline;\">Back to the top</a>";
+        ? "Looks like you're already on the list! <a href=\"#hero\" style=\"color:white; text-decoration:underline;\">Back to top &uarr;</a>"
+        : "Thank you for subscribing 🥂! <a href=\"#hero\" style=\"color:white; text-decoration:underline;\">BACK TO TOP &uarr;</a>";
       btn.textContent = 'Subscribed';
-      setTimeout(() => { status.innerHTML = ''; btn.textContent = 'Subscribe'; btn.disabled = false; }, 10000);
+      setTimeout(() => { status.innerHTML = ''; btn.textContent = 'Subscribe'; btn.disabled = false; }, 12000);
     }, () => {
       status.textContent = 'Something went wrong. Please try again.';
       btn.textContent = 'Subscribe';
