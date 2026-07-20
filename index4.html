@@ -53,9 +53,9 @@ nav.scrolled{background:var(--cream);box-shadow:0 1px 0 rgba(52,40,40,.08);}
 nav.scrolled .nav-logo{filter:none;}
 .nav-links{display:flex;gap:28px;align-items:center;}
 .nav-links a{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.85);text-decoration:none;transition:color .4s;}
-nav.scrolled .nav-links a{color:var(--taupe);}
-.nav-links a:hover{color:white;}
-nav.scrolled .nav-links a:hover{color:var(--espresso);}
+nav.scrolled .nav-links a{color:var(--espresso);}
+.nav-links a:hover{color:white;text-shadow:-0.4px 0 currentColor, 0.4px 0 currentColor;}
+nav.scrolled .nav-links a:hover{color:var(--blush);text-shadow:-0.4px 0 currentColor, 0.4px 0 currentColor;}
 .nav-cta {
   background: rgba(255, 255, 255, .15);
   backdrop-filter: blur(8px);
@@ -85,6 +85,9 @@ nav.scrolled .nav-cta {
   border-color: var(--taupe);
   color: white !important;
 }
+.nav-divider{color:rgba(255,255,255,.4);font-size:11px;transition:color .4s;}
+nav.scrolled .nav-divider{color:var(--blush);}
+.nav-ig{font-weight:600;}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
 .hamburger span{display:block;width:22px;height:.5px;background:white;transition:background .4s;}
 nav.scrolled .hamburger span{background:var(--espresso);}
@@ -301,7 +304,8 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
       <a href="#brand-partners">For Brands</a>
       <a href="#contact">Contact</a>
       <a href="#book">Book</a>
-      <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" class="nav-cta">Follow on Instagram</a>
+      <span class="nav-divider">|</span>
+      <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" class="nav-ig">Follow on Instagram</a>
     </div>
     <button class="hamburger" aria-label="Open menu" onclick="toggleMenu()">
       <span></span><span></span><span></span>
@@ -331,10 +335,10 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
   <div class="hero-inner">
     <div class="pill">Curated Contemporary Sales + Events  &middot;  Santa Monica </div>
     <h1 class="serif">Luxury fashion,<br>made accessible.</h1>
-    <p class="serif" style="font-style:italic; font-weight:300; font-size:23px; letter-spacing:.01em; color:rgba(255,255,255,.9); line-height:1.5; max-width:440px; margin-bottom:18px;">No crowds, no compromises: just exceptional finds.</p>
+    <p class="serif" style="font-style:italic; font-weight:300; font-size:23px; letter-spacing:.01em; color:rgba(255,255,255,.9); line-height:1.5; max-width:440px; margin-bottom:18px;">No crowds. No compromises. Just exceptional finds.</p>
     <p style="font-size: 1.1em; line-height: 1.6; max-width:480px;"><strong>Private Sales &amp; Events</strong><br>Shop our exclusive edit of contemporary &amp; luxury clothing, handbags, shoes, and accessories.<br><span class="retail-line" style="display:block; text-align:right;">&mdash; All priced at a fraction of retail.</span></p>
     <div class="btn-row">
-      <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" class="btn-blush">Follow</a>
+      <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" class="btn-blush">Follow @fair.pourtoi</a>
       <a href="#brand-partners" class="btn-blush">Sell With Us</a>
     </div>
   </div>
