@@ -850,7 +850,7 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
       emailField.value = '';
       status.innerHTML = alreadySubscribed
         ? "Looks like you're already on the list! <a href=\"#hero\" style=\"color:white; text-decoration:underline;\">Back to top</a>"
-        : "Thank you for subscribing 🥂! You will receive a confirmation email shortly. <a href=\"#hero\" style=\"color:white; text-decoration:underline;\">Back to the top</a>";
+        : "Thank you for subscribing 🥂! <a href=\"#hero\" style=\"color:white; text-decoration:underline;\">Back to the top</a>";
       btn.textContent = 'Subscribed';
       setTimeout(() => { status.innerHTML = ''; btn.textContent = 'Subscribe'; btn.disabled = false; }, 10000);
     }, () => {
