@@ -482,12 +482,25 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
   .hero-video{display:none}
   .hero-bg{background-image:url('assets/img/hero-1.jpg');background-size:cover;background-position:center}
 }
+  /* Fallback JPGs */
+#fair-event-0 { background-image: url('assets/img/fair-event-1.jpg'); }
+#fair-event-1 { background-image: url('assets/img/fair-event-2.jpg'); }
+#fair-event-2 { background-image: url('assets/img/fair-event-3.jpg'); }
+#fair-event-3 { background-image: url('assets/img/fair-event-4.jpg'); }
+#fair-event-4 { background-image: url('assets/img/fair-event-5.jpg'); }
+#fair-event-5 { background-image: url('assets/img/fair-event-6.jpg'); }
+#fair-event-6 { background-image: url('assets/img/fair-event-7.jpg'); }
+
+/* AVIF Enhancement */
+@supports (background-image: url('assets/img/fair-event-1.avif')) {  
 #fair-event-0{background-image: url('assets/img/fair-event-1.avif');}
 #fair-event-1{background-image: url('assets/img/fair-event-2.avif');}
 #fair-event-2{background-image: url('assets/img/fair-event-3.avif');}
 #fair-event-3{background-image: url('assets/img/fair-event-4.avif');}
 #fair-event-4{background-image: url('assets/img/fair-event-5.avif');}
 #fair-event-5{background-image: url('assets/img/fair-event-6.avif');}
+#fair-event-6{background-image: url('assets/img/fair-event-7.avif');}
+}
 </style>
 <link rel="preload" as="image" href="assets/img/hero-1.jpg" fetchpriority="high">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
@@ -596,6 +609,7 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
           <div class="fair-event-slide" id="fair-event-3"></div>
           <div class="fair-event-slide" id="fair-event-4"></div>
           <div class="fair-event-slide" id="fair-event-5"></div>
+          <div class="fair-event-slide" id="fair-event-6"></div>
 
           <!-- Section label -->
           <div style="position:absolute; top:18px; left:18px; z-index:4; color:white; font-size:11px; letter-spacing:.18em; text-transform:uppercase; text-shadow:0 1px 4px rgba(0,0,0,.5); pointer-events:none;">The Fair Experience</div>
