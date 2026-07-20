@@ -482,25 +482,13 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
   .hero-video{display:none}
   .hero-bg{background-image:url('assets/img/hero-1.jpg');background-size:cover;background-position:center}
 }
-  /* Fallback JPGs */
-#fair-event-0 { background-image: url('assets/img/fair-event-1.jpg'); }
-#fair-event-1 { background-image: url('assets/img/fair-event-2.jpg'); }
-#fair-event-2 { background-image: url('assets/img/fair-event-3.jpg'); }
-#fair-event-3 { background-image: url('assets/img/fair-event-4.jpg'); }
-#fair-event-4 { background-image: url('assets/img/fair-event-5.jpg'); }
-#fair-event-5 { background-image: url('assets/img/fair-event-6.jpg'); }
-#fair-event-6 { background-image: url('assets/img/fair-event-7.jpg'); }
-
-/* AVIF Enhancement */
-@supports (background-image: url('assets/img/fair-event-1.avif')) {  
-#fair-event-0{background-image: url('assets/img/fair-event-1.avif');}
-#fair-event-1{background-image: url('assets/img/fair-event-2.avif');}
-#fair-event-2{background-image: url('assets/img/fair-event-3.avif');}
-#fair-event-3{background-image: url('assets/img/fair-event-4.avif');}
-#fair-event-4{background-image: url('assets/img/fair-event-5.avif');}
-#fair-event-5{background-image: url('assets/img/fair-event-6.avif');}
-#fair-event-6{background-image: url('assets/img/fair-event-7.avif');}
-}
+#fair-event-0 { background-image: url('assets/img/fair-event-1.jpg'); background-image: image-set(url('assets/img/fair-event-1.avif') type('image/avif'), url('assets/img/fair-event-1.jpg') type('image/jpeg')); }
+#fair-event-1 { background-image: url('assets/img/fair-event-2.jpg'); background-image: image-set(url('assets/img/fair-event-2.avif') type('image/avif'), url('assets/img/fair-event-2.jpg') type('image/jpeg')); }
+#fair-event-2 { background-image: url('assets/img/fair-event-3.jpg'); background-image: image-set(url('assets/img/fair-event-3.avif') type('image/avif'), url('assets/img/fair-event-3.jpg') type('image/jpeg')); }
+#fair-event-3 { background-image: url('assets/img/fair-event-4.jpg'); background-image: image-set(url('assets/img/fair-event-4.avif') type('image/avif'), url('assets/img/fair-event-4.jpg') type('image/jpeg')); }
+#fair-event-4 { background-image: url('assets/img/fair-event-5.jpg'); background-image: image-set(url('assets/img/fair-event-5.avif') type('image/avif'), url('assets/img/fair-event-5.jpg') type('image/jpeg')); }
+#fair-event-5 { background-image: url('assets/img/fair-event-6.jpg'); background-image: image-set(url('assets/img/fair-event-6.avif') type('image/avif'), url('assets/img/fair-event-6.jpg') type('image/jpeg')); }
+#fair-event-6 { background-image: url('assets/img/fair-event-7.jpg'); background-image: image-set(url('assets/img/fair-event-7.avif') type('image/avif'), url('assets/img/fair-event-7.jpg') type('image/jpeg')); }
 </style>
 <link rel="preload" as="image" href="assets/img/hero-1.jpg" fetchpriority="high">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
