@@ -334,8 +334,7 @@ nav.scrolled .nav-coming-soon{color:var(--taupe);opacity:.6}
 .fair-event-carousel { 
   position: relative; 
   width: 100%; 
-  height: 100%;
-  min-height: 320px;
+  aspect-ratio: 4/5;
   overflow: hidden; 
   background: var(--sand); 
   display: block;
@@ -469,7 +468,6 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
   .ig-bg {padding-bottom: 10px !important;}   
   .nav-inner{padding:6px 20px}
   .fair-experience-grid{grid-template-columns:1fr !important; gap:32px !important}
-  .fair-event-carousel{height:auto !important; aspect-ratio:4/5 !important; min-height:0 !important}
   .brand-partners-grid{grid-template-columns:1fr !important}
 }
 @media(max-width:600px){
@@ -619,36 +617,36 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
         </div>
       </div>
 
-      <!-- RIGHT/BOTTOM: A Fair Experience -->
-      <div class="fair-experience-card-panel">
-        <div class="eyebrow" style="margin-bottom:24px;">The Fair Experience</div>
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:28px 24px;">
-          <div>
-            <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:12px"><path d="M9 2c0 4 1.5 6 3 6s3-2 3-6M9 2h6M12 8v11M8 19h8"/></svg>
-            <div style="font-size:0.85em; font-weight:400; margin-bottom:8px;">A VIP Experience</div>
-            <div style="font-size:0.78em; line-height:1.7; opacity:.75">Private, appointment-only, sip champagne and explore elevated looks at your own pace.</div>
-          </div>
-          <div>
-            <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:12px"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"/></svg>
-            <div style="font-size:0.85em; font-weight:400; margin-bottom:8px;">One-of-a-Kind Finds</div>
-            <div style="font-size:0.78em; line-height:1.7; opacity:.75">Every piece is a unique discovery, guaranteed exclusive with limited availability anywhere.</div>
-          </div>
-          <div>
-            <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:12px"><path d="M12 2l2.5 7.5H22l-6 4.5 2.5 7.5-6-4.5-6 4.5 2.5-7.5-6-4.5h7.5z"/></svg>
-            <div style="font-size:0.85em; font-weight:400; margin-bottom:8px;">Curated Designer Labels</div>
-            <div style="font-size:0.78em; line-height:1.7; opacity:.75">Reformation, Mirror Palais, Nana Jacqueline, Aritzia, Favorite Daughter, Christian Louboutin + More.</div>
-          </div>
-          <div>
-            <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:12px"><circle cx="9" cy="12" r="7"/><circle cx="15" cy="12" r="7"/></svg>
-            <div style="font-size:0.85em; font-weight:400; margin-bottom:8px;">Considered Pricing</div>
-            <div style="font-size:0.78em; line-height:1.7; opacity:.75">Thoughtful pricing that reflects each piece's quality and rarity &mdash; at a fraction of retail &amp; always <em>Fair!</em></div>
-          </div>
-        </div> 
-        <div class="button-row-stack" style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; width: 100%;">  
-          <a href="#book" style="display: flex !important; align-items: center !important; justify-content: center !important; flex: 1 1 180px; padding: 0 20px !important; min-height: 44px !important; margin: 0 !important; background: var(--warm) !important; color: var(--espresso) !important; border: 1px solid var(--warm) !important; text-decoration: none !important; border-radius: 4px !important; font-size: 14px !important; box-sizing: border-box !important; white-space: nowrap;">Join Us. Book Now!</a>     
-          <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" style="display: flex !important; align-items: center !important; justify-content: center !important; flex: 1 1 180px; padding: 0 20px !important; min-height: 44px !important; margin: 0 !important; background: var(--cream) !important; color: var(--espresso) !important; border: 1px solid var(--blush) !important; text-decoration: none !important; border-radius: 4px !important; font-size: 14px !important; box-sizing: border-box !important; white-space: nowrap;">Follow @fair.pourtoi</a>
-        </div>
-      </div>
+<!-- RIGHT/BOTTOM: A Fair Experience -->
+<div class="fair-experience-card-panel">
+  <div class="eyebrow" style="margin-bottom:24px;">The Fair Experience</div>
+  <div style="display:grid; grid-template-columns: 1fr 1fr; gap:40px 28px;">
+    <div>
+      <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:12px"><path d="M9 2c0 4 1.5 6 3 6s3-2 3-6M9 2h6M12 8v11M8 19h8"/></svg>
+      <div style="font-size:0.85em; font-weight:400; margin-bottom:8px;">A VIP Experience</div>
+      <div style="font-size:0.78em; line-height:1.7; opacity:.75">Private, appointment-only, sip champagne and explore elevated looks at your own pace.</div>
+    </div>
+    <div>
+      <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:12px"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"/></svg>
+      <div style="font-size:0.85em; font-weight:400; margin-bottom:8px;">One-of-a-Kind Finds</div>
+      <div style="font-size:0.78em; line-height:1.7; opacity:.75">Every piece is a unique discovery, guaranteed exclusive with limited availability anywhere.</div>
+    </div>
+    <div>
+      <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:12px"><path d="M12 2l2.5 7.5H22l-6 4.5 2.5 7.5-6-4.5-6 4.5 2.5-7.5-6-4.5h7.5z"/></svg>
+      <div style="font-size:0.85em; font-weight:400; margin-bottom:8px;">Curated Designer Labels</div>
+      <div style="font-size:0.78em; line-height:1.7; opacity:.75">Reformation, Mirror Palais, Nana Jacqueline, Aritzia, Favorite Daughter, Christian Louboutin + More.</div>
+    </div>
+    <div>
+      <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:12px"><circle cx="9" cy="12" r="7"/><circle cx="15" cy="12" r="7"/></svg>
+      <div style="font-size:0.85em; font-weight:400; margin-bottom:8px;">Considered Pricing</div>
+      <div style="font-size:0.78em; line-height:1.7; opacity:.75">Thoughtful pricing that reflects each piece's quality and rarity &mdash; at a fraction of retail &amp; always <em>Fair!</em></div>
+    </div>
+  </div>
+  <div class="button-row-stack" style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 48px; width: 100%;">  
+    <a href="#book" style="display: flex !important; align-items: center !important; justify-content: center !important; flex: 1 1 180px; padding: 0 20px !important; min-height: 44px !important; margin: 0 !important; background: var(--warm) !important; color: var(--espresso) !important; border: 1px solid var(--warm) !important; text-decoration: none !important; border-radius: 4px !important; font-size: 14px !important; box-sizing: border-box !important; white-space: nowrap;">Join Us. Book Now!</a>     
+    <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" style="display: flex !important; align-items: center !important; justify-content: center !important; flex: 1 1 180px; padding: 0 20px !important; min-height: 44px !important; margin: 0 !important; background: var(--cream) !important; color: var(--espresso) !important; border: 1px solid var(--blush) !important; text-decoration: none !important; border-radius: 4px !important; font-size: 14px !important; box-sizing: border-box !important; white-space: nowrap;">Follow @fair.pourtoi</a>
+  </div>
+</div>
 
     </div>
   </div>
