@@ -178,7 +178,7 @@ nav.scrolled .hamburger span{background:var(--espresso);}
 /* FAIR EXPERIENCE */
 .fair-event-carousel { 
   position: relative; width: 100%; aspect-ratio: 4/5; overflow: hidden; 
-  background: var(--sand); display: block;
+  background: var(--sand); display: block; cursor: pointer;
 }
 .fair-event-arrow{position:absolute;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;padding:8px;z-index:6;opacity:0;transition:opacity .2s;}
 .fair-event-carousel:hover .fair-event-arrow{opacity:1;}
@@ -249,11 +249,7 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
 /* RESPONSIVE */
 @media(max-width:900px){
   .shop-featured-grid{grid-template-columns:repeat(2,1fr);}
-  .about-grid{grid-template-columns:1fr;gap:28px;}
-    }
-  @media(max-width:960px){
-  .fair-experience-panel { grid-template-columns: 1fr; }
-    }
+}
 @media(max-width:1024px){
   .nav-links{display:none;}
   .hamburger{display:flex;}
@@ -268,6 +264,7 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
   .retail-line{text-align:left !important;}
   .section-inner{padding:60px 20px;}
   .events-grid{grid-template-columns:1fr;}
+  .about-grid{grid-template-columns:1fr;gap:28px;}
   .book-grid{grid-template-columns:1fr;gap:32px;}
   .btn-light,.btn-outline-dark,.btn-blush,.btn-espresso {display: block; width: calc(100% - 0px);margin: 0 auto;text-align: center;box-sizing: border-box;}
   .footer-inner { flex-direction: column; align-items: center; text-align: center; gap: 10px; padding: 30px 20px 20px 20px; }
@@ -297,7 +294,7 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
 <!-- NAV -->
 <nav id="main-nav">
   <div class="nav-inner">
-    <a href="#hero" aria-label="Fair Pour Toi — BACK TO TOP &uarr">
+    <a href="#hero" aria-label="Fair Pour Toi — back to top">
       <img src="assets/img/logo.png" alt="Fair pour toi" class="nav-logo" width="384" height="384" decoding="async">
     </a>    
     <div class="nav-links">
@@ -373,7 +370,9 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
     .fair-experience-panel{display:grid; grid-template-columns: 45% 55%; align-items:start; border:.7px solid var(--blush); border-radius:8px; overflow:hidden; background:var(--cream);}
     .fair-event-carousel-wrap{position:relative;}
     .fair-experience-card-panel{padding:32px; box-sizing:border-box;}
- 
+    @media (max-width: 960px) {
+      .fair-experience-panel { grid-template-columns: 1fr; }
+    }
   </style>
 
   <div class="section-inner">
@@ -449,7 +448,7 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
 <section id="about" style="background:var(--espresso)">
   <div class="section-inner">
     <div class="about-grid">
-      <div class="about-carousel fade-in-up" style="position:relative;overflow:hidden;border-radius:8px;">
+      <div class="about-carousel fade-in-up" style="position:relative;overflow:hidden;border-radius:8px;cursor:pointer;">
         <div class="carousel-track" id="about-track" style="display:flex;transition:transform 1.5s cubic-bezier(.4,0,.2,1);">
           <div class="carousel-slide" style="min-width:100%;position:relative;">
             <picture><source type="image/avif" srcset="assets/img/about-1.avif"><img src="assets/img/about-1.jpg" alt="How to pronounce Fair Pour Toi" width="958" height="1192" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/5;border-radius:8px;"></picture>
@@ -736,14 +735,22 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
 
   let touchStartX = 0;
   let touchEndX = 0;
+  let aboutJustSwiped = false;
   const aboutCarouselEl = document.querySelector('.about-carousel');
   aboutCarouselEl.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
   aboutCarouselEl.addEventListener('touchend', (e) => { touchEndX = e.changedTouches[0].screenX; handleSwipe(); }, { passive: true });
   function handleSwipe() {
     const swipeThreshold = 40;
     const diff = touchStartX - touchEndX;
-    if (Math.abs(diff) > swipeThreshold) { aboutCarousel(diff > 0 ? 1 : -1); }
+    if (Math.abs(diff) > swipeThreshold) { aboutJustSwiped = true; aboutCarousel(diff > 0 ? 1 : -1); }
   }
+  aboutCarouselEl.addEventListener('click', (e) => {
+    if (aboutJustSwiped) { aboutJustSwiped = false; return; }
+    if (e.target.closest('button')) return;
+    const rect = aboutCarouselEl.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    aboutCarousel(clickX < rect.width / 2 ? -1 : 1);
+  });
 
   let fairEventCurrent = 0;
   const fairEventSlides = document.querySelectorAll('.fair-event-slide');
@@ -757,14 +764,22 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
 
   let fairEventTouchStartX = 0;
   let fairEventTouchEndX = 0;
+  let fairEventJustSwiped = false;
   const fairEventCarouselEl = document.querySelector('.fair-event-carousel');
   if (fairEventCarouselEl) {
     fairEventCarouselEl.addEventListener('touchstart', (e) => { fairEventTouchStartX = e.changedTouches[0].screenX; }, { passive: true });
     fairEventCarouselEl.addEventListener('touchend', (e) => {
       fairEventTouchEndX = e.changedTouches[0].screenX;
       const diff = fairEventTouchStartX - fairEventTouchEndX;
-      if (Math.abs(diff) > 40) { fairEventCarousel(diff > 0 ? 1 : -1); }
+      if (Math.abs(diff) > 40) { fairEventJustSwiped = true; fairEventCarousel(diff > 0 ? 1 : -1); }
     }, { passive: true });
+    fairEventCarouselEl.addEventListener('click', (e) => {
+      if (fairEventJustSwiped) { fairEventJustSwiped = false; return; }
+      if (e.target.closest('button')) return;
+      const rect = fairEventCarouselEl.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      fairEventCarousel(clickX < rect.width / 2 ? -1 : 1);
+    });
   }
 
   async function sendContactForm(event) {
@@ -850,8 +865,8 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
     addToMailchimp(email, (alreadySubscribed) => {
       emailField.value = '';
       status.innerHTML = alreadySubscribed
-        ? "Looks like you're already on the list! <a href=\"#hero\" style=\"color:white; text-decoration:underline;\">BACK TO TOP &uarr;</a>"
-        : "Thank you for subscribing 🥂! <a href=\"#hero\" style=\"color:white; text-decoration:underline;\">BACK TO TOP &uarr;</a>";
+        ? "Looks like you're already on the list! <a href=\"#hero\" style=\"color:white; text-decoration:underline;\">Back to top &uarr;</a>"
+        : "Thank you for subscribing 🥂! <a href=\"#hero\" style=\"color:white; text-decoration:underline;\">Back to top &uarr;</a>";
       btn.textContent = 'Subscribed';
       setTimeout(() => { status.innerHTML = ''; btn.textContent = 'Subscribe'; btn.disabled = false; }, 12000);
     }, () => {
