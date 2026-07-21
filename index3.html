@@ -24,7 +24,7 @@
   --taupe:#C9B8B0;
   --espresso:#342828;
 }
-#shop, #fair-experience, #about, #events, #brand-partners, #contact, #book {
+#shop, #fair-experience, #about, #events, #brand-partners, #contact, #book, #subscribe {
   scroll-margin-top: 110px; 
 }  
 html{scroll-behavior:smooth;}
@@ -249,7 +249,9 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
 /* RESPONSIVE */
 @media(max-width:900px){
   .shop-featured-grid{grid-template-columns:repeat(2,1fr);}
-}
+  .about-grid{grid-template-columns:1fr;gap:28px;}
+  .fair-experience-panel { grid-template-columns: 1fr; }
+    }
 @media(max-width:1024px){
   .nav-links{display:none;}
   .hamburger{display:flex;}
@@ -264,7 +266,6 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
   .retail-line{text-align:left !important;}
   .section-inner{padding:60px 20px;}
   .events-grid{grid-template-columns:1fr;}
-  .about-grid{grid-template-columns:1fr;gap:28px;}
   .book-grid{grid-template-columns:1fr;gap:32px;}
   .btn-light,.btn-outline-dark,.btn-blush,.btn-espresso {display: block; width: calc(100% - 0px);margin: 0 auto;text-align: center;box-sizing: border-box;}
   .footer-inner { flex-direction: column; align-items: center; text-align: center; gap: 10px; padding: 30px 20px 20px 20px; }
@@ -294,7 +295,7 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
 <!-- NAV -->
 <nav id="main-nav">
   <div class="nav-inner">
-    <a href="#hero" aria-label="Fair Pour Toi — back to top">
+    <a href="#hero" aria-label="Fair Pour Toi — BACK TO TOP &uarr">
       <img src="assets/img/logo.png" alt="Fair pour toi" class="nav-logo" width="384" height="384" decoding="async">
     </a>    
     <div class="nav-links">
@@ -318,6 +319,7 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
     <a href="#events" onclick="closeMenu()">Events</a>
     <a href="#brand-partners" onclick="closeMenu()">For Brands</a>
     <a href="#contact" onclick="closeMenu()">Contact</a>
+    <a href="#subscribe" onclick="closeMenu()">Subscribe</a>
     <div class="divider-line"></div>
     <a href="#book" onclick="closeMenu()">Book</a>
     <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener">Instagram &nearr;</a>
@@ -369,9 +371,7 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
     .fair-experience-panel{display:grid; grid-template-columns: 45% 55%; align-items:start; border:.7px solid var(--blush); border-radius:8px; overflow:hidden; background:var(--cream);}
     .fair-event-carousel-wrap{position:relative;}
     .fair-experience-card-panel{padding:32px; box-sizing:border-box;}
-    @media (max-width: 960px) {
-      .fair-experience-panel { grid-template-columns: 1fr; }
-    }
+ 
   </style>
 
   <div class="section-inner">
@@ -650,11 +650,15 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
 <div class="divider-line"></div>
 
 <!-- IG CTA -->
-<section class="ig-bg">
+<section class="ig-bg" id="subscribe">
   <div class="ig-inner fade-in-up">
     <h2 class="serif">Stay in the know.</h2>
-    <p>All updates, new brands, and sale announcements<br>drop first to subscribers and followers on Instagram.</p>
-    <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" class="btn-blush">Follow @fair.pourtoi</a>
+    <p>All updates, new brands, and sale announcements drop first to subscribers and our followers on Instagram.</p>
+    <form id="subscribe-form" onsubmit="sendSubscribeForm(event)" style="display:flex; justify-content:center; gap:10px; max-width:420px; margin:0 auto 8px; flex-wrap:wrap;">
+      <input type="email" name="subscribe-email" id="subscribe-email" required placeholder="Your email address" style="flex:1 1 220px; background:rgba(255,255,255,.08); border:.5px solid rgba(255,255,255,.3); padding:13px 16px; font-family:'Jost',sans-serif; font-size:13px; font-weight:300; color:white; outline:none; border-radius:4px;">
+      <button type="submit" id="subscribe-btn" class="btn-blush" style="flex:0 0 auto;">Subscribe</button>
+    </form>
+    <div id="subscribe-status" style="font-size:13px; color:var(--taupe); min-height:18px;"></div>
   </div>
 </section>
 
@@ -767,12 +771,14 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
     const status = document.getElementById('form-status');
     const btn = document.getElementById('submit-btn');
     const formData = new FormData(form);
+    const wantsUpdates = formData.has('subscribe');
+    const contactEmail = formData.get('email');
     const templateParams = {
       name: formData.get('name'),
-      email: formData.get('email'),
+      email: contactEmail,
       subject: formData.get('subject'),
       message: formData.get('message'),
-      subscribe: formData.has('subscribe') ? 'YES!' : ''
+      subscribe: wantsUpdates ? 'YES!' : ''
     };
     btn.textContent = 'Sending...';
     btn.disabled = true;
@@ -782,12 +788,75 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
       status.textContent = '* We have received your inquiry, Thank you. * ';
       btn.textContent = 'Send another message';
       setTimeout(() => { status.textContent = ''; btn.textContent = 'Send message'; btn.disabled = false; }, 5000);
+
+      if (wantsUpdates && contactEmail) {
+        addToMailchimp(contactEmail, () => {}, (err) => { console.error('Mailchimp signup (from Contact form) failed:', err); });
+      }
     } catch (error) {
       console.error('EmailJS Error:', error);
       status.textContent = 'Something went wrong. Please try again.';
       btn.textContent = 'Send message';
       btn.disabled = false;
     }
+  }
+
+  function addToMailchimp(email, onSuccess, onError) {
+    const callbackName = 'mcCallback_' + Date.now() + '_' + Math.floor(Math.random() * 10000);
+    const params = new URLSearchParams({
+      u: '723d9955a559dd14c58cd30b4',
+      id: '384c8af3db',
+      f_id: '0037c3e1f0',
+      EMAIL: email,
+      'b_723d9955a559dd14c58cd30b4_384c8af3db': '',
+      c: callbackName
+    });
+
+    let timeoutId;
+    window[callbackName] = function(data) {
+      clearTimeout(timeoutId);
+      delete window[callbackName];
+      script.remove();
+      if (data.result === 'success') {
+        onSuccess(false);
+      } else if (data.msg && data.msg.toLowerCase().includes('already subscribed')) {
+        onSuccess(true);
+      } else {
+        onError(data.msg);
+      }
+    };
+
+    const script = document.createElement('script');
+    script.src = 'https://fairpourtoi.us13.list-manage.com/subscribe/post-json?' + params.toString();
+    timeoutId = setTimeout(() => {
+      delete window[callbackName];
+      script.remove();
+      onError('timeout');
+    }, 10000);
+    document.body.appendChild(script);
+  }
+
+  function sendSubscribeForm(event) {
+    event.preventDefault();
+    const status = document.getElementById('subscribe-status');
+    const btn = document.getElementById('subscribe-btn');
+    const emailField = document.getElementById('subscribe-email');
+    const email = emailField.value;
+
+    btn.textContent = 'Subscribing...';
+    btn.disabled = true;
+
+    addToMailchimp(email, (alreadySubscribed) => {
+      emailField.value = '';
+      status.innerHTML = alreadySubscribed
+        ? "Looks like you're already on the list! <a href=\"#hero\" style=\"color:white; text-decoration:underline;\">BACK TO TOP &uarr;</a>"
+        : "Thank you for subscribing 🥂! <a href=\"#hero\" style=\"color:white; text-decoration:underline;\">BACK TO TOP &uarr;</a>";
+      btn.textContent = 'Subscribed';
+      setTimeout(() => { status.innerHTML = ''; btn.textContent = 'Subscribe'; btn.disabled = false; }, 12000);
+    }, () => {
+      status.textContent = 'Something went wrong. Please try again.';
+      btn.textContent = 'Subscribe';
+      setTimeout(() => { status.textContent = ''; btn.disabled = false; }, 6000);
+    });
   }
 
   function checkPopup() { document.getElementById('sale-popup').style.display = 'flex'; }
