@@ -483,10 +483,10 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
         <div class="eyebrow">About</div>
         <h2 class="serif">Fair Pour Toi.<br><em style="font-style:italic;font-size:.85em;opacity:.8">/fair &middot; pour &middot; twa/</em></h2>
         <p style="margin-bottom:12px">It means <em>for you</em> in French &mdash; and that&rsquo;s exactly the point.</p>
-        <p style="margin-bottom:24px">Fair Pour Toi brings private, appointment only resale events to Santa Monica. Offering a variety of contemporary and luxury pieces where you can shop at your own pace, curated just for you.</p>
+        <p style="margin-bottom:24px">Fair Pour Toi brings private, appointment only sample &amp; resale events to Santa Monica. <br>Offering a variety of contemporary and luxury pieces where you can shop at your own pace, curated just for you.</p>
         <h3 class="serif" style="font-size:1.2em; margin-bottom:12px;">Our Mission</h3>
         <p style="margin-bottom:24px">
-          We built Fair Pour Toi around a simple idea: resale should feel considered, not chaotic. Away from the noise of warehouse sales and traditional retail, we connect sellers directly with people who care about quality. Every piece is hand-selected for its craftsmanship and lasting style, not just for the label. <br><br>
+          We built Fair Pour Toi around a simple idea: sample &amp; resale shopping should feel considered, not chaotic. Away from the noise of warehouse sales and traditional retail, we connect sellers directly with people who care about quality. Every piece is hand-selected for its craftsmanship and lasting style, not just for the label. <br><br>
           Our mission is simple: an exclusive, focused edit that honors both the garment and the person who wears it next. 
         </p>
       </div>
@@ -762,6 +762,14 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
   }
   function fairEventCarousel(direction) { fairEventGoTo(fairEventCurrent + direction); }
 
+  function scheduleFairEventAdvance() {
+    const dwellTime = (fairEventCurrent === 0) ? 7000 : 6000;
+    setTimeout(() => {
+      fairEventCarousel(1);
+      scheduleFairEventAdvance();
+    }, dwellTime);
+  }
+
   let fairEventTouchStartX = 0;
   let fairEventTouchEndX = 0;
   let fairEventJustSwiped = false;
@@ -879,9 +887,21 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
   function checkPopup() { document.getElementById('sale-popup').style.display = 'flex'; }
   function closePopup() { document.getElementById('sale-popup').style.display = 'none'; }
 
+  const fairEventCarouselWrap = document.querySelector('.fair-event-carousel-wrap');
+  if (fairEventCarouselWrap) {
+    const fairEventObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          scheduleFairEventAdvance();
+          fairEventObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    fairEventObserver.observe(fairEventCarouselWrap);
+  }
+
   window.addEventListener('load', () => {
     aboutAutoTimer = setInterval(() => aboutGoTo((aboutCurrent + 1) % 2), 8000);
-    setInterval(() => fairEventCarousel(1), 6000);
     setTimeout(checkPopup, 10000);
   });
 </script>
