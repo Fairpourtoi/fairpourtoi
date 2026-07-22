@@ -13,7 +13,10 @@
 }
 #shop, #fair-experience, #about, #events, #brand-partners, #contact, #book, #subscribe {
   scroll-margin-top: 110px; 
-}  
+}
+#fair-experience {
+  scroll-margin-top: 190px;
+}
 html{scroll-behavior:smooth;}
 body{font-family:'Jost',sans-serif;font-weight:300;color:var(--espresso);background:var(--cream);-webkit-font-smoothing:antialiased;-webkit-user-select:none;user-select:none;}
 input, textarea{-webkit-user-select:text;user-select:text;}
