@@ -226,7 +226,7 @@ nav.scrolled .hamburger span{background:var(--espresso);}
 }
 .scroll-cue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:5;animation:scrollBounce 2s ease-in-out infinite;cursor:pointer;opacity:.7;transition:opacity .3s;}
 .scroll-cue:hover{opacity:1;}
-.scroll-cue svg{width:24px;height:24px;fill:none;stroke-width:1.5;}
+.scroll-cue svg{width:44px;height:44px;fill:none;stroke-width:1.1;filter:drop-shadow(0 1px 4px rgba(0,0,0,.4));}
 .scroll-cue-light svg{stroke:white;}
 .scroll-cue-dark svg{stroke:var(--espresso);}
 .popup-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; z-index: 9999; }
