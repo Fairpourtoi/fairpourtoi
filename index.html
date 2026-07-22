@@ -28,7 +28,8 @@
   scroll-margin-top: 110px; 
 }  
 html{scroll-behavior:smooth;}
-body{font-family:'Jost',sans-serif;font-weight:300;color:var(--espresso);background:var(--cream);-webkit-font-smoothing:antialiased;}
+body{font-family:'Jost',sans-serif;font-weight:300;color:var(--espresso);background:var(--cream);-webkit-font-smoothing:antialiased;-webkit-user-select:none;user-select:none;}
+input, textarea{-webkit-user-select:text;user-select:text;}
 img{display:block;max-width:100%;}
 .serif{font-family:'Cormorant Garamond',serif;font-weight:300;}
 
@@ -177,7 +178,7 @@ nav.scrolled .hamburger span{background:var(--espresso);}
 
 /* FAIR EXPERIENCE */
 .fair-event-carousel { 
-  position: relative; width: 100%; aspect-ratio: 4/5; overflow: hidden; 
+  position: relative; width: 100%; height: 100%; overflow: hidden; 
   background: var(--sand); display: block; cursor: pointer;
 }
 .fair-event-arrow{position:absolute;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;padding:8px;z-index:6;opacity:0;transition:opacity .2s;}
@@ -255,7 +256,7 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
   .hamburger{display:flex;}
 }
 @media(max-width:940px){
-  .about-grid{grid-template-columns:1fr;gap:28px;}
+  #about .about-grid{grid-template-columns:1fr;gap:28px;}
 }
 @media(max-width:768px){
   .hero-inner{padding:140px 20px 50px;}
@@ -338,7 +339,7 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
   <div class="hero-inner">
     <div class="pill">Curated Contemporary Sales + Events  &middot;  Santa Monica </div>
     <h1 class="serif">Luxury fashion,<br>made accessible.</h1>
-    <p class="serif" style="font-style:italic; font-weight:300; font-size:23px; letter-spacing:.01em; color:rgba(255,255,255,.9); line-height:1.5; max-width:440px; margin-bottom:18px;">No crowds. No compromises. Just exceptional finds.</p>
+    <p class="serif" style="font-style:italic; font-weight:300; font-size:23px; letter-spacing:.01em; color:rgba(255,255,255,.9); line-height:1.5; max-width:440px; margin-bottom:18px;">No crowds. No compromises.<br>Just exceptional finds.</p>
     <p style="font-size: 1.1em; line-height: 1.6; max-width:480px;"><strong>Private Sales &amp; Events</strong><br>Shop our exclusive edit of contemporary &amp; luxury clothing, handbags, shoes, and accessories.<br><span class="retail-line" style="display:block; text-align:right;">&mdash; All priced at a fraction of retail.</span></p>
     <div class="btn-row">
       <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" class="btn-blush">Follow @fair.pourtoi</a>
@@ -364,16 +365,17 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
 <div class="divider-line"></div>
 
 <!-- FAIR EXPERIENCE + BRANDS -->  
-<section id="fair-experience" style="background:var(--warm); padding: 32px 28px 48px 28px; width: 100%; box-sizing: border-box;">
+<section id="fair-experience" style="background:var(--warm); padding: 32px 0 48px 0; width: 100%; box-sizing: border-box;">
   <style>
     #fair-experience .section-inner {
-      max-width: 1100px !important; margin: 0 auto !important; width: 100% !important; padding: 0 !important;
+      max-width: 1100px !important; margin: 0 auto !important; width: 100% !important; padding: 0 28px !important;
     }
-    .fair-experience-panel{display:grid; grid-template-columns: 45% 55%; align-items:start; border:.7px solid var(--blush); border-radius:8px; overflow:hidden; background:var(--cream);}
+    .fair-experience-panel{display:grid; grid-template-columns: 45% 55%; border:.7px solid var(--blush); border-radius:8px; overflow:hidden; background:var(--cream);}
     .fair-event-carousel-wrap{position:relative;}
-    .fair-experience-card-panel{padding:32px; box-sizing:border-box;}
+    .fair-experience-card-panel{padding:32px; box-sizing:border-box; display:flex; flex-direction:column;}
     @media (max-width: 940px) {
-      .fair-experience-panel { grid-template-columns: 1fr; }
+      #fair-experience .fair-experience-panel { grid-template-columns: 1fr; }
+      #fair-experience .fair-event-carousel { height: auto; aspect-ratio: 4/5; }
     }
   </style>
 
@@ -434,7 +436,7 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
             <div style="font-size:14px; line-height:1.7; opacity:.75">Thoughtful pricing that reflects each piece's quality and rarity &mdash; at a fraction of retail &amp; always <em>Fair!</em></div>
           </div>
         </div> 
-        <div class="button-row-stack" style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; width: 100%;">  
+        <div class="button-row-stack" style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: auto; padding-top: 36px; width: 100%;">  
           <a href="#book" style="display: flex !important; align-items: center !important; justify-content: center !important; flex: 1 1 180px; padding: 0 20px !important; min-height: 44px !important; margin: 0 !important; background: var(--warm) !important; color: var(--espresso) !important; border: 1px solid var(--warm) !important; text-decoration: none !important; border-radius: 4px !important; font-size: 14px !important; box-sizing: border-box !important; white-space: nowrap;">Join Us. Book Now!</a>     
           <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" style="display: flex !important; align-items: center !important; justify-content: center !important; flex: 1 1 180px; padding: 0 20px !important; min-height: 44px !important; margin: 0 !important; background: var(--cream) !important; color: var(--espresso) !important; border: 1px solid var(--blush) !important; text-decoration: none !important; border-radius: 4px !important; font-size: 14px !important; box-sizing: border-box !important; white-space: nowrap;">Follow @fair.pourtoi</a>
         </div>
@@ -688,6 +690,12 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <script>
   emailjs.init({ publicKey: "H8Lwq9IIsnMZ2zH0T" });
+
+  // Light-touch content protection: deters casual copying, not a real security measure.
+  document.addEventListener('contextmenu', (e) => e.preventDefault());
+  document.addEventListener('dragstart', (e) => {
+    if (e.target.tagName === 'IMG') e.preventDefault();
+  });
 
   window.addEventListener('scroll', () => {
     document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 60);
