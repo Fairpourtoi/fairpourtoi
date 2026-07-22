@@ -249,13 +249,13 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
 /* RESPONSIVE */
 @media(max-width:900px){
   .shop-featured-grid{grid-template-columns:repeat(2,1fr);}
-@media(max-width:940px){  
-  .about-grid{grid-template-columns:1fr;gap:28px;}
-
 }
 @media(max-width:1024px){
   .nav-links{display:none;}
   .hamburger{display:flex;}
+}
+@media(max-width:940px){
+  .about-grid{grid-template-columns:1fr;gap:28px;}
 }
 @media(max-width:768px){
   .hero-inner{padding:140px 20px 50px;}
@@ -483,7 +483,7 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
 
       <div class="about-copy fade-in-up" style="color:var(--cream);">
         <div class="eyebrow">About</div>
-        <h2 class="serif">Fair Pour Toi.<br><em style="font-style:italic;font-size:.85em;opacity:.8">/fair &middot; pour &middot; twa/</em></h2>
+        <h2 class="serif"><span style="color:var(--blush);">Fair Pour Toi</span><br><em style="font-style:italic;font-size:.85em;opacity:.8">/fair &middot; pour &middot; twa/</em></h2>
         <p style="margin-bottom:12px">It means Fair <em>&lsquo;for you&rsquo;</em> in French &mdash; and that&rsquo;s exactly the point.</p>
         <p style="margin-bottom:24px">Fair Pour Toi brings private, appointment only sample &amp; resale events to Santa Monica. <br>Offering a variety of contemporary and luxury pieces where you can shop at your own pace, curated just for you.</p>
         <h3 class="serif" style="font-size:1.2em; margin-bottom:12px;">Our Mission</h3>
@@ -491,6 +491,7 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
           We built Fair Pour Toi around a simple idea: provide a luxury shopping experience that feels considered, not chaotic. Away from the noise of warehouse sales and traditional retail, we connect sellers directly with people who care about quality. <br><br>
           Every piece is hand-selected for its craftsmanship and lasting style, then offered in an exclusive, focused edit that honors both the garment and the person who wears it next.
         </p>
+        <img src="assets/img/fair-seal.png" alt="Fair Pour Toi wax seal" width="90" height="69" style="width:90px; height:auto; margin-top:4px;">
       </div>
     </div>
   </div>
