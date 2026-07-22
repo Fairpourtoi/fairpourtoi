@@ -257,6 +257,9 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
 }
 @media(max-width:940px){
   .about-grid{grid-template-columns:1fr;gap:28px;}
+@media (max-width: 940px) {
+      .fair-experience-panel { grid-template-columns: 1fr; }
+      .fair-event-carousel { height: auto; aspect-ratio: 4/5; }  
 }
 @media(max-width:768px){
   .hero-inner{padding:140px 20px 50px;}
@@ -373,10 +376,7 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
     .fair-experience-panel{display:grid; grid-template-columns: 45% 55%; border:.7px solid var(--blush); border-radius:8px; overflow:hidden; background:var(--cream);}
     .fair-event-carousel-wrap{position:relative;}
     .fair-experience-card-panel{padding:32px; box-sizing:border-box; display:flex; flex-direction:column;}
-    @media (max-width: 940px) {
-      .fair-experience-panel { grid-template-columns: 1fr; }
-      .fair-event-carousel { height: auto; aspect-ratio: 4/5; }
-    }
+  
   </style>
 
   <div class="section-inner">
