@@ -1,5 +1,5 @@
 /* ==========================================================
-   Fair Pour Toi — script.js    FAIR POUR TOI  COPYRIGHT 2026.  ALL RIGHTS RESERVED 220726
+   Fair Pour Toi — script.js    FAIR POUR TOI  COPYRIGHT 2026.  ALL RIGHTS RESERVED 230726
    ========================================================== */
 
 try {
@@ -232,6 +232,7 @@ try {
         ? "Looks like you're already on the list!"
         : "Thank you for subscribing 🥂!";
       btn.textContent = 'Subscribed';
+      try { localStorage.setItem('fpt_popup_dismissed', 'true'); } catch (e) {}
       setTimeout(closePopup, 2000);
     }, () => {
       status.textContent = 'Something went wrong. Please try again.';
@@ -240,8 +241,17 @@ try {
     });
   }
 
-  function checkPopup() { document.getElementById('sale-popup').style.display = 'flex'; }
+  function checkPopup() {
+    let dismissed = false;
+    try { dismissed = localStorage.getItem('fpt_popup_dismissed') === 'true'; } catch (e) {}
+    if (dismissed) return;
+    document.getElementById('sale-popup').style.display = 'flex';
+  }
   function closePopup() { document.getElementById('sale-popup').style.display = 'none'; }
+  function dismissPopupForever() {
+    try { localStorage.setItem('fpt_popup_dismissed', 'true'); } catch (e) {}
+    closePopup();
+  }
 
   const fairEventCarouselWrap = document.querySelector('.fair-event-carousel-wrap');
   if (fairEventCarouselWrap) {
@@ -258,7 +268,7 @@ try {
 
   window.addEventListener('load', () => {
     aboutAutoTimer = setInterval(() => aboutGoTo((aboutCurrent + 1) % 2), 8000);
-    setTimeout(checkPopup, 10000);
+    setTimeout(checkPopup, 20000);
   });
 
 /* ===== FADE-IN OBSERVER ===== */
