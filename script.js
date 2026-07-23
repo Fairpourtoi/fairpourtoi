@@ -216,6 +216,30 @@ try {
     });
   }
 
+  function sendPopupSubscribeForm(event) {
+    event.preventDefault();
+    const status = document.getElementById('popup-subscribe-status');
+    const btn = document.getElementById('popup-subscribe-btn');
+    const emailField = document.getElementById('popup-subscribe-email');
+    const email = emailField.value;
+
+    btn.textContent = 'Subscribing...';
+    btn.disabled = true;
+
+    addToMailchimp(email, (alreadySubscribed) => {
+      emailField.value = '';
+      status.textContent = alreadySubscribed
+        ? "Looks like you're already on the list!"
+        : "Thank you for subscribing 🥂!";
+      btn.textContent = 'Subscribed';
+      setTimeout(closePopup, 2000);
+    }, () => {
+      status.textContent = 'Something went wrong. Please try again.';
+      btn.textContent = 'Subscribe';
+      setTimeout(() => { status.textContent = ''; btn.disabled = false; }, 6000);
+    });
+  }
+
   function checkPopup() { document.getElementById('sale-popup').style.display = 'flex'; }
   function closePopup() { document.getElementById('sale-popup').style.display = 'none'; }
 
