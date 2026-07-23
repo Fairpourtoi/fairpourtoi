@@ -26,7 +26,7 @@ input, textarea{-webkit-user-select:text;user-select:text;}
 img{display:block;max-width:100%;}
 .serif{font-family:'Cormorant Garamond',serif;font-weight:300;}
 #subscribe-email::placeholder{color:rgba(255,255,255,.65);}
-#popup-subscribe-email::placeholder{color:rgba(255,255,255,.75);}
+#popup-subscribe-email::placeholder{color:rgba(255,255,255,.85);}
 
 /* FADE IN */
 .fade-in-up {
