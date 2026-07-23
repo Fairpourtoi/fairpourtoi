@@ -407,9 +407,9 @@
     <button class="close-btn" onclick="closePopup()" aria-label="Close popup">&times;</button>
     <h2 class="serif">THANK YOU! <br>July's event was amazing.</h2>
     <p style="font-size:13px; letter-spacing:.05em; line-height:1.7; margin-top:10px;"><strong>Be the first to hear what's next.</strong></p><br>
-    <form id="popup-subscribe-form" onsubmit="sendPopupSubscribeForm(event)" style="display:flex; justify-content:center; gap:10px; max-width:340px; margin:0 auto 8px; flex-wrap:wrap;">
-      <input type="email" name="popup-subscribe-email" id="popup-subscribe-email" required placeholder="Your email address" style="flex:1; background:rgba(255,255,255,.12); border:.5px solid rgba(255,255,255,.4); padding:12px 16px; font-family:'Jost',sans-serif; font-size:13px; font-weight:300; color:white; outline:none; border-radius:4px;">
-      <button type="submit" id="popup-subscribe-btn" class="btn-blush" style="flex:1; min-width:0;">Subscribe</button>
+    <form id="popup-subscribe-form" onsubmit="sendPopupSubscribeForm(event)" style="display:flex; flex-direction:column; justify-content:center; gap:10px; max-width:340px; margin:0 auto 8px;">
+      <input type="email" name="popup-subscribe-email" id="popup-subscribe-email" required placeholder="Your email address" style="width:100%; background:rgba(255,255,255,.12); border:.5px solid rgba(255,255,255,.4); padding:12px 16px; font-family:'Jost',sans-serif; font-size:13px; font-weight:300; color:white; outline:none; border-radius:4px; box-sizing:border-box;">
+      <button type="submit" id="popup-subscribe-btn" class="btn-blush">Subscribe</button>
     </form>
     <div id="popup-subscribe-status" style="font-size:13px; color:white; opacity:.85; min-height:18px;"></div>
   </div>
