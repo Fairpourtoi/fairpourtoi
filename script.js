@@ -1,5 +1,5 @@
 /* ==========================================================
-   Fair Pour Toi — script.js    FAIR POUR TOI  COPYRIGHT 2026.  ALL RIGHTS RESERVED 230726
+   Fair Pour Toi — script.js    FAIR POUR TOI  COPYRIGHT 2026.  ALL RIGHTS RESERVED 220726.1
    ========================================================== */
 
 try {
