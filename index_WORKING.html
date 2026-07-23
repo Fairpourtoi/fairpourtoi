@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<!--
+   Fair Pour Toi — index.html    FAIR POUR TOI  COPYRIGHT 2026.  ALL RIGHTS RESERVED
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fair Pour Toi  |  Contemporary Sales & Events  |  Santa Monica</title>
+<meta name="description" content="Fair Pour Toi offers exclusive, private access to a curated collection of luxury designer pieces in Santa Monica. Experience unhurried, appointment-only sales.">
+<meta property="og:title" content="Fair Pour Toi | Exclusive Contemporary, Luxury and Designer Sales & Events">
+<meta property="og:description" content="Private, unhurried access to curated designer collections. Appointments available in Santa Monica.">
+<meta property="og:image" content="https://fairpourtoi.com/assets/img/og-preview.jpg">
+<meta property="og:url" content="https://fairpourtoi.com">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="preload" as="image" href="assets/img/hero-1.jpg" fetchpriority="high">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="#hero" aria-label="Fair Pour Toi — back to top">
+      <img src="assets/img/logo.png" alt="Fair pour toi" class="nav-logo" width="384" height="384" decoding="async">
+    </a>    
+    <div class="nav-links">
+      <a href="#shop">Shop</a>
+      <a href="#fair-experience">The Experience</a>
+      <a href="#events">Events</a>
+      <a href="#brand-partners">For Brands</a>
+      <a href="#contact">Contact</a>
+      <a href="#book">Book</a>
+      <span class="nav-divider">|</span>
+      <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" class="nav-ig">Follow on Instagram</a>
+    </div>
+    <button class="hamburger" aria-label="Open menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#shop" onclick="closeMenu()">Shop</a>
+    <a href="#fair-experience" onclick="closeMenu()">The Experience</a>
+    <a href="#about" onclick="closeMenu()">About</a>
+    <a href="#events" onclick="closeMenu()">Events</a>
+    <a href="#brand-partners" onclick="closeMenu()">For Brands</a>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
+    <a href="#subscribe" onclick="closeMenu()">Subscribe</a>
+    <div class="divider-line"></div>
+    <a href="#book" onclick="closeMenu()">Book</a>
+    <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener">Instagram &nearr;</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <video class="hero-video" autoplay muted loop playsinline poster="assets/img/hero-1.jpg" preload="auto">
+      <source src="assets/fair_hero.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="pill">Curated Contemporary Sales + Events  &middot;  Santa Monica </div>
+    <h1 class="serif">Luxury fashion,<br>made accessible.</h1>
+    <p class="serif" style="font-style:italic; font-weight:300; font-size:23px; letter-spacing:.01em; color:rgba(255,255,255,.9); line-height:1.5; max-width:440px; margin-bottom:18px;">No crowds. No compromises.<br>Just exceptional finds.</p>
+    <p style="font-size: 1.1em; line-height: 1.6; max-width:480px; margin-bottom:20px;"><strong>Private Sales &amp; Events</strong><br>Shop our exclusive edit of contemporary &amp; luxury clothing, handbags, shoes, and accessories.<br><span class="retail-line" style="display:block; text-align:right;">&mdash; All priced at a fraction of retail.</span></p>
+    <div class="btn-row">
+      <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" class="btn-blush">Follow @fair.pourtoi</a>
+      <a href="#brand-partners" class="btn-blush">Sell With Us</a>
+    </div>
+  </div>
+  <a href="#shop" class="scroll-cue scroll-cue-light" aria-label="Scroll to explore">
+    <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+  </a>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- SHOP -->
+<section id="shop" class="shop-section">
+  <div class="section-inner">
+    <div class="shop-coming-soon fade-in-up">
+      <div class="eyebrow">Shop the Edit</div>
+      <h2 class="serif" style="font-size:clamp(28px,4vw,42px); margin-bottom:14px;">Coming Soon.</h2>
+      <p style="font-size:14px; color:var(--espresso); opacity:.75; max-width:480px; margin:0 auto 28px; line-height:1.8;"><strong>We're building something considered, just for you.<br>A curated online shop to match the in-person experience.<br>Follow our Instagram for updates!</strong></p>
+      <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" class="btn-outline-dark">Follow @fair.pourtoi</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- FAIR EXPERIENCE + BRANDS -->  
+<section id="fair-experience" style="background:var(--warm); padding: 32px 0 48px 0; width: 100%; box-sizing: border-box; position: relative;">
+  <div class="section-inner">
+    <div class="fair-experience-panel fade-in-up">
+
+      <!-- LEFT/TOP: Fair Event photo carousel -->
+      <div class="fair-event-carousel-wrap">
+        <div class="fair-event-carousel">
+          <div class="fair-event-slide active" id="fair-event-0"></div>
+          <div class="fair-event-slide" id="fair-event-1"></div>
+          <div class="fair-event-slide" id="fair-event-2"></div>
+          <div class="fair-event-slide" id="fair-event-3"></div>
+          <div class="fair-event-slide" id="fair-event-4"></div>
+          <div class="fair-event-slide" id="fair-event-5"></div>
+          <div class="fair-event-slide" id="fair-event-6"></div>
+
+          <div style="position:absolute; top:18px; left:18px; z-index:4; color:white; font-size:11px; letter-spacing:.18em; text-transform:uppercase; text-shadow:0 1px 4px rgba(0,0,0,.5); pointer-events:none;">The Fair Experience</div>
+
+          <div style="position:absolute; bottom:0; left:0; right:0; height:58%; background:linear-gradient(to top, rgba(26,16,16,.85) 0%, rgba(26,16,16,.4) 55%, rgba(26,16,16,0) 100%); z-index:2; pointer-events:none;"></div>
+
+          <div style="position:absolute; bottom:32px; left:32px; right:32px; z-index:3; pointer-events:none;">
+            <div style="font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.7); margin-bottom:8px;">+ More Designers You&rsquo;ll Love</div>
+            <div style="font-size:12.5px; color:white; line-height:1.7;">Free People &middot; Alice + Olivia &middot; Indah &middot; Prada &middot; R&eacute;alisation Par &middot; Lululemon <span style="opacity:.7;">+ More</span></div>
+          </div>
+
+          <button class="fair-event-arrow prev" onclick="fairEventCarousel(-1)" aria-label="Previous image">
+            <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="fair-event-arrow next" onclick="fairEventCarousel(1)" aria-label="Next image">
+            <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- RIGHT/BOTTOM: A Fair Experience -->
+      <div class="fair-experience-card-panel">
+        <div class="eyebrow" style="margin-bottom:24px;">The Fair Experience</div>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:32px 24px;">
+          <div>
+            <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:12px"><path d="M9 2c0 4 1.5 6 3 6s3-2 3-6M9 2h6M12 8v11M8 19h8"/></svg>
+            <div style="font-size:0.85em; font-weight:400; margin-bottom:8px;">A VIP Experience</div>
+            <div style="font-size:14px; line-height:1.7; opacity:.75">Private, appointment-only, sip champagne and explore elevated looks at your own pace.</div>
+          </div>
+          <div>
+            <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:12px"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"/></svg>
+            <div style="font-size:0.85em; font-weight:400; margin-bottom:8px;">One-of-a-Kind Finds</div>
+            <div style="font-size:14px; line-height:1.7; opacity:.75">Every piece is a unique discovery, guaranteed exclusive with limited availability anywhere.</div>
+          </div>
+          <div>
+            <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:12px"><path d="M12 2l2.5 7.5H22l-6 4.5 2.5 7.5-6-4.5-6 4.5 2.5-7.5-6-4.5h7.5z"/></svg>
+            <div style="font-size:0.85em; font-weight:400; margin-bottom:8px;">Curated Designer Labels</div>
+            <div style="font-size:14px; line-height:1.7; opacity:.75">Reformation, Mirror Palais, Nana Jacqueline, Aritzia, Favorite Daughter, Christian Louboutin + More.</div>
+          </div>
+          <div>
+            <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:12px"><circle cx="9" cy="12" r="7"/><circle cx="15" cy="12" r="7"/></svg>
+            <div style="font-size:0.85em; font-weight:400; margin-bottom:8px;">Considered Pricing</div>
+            <div style="font-size:14px; line-height:1.7; opacity:.75">Thoughtful pricing that reflects each piece's quality and rarity &mdash; at a fraction of retail &amp; always <em>Fair!</em></div>
+          </div>
+        </div> 
+        <div class="button-row-stack" style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: auto; padding-top: 36px; width: 100%;">  
+          <a href="#book" style="display: flex !important; align-items: center !important; justify-content: center !important; flex: 1 1 180px; padding: 0 20px !important; min-height: 44px !important; margin: 0 !important; background: var(--warm) !important; color: var(--espresso) !important; border: 1px solid var(--warm) !important; text-decoration: none !important; border-radius: 4px !important; font-size: 14px !important; box-sizing: border-box !important; white-space: nowrap;">Join Us. Book Now!</a>     
+          <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" style="display: flex !important; align-items: center !important; justify-content: center !important; flex: 1 1 180px; padding: 0 20px !important; min-height: 44px !important; margin: 0 !important; background: var(--cream) !important; color: var(--espresso) !important; border: 1px solid var(--blush) !important; text-decoration: none !important; border-radius: 4px !important; font-size: 14px !important; box-sizing: border-box !important; white-space: nowrap;">Follow @fair.pourtoi</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <a href="#about" class="scroll-cue scroll-cue-dark" aria-label="Scroll to explore">
+    <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+  </a>
+</section>
+
+<div class="divider-line"></div>
+  
+<!-- ABOUT -->
+<section id="about" style="background:var(--espresso)">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-carousel fade-in-up" style="position:relative;overflow:hidden;border-radius:8px;cursor:pointer;">
+        <div class="carousel-track" id="about-track" style="display:flex;transition:transform 1.5s cubic-bezier(.4,0,.2,1);">
+          <div class="carousel-slide" style="min-width:100%;position:relative;">
+            <picture><source type="image/avif" srcset="assets/img/about-1.avif"><img src="assets/img/about-1.jpg" alt="How to pronounce Fair Pour Toi" width="958" height="1192" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/5;border-radius:8px;"></picture>
+            <div class="swipe-hint" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);line-height: 1;display:flex;align-items:center;gap:6px;background:rgba(0,0,0,.35);backdrop-filter:blur(4px);color:white;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:7px 16px;border-radius:20px;z-index:4;pointer-events:none;">
+              <svg viewBox="0 0 24 24" width="13" height="13" style="stroke:white; fill:none; stroke-width:1.5;"><path d="M13 4l4 4-4 4M17 8H7M11 20l-4-4 4-4M7 16h10"/></svg>
+              Swipe
+            </div>
+          </div>
+          <div class="carousel-slide" style="min-width:100%;position:relative;">
+            <picture><source type="image/avif" srcset="assets/img/about-2.avif"><img src="assets/img/about-2.jpg" alt="Fair Pour Toi — for you, by Grace Fairest" width="958" height="1192" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/5;border-radius:8px;"></picture>
+          </div>
+          <div class="carousel-slide" style="min-width:100%;position:relative;" aria-hidden="true">
+            <picture><source type="image/avif" srcset="assets/img/about-1.avif"><img src="assets/img/about-1.jpg" alt="" width="958" height="1192" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/5;border-radius:8px;"></picture>
+          </div>
+        </div>
+
+        <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:36px;z-index:5;">
+          <button onclick="aboutCarousel(-1)" aria-label="Previous image" style="background:none;border:none;cursor:pointer;padding:6px;">
+            <svg viewBox="0 0 24 24" width="44" height="44" style="stroke:white; fill:none; stroke-width:1.1; filter:drop-shadow(0 1px 4px rgba(0,0,0,.4));"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button onclick="aboutCarousel(1)" aria-label="Next image" style="background:none;border:none;cursor:pointer;padding:6px;">
+            <svg viewBox="0 0 24 24" width="44" height="44" style="stroke:white; fill:none; stroke-width:1.1; filter:drop-shadow(0 1px 4px rgba(0,0,0,.4));"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+        <div style="position:absolute;bottom:44px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:5;">
+          <button onclick="aboutGoTo(0)" class="about-dot about-dot-active" aria-label="Slide 1" style="width:28px;height:.5px;background:white;border:none;cursor:pointer;padding:0;transition:opacity .3s"></button>
+          <button onclick="aboutGoTo(1)" class="about-dot" aria-label="Slide 2" style="width:28px;height:.5px;background:rgba(255,255,255,.4);border:none;cursor:pointer;padding:0;transition:opacity .3s"></button>
+        </div>
+      </div>
+
+      <div class="about-copy fade-in-up" style="color:var(--cream);">
+        <div class="eyebrow">About</div>
+        <h2 class="serif"><span style="color:var(--blush);">Fair Pour Toi</span><br><em style="font-style:italic;font-size:.85em;opacity:.8">/fair &middot; pour &middot; twa/</em></h2>
+        <p style="margin-bottom:12px">It means Fair <em>&lsquo;for you&rsquo;</em> in French &mdash; and that&rsquo;s exactly the point.</p>
+        <p style="margin-bottom:24px">Fair Pour Toi brings private, appointment only sample &amp; resale events to Santa Monica. <br>Offering a variety of contemporary and luxury pieces where you can shop at your own pace, curated just for you.</p>
+        <h3 class="serif" style="font-size:1.2em; margin-bottom:12px;">Our Mission</h3>
+        <p style="margin-bottom:24px">
+          We built Fair Pour Toi around a simple idea: provide a luxury shopping experience that feels considered, not chaotic. Away from the noise of warehouse sales and traditional retail, we connect sellers directly with people who care about quality. <br><br>
+          Every piece is hand-selected for its craftsmanship and lasting style, then offered in an exclusive, focused edit that honors both the garment and the person who wears it next.
+        </p>
+        <img src="assets/img/fair-seal.png" alt="Fair Pour Toi wax seal" width="90" height="69" style="width:90px; height:auto; margin-top:4px;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- EVENTS -->
+<section id="events" style="background: var(--cream);">
+  <div class="section-inner">
+    <div class="fade-in-up">
+      <div class="eyebrow">Upcoming events</div>
+      <h2 class="serif" style="font-size: clamp(28px, 3.5vw, 42px); line-height: 1.2; margin-bottom: 20px;">
+        <strong>Join Us This Fall</strong>
+        <br>
+        <span style="font-size: 0.6em; display: block; margin-top: 10px; font-weight: normal; line-height: 1.3;">
+          Experience the collection before it closes.
+        </span>
+      </h2>
+      <div style="margin-bottom: 30px; font-size: 0.9em; color: #666;">
+        *Limited appointments available.
+      </div>
+    </div>
+    <div class="events-grid">
+      <div class="event-card fade-in-up">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div class="eyebrow" style="margin-bottom:0">Weekend One</div>
+        </div>
+        <div class="date serif" style="opacity:.5">Fall: &ndash; Date, TBD</div>
+        <div class="loc" style="opacity:.5">Santa Monica, CA</div>
+        <span class="btn-espresso" style="font-size: 10px; padding: 9px 20px; opacity:.4; cursor:default; pointer-events:none;">Reserve Your Spot</span>
+      </div>
+      <div class="event-card fade-in-up">
+        <div class="eyebrow">Weekend Two</div>
+        <div class="date serif" style="opacity:.5">Fall: &ndash; Date, TBD</div>
+        <div class="loc" style="opacity:.5">Santa Monica, CA</div>
+        <a href="#book" class="btn-espresso" style="font-size: 10px; padding: 9px 20px; opacity:.4; cursor:default; pointer-events:none;">Reserve Before It's Gone</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- BRAND PARTNERS -->
+<section id="brand-partners" style="background:var(--warm)">
+  <div class="section-inner" style="max-width:950px">
+    <div class="fade-in-up" style="text-align:center; margin-bottom:40px;">
+      <div class="eyebrow">For Designers &amp; Brands</div>
+      <h2 class="serif" style="font-size:clamp(28px,4vw,42px); line-height:1.2; margin-bottom:16px;">A Considered Home</h2>
+      <p style="font-size:14px; color:var(--espresso); opacity:.75; max-width:520px; margin:0 auto; line-height:1.85;">We partner with designers and brands to move sample, clearance, and end-of-season inventory: discreetly, thoughtfully, and with an unwavering focus on your brand integrity.</p>
+    </div>
+    <div class="brand-partners-grid">
+      <div class="brand-partner-card fade-in-up">
+        <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:10px"><path d="M12 2l7 4v6c0 5-3 8-7 10-4-2-7-5-7-10V6l7-4z"/></svg>
+        <div style="font-size:0.9em; font-weight:400; margin-bottom:6px;">Brand Integrity, Protected</div>
+        <div style="font-size:14px; line-height:1.6; opacity:.75">No public markdown racks or discount signage. Your pieces are presented with the same care as our curated sales &mdash; never positioned as overstock.</div>
+      </div>
+      <div class="brand-partner-card fade-in-up">
+        <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:10px"><path d="M4 21V9l8-6 8 6v12M9 21v-6h6v6"/></svg>
+        <div style="font-size:0.9em; font-weight:400; margin-bottom:6px;">A True Boutique Setting</div>
+        <div style="font-size:14px; line-height:1.6; opacity:.75">Private, appointment-only events in Santa Monica, not a warehouse liquidation. Shoppers experience your pieces the way they were meant to be seen.</div>
+      </div>
+      <div class="brand-partner-card fade-in-up">
+        <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:10px"><path d="M12 12c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4zM4 20c0-3.3 3.6-6 8-6s8 2.7 8 6"/></svg>
+        <div style="font-size:0.9em; font-weight:400; margin-bottom:6px;">A Personal Experience</div>
+        <div style="font-size:14px; line-height:1.6; opacity:.75">Every guest is guided through the collection one-on-one while sipping champagne, trying pieces on and hearing the story behind them.</div>
+      </div>
+      <div class="brand-partner-card fade-in-up">
+        <svg viewBox="0 0 24 24" width="20" height="20" style="stroke:var(--taupe); fill:none; stroke-width:1.5; margin-bottom:10px"><path d="M3 12h18M12 3c2.5 2.5 4 5.7 4 9s-1.5 6.5-4 9c-2.5-2.5-4-5.7-4-9s1.5-6.5 4-9z"/></svg>
+        <div style="font-size:0.9em; font-weight:400; margin-bottom:6px;">Reach Beyond the Room</div>
+        <div style="font-size:14px; line-height:1.6; opacity:.75">Pieces that don't sell in person continue their story online at shop.fairpourtoi.com thereby extending your reach without ever feeling like a clearance bin.</div>
+      </div>
+    </div>
+    <div style="text-align:center">
+      <a href="#contact" onclick="document.getElementById('cf-subject').value='Brand Partnership Inquiry'" class="btn-outline-dark">Inquire About Partnering</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- CONTACT -->
+<section id="contact" style="background:var(--cream)">
+  <div class="section-inner fade-in-up" style="max-width:680px">
+    <div class="eyebrow" style="text-align:center">Contact</div>
+    <h2 class="serif" style="text-align:center;font-size:clamp(28px,4vw,42px);margin-bottom:14px">Get in touch.</h2>
+    <p style="text-align:center;font-size:14px;line-height:1.8;opacity:.75;max-width:420px;margin:0 auto 40px">For brand inquiries, press, or general questions.<br>We&rsquo;d love to hear from you.</p>
+    <form id="contact-form" onsubmit="sendContactForm(event)" style="display:flex;flex-direction:column;gap:16px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div>
+          <label class="eyebrow" for="cf-name" style="display:block;margin-bottom:6px">Name</label>
+          <input type="text" name="name" id="cf-name" required placeholder="Your name" style="width:100%;background:var(--sand);border:.5px solid var(--blush);padding:11px 14px;font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:var(--espresso);outline:none">
+        </div>
+        <div>
+          <label class="eyebrow" for="cf-email" style="display:block;margin-bottom:6px">Email</label>
+          <input type="email" name="email" id="cf-email" required placeholder="your@email.com" style="width:100%;background:var(--sand);border:.5px solid var(--blush);padding:11px 14px;font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:var(--espresso);outline:none">
+        </div>
+      </div>
+      <div>
+        <label class="eyebrow" for="cf-subject" style="display:block;margin-bottom:6px">Subject</label>
+        <input type="text" name="subject" id="cf-subject" placeholder="Brand inquiry / General question" style="width:100%;background:var(--sand);border:.5px solid var(--blush);padding:11px 14px;font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:var(--espresso);outline:none">
+      </div>
+      <div>
+        <label class="eyebrow" for="cf-message" style="display:block;margin-bottom:6px">Message</label>
+        <textarea name="message" id="cf-message" required placeholder="Tell us more..." rows="5" style="width:100%;background:var(--sand);border:.5px solid var(--blush);padding:11px 14px;font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:var(--espresso);outline:none;resize:vertical"></textarea>
+      </div>
+      <div style="margin-top: 8px;">
+        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-family: 'Jost', sans-serif; font-size: 13px; color: var(--espresso);">
+          <input type="checkbox" name="subscribe" value="yes" style="accent-color: var(--blush); width: 16px; height: 16px;">
+          Keep me updated with Fair Pour Toi news & events.
+        </label>
+      </div>
+      <button type="submit" id="submit-btn" class="btn-espresso" style="width:100%;text-align:center;margin-top:4px">Send message</button>
+      <div id="form-status" style="text-align:center; font-size:14px; color:var(--espresso); margin-top:15px; font-weight:400;"></div> 
+    </form>
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- BOOK -->
+<section id="book" class="book-bg">
+  <div class="section-inner">
+    <div class="book-grid">
+      <div class="book-left fade-in-up">
+        <div class="eyebrow">Reserve your spot</div>
+        <h2 class="serif">Coming this fall.</h2>
+        <p>Appointments are private with unhurried access.<br>Select a date and time and we&rsquo;ll confirm the details via email.</p>
+        <div class="book-detail">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <span> 
+            <a href="https://maps.apple.com/?address=2929+Pennsylvania+Ave,+Santa+Monica,+CA" target="_blank" rel="noopener noreferrer" class="studio-address">
+              2929 Pennsylvania Ave.<br>
+              Santa Monica, CA 90404</a>
+          </span>
+        </div>
+        <div class="book-detail">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span>Fall: Dates TBD</span>
+        </div>
+        <div style="margin-top:32px;padding-top:24px;border-top:.5px solid var(--blush)">
+          <div class="eyebrow" style="margin-bottom:8px">Questions?</div>
+          <div class="btn-row">
+            <a href="#contact" class="btn-outline-dark">Send us a message</a>
+            <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" class="btn-outline-dark">Follow @fair.pourtoi</a>
+          </div>
+        </div>
+      </div>
+      <div class="calendly-wrap fade-in-up" style="height: 950px;">
+        <div class="calendly-inline-widget"
+             data-url="https://calendly.com/fairpourtoi/20min?hide_gdpr_banner=1&primary_color=E6Ccc8&text_color=342828&background_color=faf8f6"
+             style="min-width:280px; width:100%; height:100%;">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- IG CTA -->
+<section class="ig-bg" id="subscribe">
+  <div class="ig-inner fade-in-up">
+    <h2 class="serif">Stay in the know.</h2>
+    <p>All updates, new brands, and sale announcements drop first to subscribers and our followers on Instagram.</p>
+    <form id="subscribe-form" onsubmit="sendSubscribeForm(event)" style="display:flex; justify-content:center; gap:10px; max-width:420px; margin:0 auto 8px; flex-wrap:wrap;">
+      <input type="email" name="subscribe-email" id="subscribe-email" required placeholder="Your email address" style="flex:1 1 220px; background:rgba(255,255,255,.08); border:.5px solid rgba(255,255,255,.3); padding:13px 16px; font-family:'Jost',sans-serif; font-size:13px; font-weight:300; color:white; outline:none; border-radius:4px;">
+      <button type="submit" id="subscribe-btn" class="btn-blush" style="flex:0 0 auto;">Subscribe</button>
+    </form>
+    <div id="subscribe-status" style="font-size:13px; color:var(--taupe); min-height:18px;"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <img src="assets/img/logo.png" alt="Fair pour toi" class="footer-logo" width="384" height="384" loading="lazy" decoding="async">
+    <span class="footer-copy">&copy; 2026 Fair Pour Toi &middot; Santa Monica, CA</span>
+    <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" class="footer-ig">Instagram &nearr;</a>
+  </div>
+</footer>
+
+<!-- SALE POPUP -->
+<div class="popup-overlay" id="sale-popup" style="display:none;">
+  <div class="popup-content">
+    <button class="close-btn" onclick="closePopup()" aria-label="Close popup">&times;</button>
+    <h2 class="serif">THANK YOU! <br>July's event was amazing.</h2>
+    <p style="font-size:13px; letter-spacing:.05em; line-height:1.7; margin-top:10px;"><strong>Connect on IG for what's next.</strong></p><br>
+    <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" class="btn-blush">Follow @fair.pourtoi</a>
+  </div>
+</div>
+
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script src="script.js"></script>
+
+
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"2bc9f671d14d421db9c3708f4e1c44c7","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+
+</body>
+</html>
