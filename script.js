@@ -1,5 +1,5 @@
 /* ==========================================================
-   Fair Pour Toi — script.js    FAIR POUR TOI  COPYRIGHT 2026.  ALL RIGHTS RESERVED 220726.1
+   Fair Pour Toi — script.js    FAIR POUR TOI  COPYRIGHT 2026.  ALL RIGHTS RESERVED 230726.1
    ========================================================== */
 
 try {
@@ -242,6 +242,11 @@ try {
   }
 
   function checkPopup() {
+    const forceTest = new URLSearchParams(window.location.search).get('testpopup') === '1';
+    if (forceTest) {
+      document.getElementById('sale-popup').style.display = 'flex';
+      return;
+    }
     let dismissed = false;
     try { dismissed = localStorage.getItem('fpt_popup_dismissed') === 'true'; } catch (e) {}
     if (dismissed) return;
@@ -268,7 +273,8 @@ try {
 
   window.addEventListener('load', () => {
     aboutAutoTimer = setInterval(() => aboutGoTo((aboutCurrent + 1) % 2), 8000);
-    setTimeout(checkPopup, 20000);
+    const forceTest = new URLSearchParams(window.location.search).get('testpopup') === '1';
+    setTimeout(checkPopup, forceTest ? 500 : 20000);
   });
 
 /* ===== FADE-IN OBSERVER ===== */
