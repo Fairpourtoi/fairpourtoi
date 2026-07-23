@@ -18,7 +18,7 @@
   scroll-margin-top: 140px;
 }
 #about {
-  scroll-margin-top: 100px;
+  scroll-margin-top: 110px;
 }
 html{scroll-behavior:smooth;}
 body{font-family:'Jost',sans-serif;font-weight:300;color:var(--espresso);background:var(--cream);-webkit-font-smoothing:antialiased;-webkit-user-select:none;user-select:none;}
