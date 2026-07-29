@@ -241,6 +241,37 @@ try {
     });
   }
 
+  // [ADDED] Inline Shop the Edit card subscribe — reuses the same
+  // addToMailchimp() function already used everywhere else on the page.
+  function toggleShopSubscribe() {
+    document.getElementById('shop-subscribe-toggle').style.display = 'none';
+    document.getElementById('shop-subscribe-form').style.display = 'flex';
+    document.getElementById('shop-subscribe-email').focus();
+  }
+
+  function sendShopSubscribeForm(event) {
+    event.preventDefault();
+    const status = document.getElementById('shop-subscribe-status');
+    const btn = document.getElementById('shop-subscribe-submit-btn');
+    const emailField = document.getElementById('shop-subscribe-email');
+    const email = emailField.value;
+
+    btn.textContent = 'Subscribing...';
+    btn.disabled = true;
+
+    addToMailchimp(email, (alreadySubscribed) => {
+      emailField.value = '';
+      status.textContent = alreadySubscribed
+        ? "Looks like you're already on the list!"
+        : 'Thank you for subscribing 🥂!';
+      btn.textContent = 'Subscribed';
+    }, () => {
+      status.textContent = 'Something went wrong. Please try again.';
+      btn.textContent = 'Subscribe';
+      btn.disabled = false;
+    });
+  }
+
   function checkPopup() {
     const forceTest = new URLSearchParams(window.location.search).get('testpopup') === '1';
     if (forceTest) {
