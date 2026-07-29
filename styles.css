@@ -1,5 +1,5 @@
 /* ==========================================================
-   Fair Pour Toi — styles.css    FAIR POUR TOI  COPYRIGHT 2026.  ALL RIGHTS RESERVED. 230726
+   Fair Pour Toi — styles.css    FAIR POUR TOI  COPYRIGHT 2026.  ALL RIGHTS RESERVED. 290726
    ========================================================== */
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -11,7 +11,7 @@
   --taupe:#C9B8B0;
   --espresso:#342828;
 }
-#shop, #fair-experience, #about, #events, #brand-partners, #contact, #book, #subscribe {
+#fair-experience, #about, #events, #brand-partners, #contact, #book, #subscribe {
   scroll-margin-top: 110px; 
 }
 #fair-experience {
@@ -39,6 +39,7 @@ img{display:block;max-width:100%;}
   transform: translateY(0);
 }
 .event-card:nth-child(2) { transition-delay: 0.4s; }
+.event-card:nth-child(3) { transition-delay: 0.6s; }
 .brand-partner-card:nth-child(2) { transition-delay: 0.4s; }
 
 /* NAV */
@@ -157,7 +158,7 @@ nav.scrolled .hamburger span{background:var(--espresso);}
 .section-inner{max-width:1100px;margin:0 auto;padding:80px 28px;}
 
 /* EVENTS */
-.events-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px;}
+.events-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:16px;margin-top:32px;}
 .event-card{background:var(--sand);border:.5px solid var(--blush);padding:32px 28px;border-radius:8px;}
 .event-card .date{font-size:32px;margin:6px 0;}
 .event-card .loc{font-size:11px;color:var(--taupe);letter-spacing:.1em;margin-bottom:24px;}
@@ -166,10 +167,6 @@ nav.scrolled .hamburger span{background:var(--espresso);}
 .about-grid{display:grid;grid-template-columns:0.819fr 1.181fr;gap:48px;align-items:center;}
 .about-copy h2{font-size:clamp(28px,4vw,42px);line-height:1.2;margin-bottom:20px;}
 .about-copy p{font-size:14px;line-height:1.95;opacity:.85;margin-bottom:28px;}
-
-/* SHOP SECTION */
-.shop-section{background:var(--sand);}
-.shop-coming-soon{text-align:center;padding:40px 20px;}
 
 /* FAIR EXPERIENCE */
 .fair-event-carousel { 
