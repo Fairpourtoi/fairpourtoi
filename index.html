@@ -294,16 +294,29 @@
 
     <div class="event-card fade-in-up" id="events-subscribe-card" style="margin-top:16px; padding:24px 28px; display:grid; grid-template-columns: 1.3fr 1fr auto; gap:24px; align-items:center;">
       <div>
-        <div class="eyebrow" style="margin-bottom:6px;">Subscribe to receive updates:</div>
-        <ul style="list-style:none; padding:0; margin:0; font-size:12.5px; color:var(--espresso); opacity:.75; line-height:1.6;">
-          <li>Online shopping</li>
-          <li>New brands</li>
-          <li>Private event dates &amp; announcements</li>
-        </ul>
+        <div class="eyebrow" style="margin-bottom:10px;">Subscribe to receive updates:</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px 16px;">
+          <div style="display:flex; align-items:center; gap:6px;">
+            <svg viewBox="0 0 24 24" width="14" height="14" style="stroke:var(--taupe); fill:none; stroke-width:1.5; flex-shrink:0;"><path d="M6 2l1.5 6M18 2l-1.5 6M3 8h18l-1.5 11a2 2 0 0 1-2 1.7H6.5a2 2 0 0 1-2-1.7L3 8z"/></svg>
+            <span style="font-size:12.5px; color:var(--espresso); opacity:.8;">Online shopping</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:6px;">
+            <svg viewBox="0 0 24 24" width="14" height="14" style="stroke:var(--taupe); fill:none; stroke-width:1.5; flex-shrink:0;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <span style="font-size:12.5px; color:var(--espresso); opacity:.8;">Private event dates</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:6px;">
+            <svg viewBox="0 0 24 24" width="14" height="14" style="stroke:var(--taupe); fill:none; stroke-width:1.5; flex-shrink:0;"><path d="M12 2l2.5 7.5H22l-6 4.5 2.5 7.5-6-4.5-6 4.5 2.5-7.5-6-4.5h7.5z"/></svg>
+            <span style="font-size:12.5px; color:var(--espresso); opacity:.8;">New brands</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:6px;">
+            <svg viewBox="0 0 24 24" width="14" height="14" style="stroke:var(--taupe); fill:none; stroke-width:1.5; flex-shrink:0;"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"/></svg>
+            <span style="font-size:12.5px; color:var(--espresso); opacity:.8;">Announcements</span>
+          </div>
+        </div>
       </div>
       <form id="events-subscribe-form" onsubmit="sendEventsSubscribeForm(event)" style="display:contents;">
         <input type="email" name="events-subscribe-email" id="events-subscribe-email" required placeholder="Your email address" style="width:100%; height:44px; background:var(--cream); border:.5px solid var(--blush); padding:0 16px; font-family:'Jost',sans-serif; font-size:13px; font-weight:300; color:var(--espresso); outline:none; border-radius:4px; box-sizing:border-box;">
-        <button type="submit" id="events-subscribe-btn" class="btn-espresso" style="width:auto; padding:0 28px !important; white-space:nowrap; margin:0 !important;">Subscribe</button>
+        <button type="submit" id="events-subscribe-btn" class="btn-espresso" style="width:auto; white-space:nowrap; margin:0 !important;">Subscribe</button>
       </form>
       <div id="events-subscribe-status" style="grid-column:1 / -1; font-size:13px; color:var(--espresso); opacity:.75;"></div>
     </div>
