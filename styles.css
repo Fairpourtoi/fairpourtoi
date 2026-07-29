@@ -1,5 +1,5 @@
 /* ==========================================================
-   Fair Pour Toi — styles.css    FAIR POUR TOI  COPYRIGHT 2026.  ALL RIGHTS RESERVED. 290726
+   Fair Pour Toi — styles.css    FAIR POUR TOI  COPYRIGHT 2026.  ALL RIGHTS RESERVED. 230726
    ========================================================== */
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -337,4 +337,29 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
 }
 @media(max-width:600px){
   .shop-featured-grid{grid-template-columns:1fr;}
+}
+
+/* NAV — "For You" crossfades to "Pour Toi" on hover, playing on the
+   brand's own bilingual wordplay */
+.nav-swap {
+  position: relative;
+  display: inline-block;
+  min-width: 52px;
+}
+.nav-swap-default,
+.nav-swap-hover {
+  transition: opacity 0.3s ease;
+}
+.nav-swap-hover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  white-space: nowrap;
+}
+.nav-swap:hover .nav-swap-default {
+  opacity: 0;
+}
+.nav-swap:hover .nav-swap-hover {
+  opacity: 1;
 }
