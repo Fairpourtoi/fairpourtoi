@@ -1,5 +1,5 @@
 /* ==========================================================
-   Fair Pour Toi — styles.css    FAIR POUR TOI  COPYRIGHT 2026.  ALL RIGHTS RESERVED. 290726
+   Fair Pour Toi — styles.css    FAIR POUR TOI  COPYRIGHT 2026.  ALL RIGHTS RESERVED. 230726
    ========================================================== */
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -159,9 +159,10 @@ nav.scrolled .hamburger span{background:var(--espresso);}
 
 /* EVENTS */
 .events-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:16px;margin-top:32px;}
-.event-card{background:var(--sand);border:.5px solid var(--blush);padding:32px 28px;border-radius:8px;}
+.event-card{background:var(--cream);border:.5px solid var(--blush);padding:32px 28px;border-radius:8px;display:flex;flex-direction:column;}
 .event-card .date{font-size:32px;margin:6px 0;}
 .event-card .loc{font-size:11px;color:var(--taupe);letter-spacing:.1em;margin-bottom:24px;}
+.event-card .btn-espresso{margin-top:auto;flex:0 0 auto !important;}
 
 /* ABOUT */
 .about-grid{display:grid;grid-template-columns:0.819fr 1.181fr;gap:48px;align-items:center;}
