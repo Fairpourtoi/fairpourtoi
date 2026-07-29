@@ -1,5 +1,5 @@
 /* ==========================================================
-   Fair Pour Toi — styles.css    FAIR POUR TOI  COPYRIGHT 2026.  ALL RIGHTS RESERVED. 230726
+   Fair Pour Toi — styles.css    FAIR POUR TOI  COPYRIGHT 2026.  ALL RIGHTS RESERVED. 290726
    ========================================================== */
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -269,9 +269,8 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
   .retail-line{text-align:left !important;}
   .section-inner{padding:60px 20px;}
   .events-grid{grid-template-columns:1fr;}
-  #events-subscribe-card{grid-template-columns:1fr !important; text-align:left;}
-  #events-subscribe-card .subscribe-icon-grid{grid-auto-flow:row !important; grid-template-columns:1fr 1fr !important;}
-  #events-subscribe-btn{width:100% !important;}
+  #events-subscribe-card{grid-template-columns:1fr !important;}
+  .subscribe-icon-grid{grid-auto-flow:row !important; grid-template-columns:1fr 1fr !important;}
   .book-grid{grid-template-columns:1fr;gap:32px;}
   .btn-light,.btn-outline-dark,.btn-blush,.btn-espresso {display: block; width: calc(100% - 0px);margin: 0 auto;text-align: center;box-sizing: border-box;}
   .footer-inner { flex-direction: column; align-items: center; text-align: center; gap: 10px; padding: 30px 20px 20px 20px; }
