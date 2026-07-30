@@ -363,3 +363,12 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
 .nav-swap:hover .nav-swap-hover {
   opacity: 1;
 }
+
+/* Mobile menu: same For You / Pour Toi crossfade, but auto-cycling
+   (JS-toggled class) since touch devices have no hover state */
+.nav-swap.cycle-active .nav-swap-default {
+  opacity: 0;
+}
+.nav-swap.cycle-active .nav-swap-hover {
+  opacity: 1;
+}
