@@ -344,16 +344,20 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
 .nav-swap {
   position: relative;
   display: inline-block;
-  min-width: 52px;
+  min-width: 68px;
   font-size: inherit;
   letter-spacing: inherit;
   text-transform: inherit;
   font-family: inherit;
   color: inherit;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 .nav-swap-default,
 .nav-swap-hover {
   transition: opacity 0.3s ease;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 .nav-swap-hover {
   position: absolute;
