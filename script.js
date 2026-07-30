@@ -18,16 +18,11 @@ try {
     document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 60);
   });
 
-  var mobileNavSwapInterval;
   function startMobileNavSwapCycle() {
     var el = document.querySelector('.mobile-nav-swap');
-    if (!el) return;
-    mobileNavSwapInterval = setInterval(function () {
-      el.classList.toggle('cycle-active');
-    }, 1500);
+    if (el) el.classList.add('cycle-active');
   }
   function stopMobileNavSwapCycle() {
-    clearInterval(mobileNavSwapInterval);
     var el = document.querySelector('.mobile-nav-swap');
     if (el) el.classList.remove('cycle-active');
   }
