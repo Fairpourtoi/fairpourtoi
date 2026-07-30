@@ -89,6 +89,10 @@ nav.scrolled .nav-divider{color:var(--blush);}
 .hamburger span{display:block;width:22px;height:.5px;background:white;transition:background .4s;}
 nav.scrolled .hamburger span{background:var(--espresso);}
 .mobile-menu{display:none;flex-direction:column;background:var(--cream);border-top:.5px solid var(--blush);max-height:80vh;overflow-y:auto;-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+.mobile-menu,
+.mobile-menu * {
+  font-size: 11px !important;
+}
 .mobile-menu a{padding:14px 28px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--espresso);text-decoration:none;border-bottom:.5px solid var(--blush);transition:background .15s ease;-webkit-text-size-adjust:100%;text-size-adjust:100%;}
 .mobile-menu a:active{background:var(--blush);}
 .mobile-menu.open{display:flex;}
