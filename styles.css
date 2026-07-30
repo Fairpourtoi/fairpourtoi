@@ -1,5 +1,5 @@
 /* ==========================================================
-   Fair Pour Toi — styles.css    FAIR POUR TOI  COPYRIGHT 2026.  ALL RIGHTS RESERVED. 290726
+   Fair Pour Toi — styles.css    FAIR POUR TOI  COPYRIGHT 2026.  ALL RIGHTS RESERVED. 230726
    ========================================================== */
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -379,11 +379,19 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
   50%, 87.93% { opacity: 1; }
   100% { opacity: 0; }
 }
-.nav-swap-trigger:hover .nav-swap-default,
+/* Desktop: fast, snappy crossfade — hover is an active gesture, people
+   expect near-instant feedback, not a multi-second wait */
+.nav-swap-trigger:hover .nav-swap-default {
+  opacity: 0;
+}
+.nav-swap-trigger:hover .nav-swap-hover {
+  opacity: 1;
+}
+/* Mobile: slow timed cycle — ambient/decorative while the menu sits
+   open, not a direct response to an action, so a leisurely pace fits */
 .nav-swap.cycle-active .nav-swap-default {
   animation: navSwapDefaultCycle 5.8s ease-in-out infinite;
 }
-.nav-swap-trigger:hover .nav-swap-hover,
 .nav-swap.cycle-active .nav-swap-hover {
   animation: navSwapHoverCycle 5.8s ease-in-out infinite;
 }
