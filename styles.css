@@ -357,10 +357,10 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
   opacity: 0;
   white-space: nowrap;
 }
-.nav-swap:hover .nav-swap-default {
+.nav-swap-trigger:hover .nav-swap-default {
   opacity: 0;
 }
-.nav-swap:hover .nav-swap-hover {
+.nav-swap-trigger:hover .nav-swap-hover {
   opacity: 1;
 }
 
