@@ -342,8 +342,7 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
 /* NAV — "For You" crossfades to "Pour Toi" on hover, playing on the
    brand's own bilingual wordplay */
 .nav-swap {
-  position: relative;
-  display: inline-block;
+  display: inline-grid;
   min-width: 68px;
   font-size: inherit;
   letter-spacing: inherit;
@@ -355,16 +354,14 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
 }
 .nav-swap-default,
 .nav-swap-hover {
+  grid-area: 1 / 1;
   transition: opacity 0.3s ease;
+  white-space: nowrap;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
 .nav-swap-hover {
-  position: absolute;
-  left: 0;
-  top: 0;
   opacity: 0;
-  white-space: nowrap;
 }
 
 /* Timed cycle: 2.2s held, 700ms fade — same sequence for both desktop
