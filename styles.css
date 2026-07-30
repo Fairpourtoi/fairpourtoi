@@ -345,6 +345,11 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
   position: relative;
   display: inline-block;
   min-width: 52px;
+  font-size: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  font-family: inherit;
+  color: inherit;
 }
 .nav-swap-default,
 .nav-swap-hover {
@@ -357,18 +362,28 @@ footer { background: var(--cream); border-top: .5px solid var(--blush); will-cha
   opacity: 0;
   white-space: nowrap;
 }
-.nav-swap-trigger:hover .nav-swap-default {
-  opacity: 0;
-}
-.nav-swap-trigger:hover .nav-swap-hover {
-  opacity: 1;
-}
 
-/* Mobile menu: same For You / Pour Toi crossfade, but auto-cycling
-   (JS-toggled class) since touch devices have no hover state */
-.nav-swap.cycle-active .nav-swap-default {
-  opacity: 0;
+/* Timed cycle: 2.2s held, 700ms fade — same sequence for both desktop
+   hover and mobile auto-cycle. Total loop = 5.8s.
+   0%      -> 37.93% (2.2s): FOR YOU held visible
+   37.93%  -> 50%    (0.7s): fade transition
+   50%     -> 87.93% (2.2s): POUR TOI held visible
+   87.93%  -> 100%   (0.7s): fade transition back */
+@keyframes navSwapDefaultCycle {
+  0%, 37.93% { opacity: 1; }
+  50%, 87.93% { opacity: 0; }
+  100% { opacity: 1; }
 }
+@keyframes navSwapHoverCycle {
+  0%, 37.93% { opacity: 0; }
+  50%, 87.93% { opacity: 1; }
+  100% { opacity: 0; }
+}
+.nav-swap-trigger:hover .nav-swap-default,
+.nav-swap.cycle-active .nav-swap-default {
+  animation: navSwapDefaultCycle 5.8s ease-in-out infinite;
+}
+.nav-swap-trigger:hover .nav-swap-hover,
 .nav-swap.cycle-active .nav-swap-hover {
-  opacity: 1;
+  animation: navSwapHoverCycle 5.8s ease-in-out infinite;
 }
