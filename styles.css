@@ -1,6 +1,6 @@
 /* ==========================================================
    Fair Pour Toi — styles.css    FAIR POUR TOI  COPYRIGHT 2026.  ALL RIGHTS RESERVED. 230726
-   Last updated: 2026-07-30 — mobile menu now fades/slides in instead of instant display toggle
+   Last updated: 2026-08-08 — added hamburger-to-X transform for the mobile menu toggle (see .hamburger.open span rules below)
    ========================================================== */
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -87,8 +87,31 @@ nav.scrolled .nav-cta {
 nav.scrolled .nav-divider{color:var(--blush);}
 .nav-ig{font-weight:600;}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
-.hamburger span{display:block;width:22px;height:.5px;background:white;transition:background .4s;}
+.hamburger span{display:block;width:22px;height:.5px;background:white;transition:background .4s, transform .3s ease, opacity .2s ease;}
 nav.scrolled .hamburger span{background:var(--espresso);}
+/* [ADDED 2026-08-08] Real cause of the missing "X": toggleMenu() only
+   ever toggled the "open" class on #mobile-menu itself — the
+   .hamburger button never received any state class at all (fixed in
+   script.js, which now also toggles "open" on this button directly).
+   Standard 3-line-to-X animation: top line rotates 45deg and shifts
+   down to the center, middle line fades out, bottom line rotates
+   -45deg and shifts up to the center, meeting to form an X. Uses
+   transform instead of nth-child positioning tricks, so it works
+   regardless of the exact gap/height values above. */
+.hamburger.open span:nth-child(1) {
+  transform: translateY(5.5px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-5.5px) rotate(-45deg);
+}
+/* Since the X is formed by the lines themselves (not a color swap),
+   this covers both the not-scrolled (white) and scrolled (espresso)
+   states automatically — whatever color the lines already are is what
+   the X renders in, matching the existing behavior with zero extra
+   rules needed. */
 .mobile-menu{position:absolute;top:100%;left:0;right:0;display:flex;flex-direction:column;background:var(--cream);border-top:.5px solid var(--blush);max-height:80vh;overflow-y:auto;-webkit-text-size-adjust:100%;text-size-adjust:100%;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .3s ease,transform .3s ease,visibility 0s linear .3s;pointer-events:none;}
 .mobile-menu,
 .mobile-menu * {
