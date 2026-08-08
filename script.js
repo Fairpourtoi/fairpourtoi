@@ -1,5 +1,6 @@
 /* ==========================================================
    Fair Pour Toi — script.js    FAIR POUR TOI  COPYRIGHT 2026.  ALL RIGHTS RESERVED 230726.1
+   2026-08-08.v.1 — real cause found for the mobile menu missing its "X": toggleMenu()/closeMenu() only ever toggled the "open" class on #mobile-menu itself — the .hamburger button never received any state class at all, so there was nothing for CSS to hook into to animate it into an X. Now also toggles "open" on the hamburger button directly. See styles.css for the matching transform rules.
    ========================================================== */
 
 try {
@@ -29,7 +30,9 @@ try {
 
   function toggleMenu() {
     var menu = document.getElementById('mobile-menu');
+    var hamburger = document.querySelector('.hamburger');
     menu.classList.toggle('open');
+    if (hamburger) hamburger.classList.toggle('open', menu.classList.contains('open'));
     if (menu.classList.contains('open')) {
       startMobileNavSwapCycle();
     } else {
@@ -38,6 +41,8 @@ try {
   }
   function closeMenu() {
     document.getElementById('mobile-menu').classList.remove('open');
+    var hamburger = document.querySelector('.hamburger');
+    if (hamburger) hamburger.classList.remove('open');
     stopMobileNavSwapCycle();
   }
 
