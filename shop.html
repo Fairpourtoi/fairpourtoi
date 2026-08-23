@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <!--
    Fair Pour Toi — shop.html    FAIR POUR TOI  COPYRIGHT 2026.  ALL RIGHTS RESERVED
-   2026-08-23.v.4 — 
-   2026-08-23.v.1 — new page: "Shop // Boutiques We Love."
+   2026-08-23.v.6 — v.5 read — new page: "Shop // Boutiques We Love."
 -->
 <html lang="en">
 <head>
@@ -134,33 +133,32 @@
     pointer-events: none;
     background: linear-gradient(225deg, rgba(26, 16, 16, 0.78) 0%, rgba(26, 16, 16, 0) 46%);
   }
-  /* [ADDED 2026-08-23.v.4] Diagonal light-sweep hover effect, ported
-     verbatim (same gradient stops/angle, same translateX range/timing) from
-     fair-pour-toi-header-v2.css v.195's .fpt-feat-collections-tile
-     .card::after, per direction to keep matching the Collections tiles
-     exactly. .boutique-card already has overflow:hidden (v.2, for the
-     zero-gap full-bleed grid) so the band is clipped without needing any
-     extra rule here. Sits above the dark corner gradient (paints after
-     ::before at the same z-index) but below the logo/CTA content (z-index
-     2). */
+  /* [ADDED 2026-08-23.v.6] Diagonal light-sweep hover effect — toned down
+     from the v.4 build per direction ("LESS effect, not no effect"):
+     narrower band (45% vs 60%) and dimmer peak (.3 vs .5 opacity white),
+     so it reads as a soft glint rather than a loud streak, in keeping with
+     the Collections card's own restrained look. Sits above the corner
+     gradient, below the logo/CTA. Shopify's real Collections tiles do NOT
+     have this effect (confirmed live) — this exists only here on
+     shop.html for now. */
   .boutique-card::after {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
-    width: 60%;
+    width: 45%;
     height: 100%;
     z-index: 1;
     pointer-events: none;
-    background: linear-gradient(115deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0) 100%);
-    transform: translateX(-160%);
+    background: linear-gradient(115deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 42%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 58%, rgba(255, 255, 255, 0) 100%);
+    transform: translateX(-140%);
   }
   @media (prefers-reduced-motion: no-preference) {
     .boutique-card::after {
       transition: transform 0.9s ease;
     }
     .boutique-card:hover::after {
-      transform: translateX(220%);
+      transform: translateX(240%);
     }
   }
   .boutique-card__content {
