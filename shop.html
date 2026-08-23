@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <!--
    Fair Pour Toi — shop.html    FAIR POUR TOI  COPYRIGHT 2026.  ALL RIGHTS RESERVED
-   2026-08-23.v.2 — per direction, four fixes verified live against the real
-   sites before applying:new page: "Shop // Boutiques We Love."
+   2026-08-23.v.3 — per direction, four more fixes:
+   (1) Footer alignment — added a defensive html,body{overflow-x:hidden} (see
+   the [FIX 2026-08-23.v.3]  "Shop // Boutiques We Love."
 -->
 <html lang="en">
 <head>
@@ -50,6 +51,18 @@
   #main-nav .hamburger span {
     background: var(--espresso);
   }
+
+  /* [FIX 2026-08-23.v.3] Full-bleed elements using width:100vw (the
+     .boutique-grid-wrap breakout below) overflow the true viewport by
+     the vertical scrollbar's width, since 100vw doesn't subtract it —
+     the real fair-pour-toi-header-v2.css uses the same 100vw technique
+     on Shopify, but that theme sets overflow-x:hidden globally so it
+     never shows; fairpourtoi.com's styles.css has no such rule (checked
+     live), so here it was free to nudge the whole page a few pixels
+     sideways — the likely cause of the footer reading as misaligned
+     compared to index.html. Contained here rather than touching the
+     shared stylesheet. */
+  html, body { overflow-x: hidden; }
 
   /* [UPDATED 2026-08-23.v.2] Boutiques directory — page-specific styles
      only. Namespaced under .boutique-* so nothing here can collide with
@@ -199,11 +212,19 @@
   </div>
 </nav>
 <!-- SHOP // BOUTIQUES WE LOVE -->
-<section id="shop-boutiques" style="background:var(--cream); padding-top: 140px;">
-  <div class="section-inner" style="max-width:1100px">
-    <div class="fade-in-up" style="text-align:center; margin-bottom:32px;">
+<!-- [ADJUSTED 2026-08-23.v.3] Section background -> blush per direction.
+     Margin above/below the heading+description was much larger than
+     intended: .section-inner (the shared site class) carries its own
+     padding:80px 28px, which was STACKING on top of this section's own
+     140px nav-clearance padding-top — 220px total before "SHOP" even
+     started. Overrides padding on both .section-inner wrappers below via
+     inline style (keeps the shared 28px side padding, replaces the 80px
+     vertical) so this page isn't touching the shared class. -->
+<section id="shop-boutiques" style="background:var(--blush); padding-top: 140px;">
+  <div class="section-inner" style="max-width:1100px; padding: 20px 28px 0;">
+    <div class="fade-in-up" style="text-align:center; margin-bottom:20px;">
       <div class="eyebrow">Shop</div>
-      <h1 class="serif" style="font-size:clamp(28px,4vw,42px); line-height:1.2; margin-bottom:16px;">Boutiques We Love</h1>
+      <h1 class="serif" style="font-size:clamp(28px,4vw,42px); line-height:1.2; margin:0 0 8px;">Boutiques We Love</h1>
       <p style="font-size:14px; color:var(--espresso); opacity:.75; max-width:520px; margin:0 auto; line-height:1.85;">A curated directory of our affiliate boutiques and designer labels we love. <br>"Shop Now" will take you directly to that boutique's own site to shop their current edit.</p>
     </div>
   </div>
@@ -213,7 +234,7 @@
            src with the real boutique's info once the brand list is in. -->
       <a class="boutique-card fade-in-up"
          href="leaving.html?brand=Reform%20Co.&url=https%3A%2F%2Fwww.example.com&logo=assets%2Fimg%2Fboutiques%2Fplaceholder-logo-1.svg">
-        <img class="boutique-card__photo" src="assets/img/boutiques/placeholder-photo-1.svg" alt="Reform Co.">
+        <img class="boutique-card__photo" src="assets/img/boutique1.jpg" alt="Reform Co.">
         <div class="boutique-card__content">
           <img class="boutique-card__logo" src="assets/img/boutiques/placeholder-logo-1.svg" alt="Reform Co.">
         </div>
@@ -222,7 +243,7 @@
       <!-- [PLACEHOLDER CARD 2] -->
       <a class="boutique-card fade-in-up"
          href="leaving.html?brand=Maison%20Lune&url=https%3A%2F%2Fwww.example.com&logo=assets%2Fimg%2Fboutiques%2Fplaceholder-logo-2.svg">
-        <img class="boutique-card__photo" src="assets/img/boutiques/placeholder-photo-2.svg" alt="Maison Lune">
+        <img class="boutique-card__photo" src="assets/img/boutique2.jpg" alt="Maison Lune">
         <div class="boutique-card__content">
           <img class="boutique-card__logo" src="assets/img/boutiques/placeholder-logo-2.svg" alt="Maison Lune">
         </div>
@@ -231,7 +252,7 @@
       <!-- [PLACEHOLDER CARD 3] -->
       <a class="boutique-card fade-in-up"
          href="leaving.html?brand=Atelier%20Nine&url=https%3A%2F%2Fwww.example.com&logo=assets%2Fimg%2Fboutiques%2Fplaceholder-logo-3.svg">
-        <img class="boutique-card__photo" src="assets/img/boutiques/placeholder-photo-3.svg" alt="Atelier Nine">
+        <img class="boutique-card__photo" src="assets/img/boutique3.jpg" alt="Atelier Nine">
         <div class="boutique-card__content">
           <img class="boutique-card__logo" src="assets/img/boutiques/placeholder-logo-3.svg" alt="Atelier Nine">
         </div>
@@ -239,7 +260,7 @@
       </a>
     </div>
   </div>
-  <div class="section-inner" style="max-width:1100px">
+  <div class="section-inner" style="max-width:1100px; padding: 20px 28px 32px;">
     <div class="boutique-placeholder-note">These three cards are placeholders — send the real boutique list (name, logo, link) and they'll be swapped in.</div>
   </div>
 </section>
