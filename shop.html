@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!--
+   Fair Pour Toi — shop.html    FAIR POUR TOI  COPYRIGHT 2026.  ALL RIGHTS RESERVED
+   2026-08-23.v.1 — new page: "Shop // Boutiques We Love." Directory of affiliate
+   partner boutiques — 
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Shop // Boutiques We Love | Fair Pour Toi</title>
+<meta name="description" content="Shop our favorite partner boutiques and designer labels — a curated directory of brands Fair Pour Toi loves.">
+<meta property="og:title" content="Shop // Boutiques We Love | Fair Pour Toi">
+<meta property="og:description" content="A curated directory of the boutiques and designer labels Fair Pour Toi loves.">
+<meta property="og:image" content="https://fairpourtoi.com/assets/img/og-preview.jpg">
+<meta property="og:url" content="https://fairpourtoi.com/shop.html">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=2">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+<style>
+  /* [ADDED 2026-08-23.v.1] Boutiques directory — page-specific styles only.
+     Namespaced under .boutique-* so nothing here can collide with rules in
+     styles.css. Reuses the site's existing --espresso/--cream/etc custom
+     properties (defined in styles.css, already used inline throughout
+     index.html) rather than redefining the palette here. */
+  .boutique-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  @media screen and (max-width: 900px) {
+    .boutique-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  }
+  @media screen and (max-width: 560px) {
+    .boutique-grid { grid-template-columns: 1fr; gap: 20px; }
+  }
+  .boutique-card {
+    position: relative;
+    display: block;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: 4px;
+    background: var(--taupe);
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .boutique-card__photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .6s cubic-bezier(.4,0,.2,1);
+  }
+  .boutique-card:hover .boutique-card__photo {
+    transform: scale(1.045);
+  }
+  /* Same corner-gradient contrast technique as the Shopify Collections
+     tiles (.fpt-feat-collections-tile .card::before) — identical stops,
+     just ported to plain CSS since this page has no Liquid/theme layer. */
+  .boutique-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(225deg, rgba(26, 16, 16, 0.78) 0%, rgba(26, 16, 16, 0) 46%);
+  }
+  .boutique-card__content {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    z-index: 2;
+    max-width: 62%;
+    padding: 0 20px 0 12px;
+    pointer-events: none;
+  }
+  .boutique-card__logo {
+    display: block;
+    margin-left: auto;
+    max-width: 100%;
+    max-height: 42px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+  .boutique-card__cta {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    z-index: 2;
+    color: #fff;
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    opacity: .85;
+    pointer-events: none;
+  }
+  .boutique-placeholder-note {
+    text-align: center;
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    letter-spacing: .04em;
+    color: var(--espresso);
+    opacity: .55;
+    margin-top: 28px;
+  }
+</style>
+</head>
+<body>
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="index.html#hero" aria-label="Fair Pour Toi — back to top">
+      <img src="assets/img/logo.png" alt="Fair pour toi" class="nav-logo" width="384" height="384" decoding="async">
+    </a>
+    <div class="nav-links">
+      <a href="shop.html" class="nav-active">Shop</a>
+      <a href="index.html#fair-experience" class="nav-swap-trigger"><span class="nav-swap"><span class="nav-swap-default">For You</span><span class="nav-swap-hover">Pour Toi</span></span></a>
+      <a href="index.html#brand-partners">For Brands</a>
+      <a href="index.html#about">About Us</a>
+      <a href="index.html#events">Events</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="index.html#book">Book</a>
+      <span class="nav-divider">|</span>
+      <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" class="nav-ig">Follow on Instagram</a>
+    </div>
+    <button class="hamburger" aria-label="Open menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="shop.html" onclick="closeMenu()">Shop</a>
+    <a href="index.html#fair-experience" onclick="closeMenu()" class="mobile-nav-swap-trigger"><span class="nav-swap mobile-nav-swap"><span class="nav-swap-default">For You</span><span class="nav-swap-hover">Pour Toi</span></span></a>
+    <a href="index.html#brand-partners" onclick="closeMenu()">For Brands</a>
+    <a href="index.html#about" onclick="closeMenu()">About Us</a>
+    <a href="index.html#events" onclick="closeMenu()">Events</a>
+    <a href="index.html#contact" onclick="closeMenu()">Contact</a>
+    <div class="divider-line"></div>
+    <a href="index.html#book" onclick="closeMenu()">Book</a>
+    <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener">Instagram &nearr;</a>
+  </div>
+</nav>
+<!-- SHOP // BOUTIQUES WE LOVE -->
+<section id="shop-boutiques" style="background:var(--cream); padding-top: 140px;">
+  <div class="section-inner" style="max-width:1100px">
+    <div class="fade-in-up" style="text-align:center; margin-bottom:44px;">
+      <div class="eyebrow">Shop</div>
+      <h1 class="serif" style="font-size:clamp(28px,4vw,42px); line-height:1.2; margin-bottom:16px;">Boutiques We Love</h1>
+      <p style="font-size:14px; color:var(--espresso); opacity:.75; max-width:520px; margin:0 auto; line-height:1.85;">A curated directory of the independent boutiques and designer labels we love. Each card takes you to that boutique's own site to shop their current edit.</p>
+    </div>
+    <div class="boutique-grid">
+      <!-- [PLACEHOLDER CARD 1] Replace data-brand/data-url/data-logo/photo
+           src with the real boutique's info once the brand list is in. -->
+      <a class="boutique-card fade-in-up"
+         href="leaving.html?brand=Reform%20Co.&url=https%3A%2F%2Fwww.example.com&logo=assets%2Fimg%2Fboutiques%2Fplaceholder-logo-1.svg">
+        <img class="boutique-card__photo" src="assets/img/boutiques/placeholder-photo-1.svg" alt="Reform Co.">
+        <div class="boutique-card__content">
+          <img class="boutique-card__logo" src="assets/img/boutiques/placeholder-logo-1.svg" alt="Reform Co.">
+        </div>
+        <span class="boutique-card__cta">Shop Now &rsaquo;</span>
+      </a>
+      <!-- [PLACEHOLDER CARD 2] -->
+      <a class="boutique-card fade-in-up"
+         href="leaving.html?brand=Maison%20Lune&url=https%3A%2F%2Fwww.example.com&logo=assets%2Fimg%2Fboutiques%2Fplaceholder-logo-2.svg">
+        <img class="boutique-card__photo" src="assets/img/boutiques/placeholder-photo-2.svg" alt="Maison Lune">
+        <div class="boutique-card__content">
+          <img class="boutique-card__logo" src="assets/img/boutiques/placeholder-logo-2.svg" alt="Maison Lune">
+        </div>
+        <span class="boutique-card__cta">Shop Now &rsaquo;</span>
+      </a>
+      <!-- [PLACEHOLDER CARD 3] -->
+      <a class="boutique-card fade-in-up"
+         href="leaving.html?brand=Atelier%20Nine&url=https%3A%2F%2Fwww.example.com&logo=assets%2Fimg%2Fboutiques%2Fplaceholder-logo-3.svg">
+        <img class="boutique-card__photo" src="assets/img/boutiques/placeholder-photo-3.svg" alt="Atelier Nine">
+        <div class="boutique-card__content">
+          <img class="boutique-card__logo" src="assets/img/boutiques/placeholder-logo-3.svg" alt="Atelier Nine">
+        </div>
+        <span class="boutique-card__cta">Shop Now &rsaquo;</span>
+      </a>
+    </div>
+    <div class="boutique-placeholder-note">These three cards are placeholders — send the real boutique list (name, logo, link) and they'll be swapped in.</div>
+  </div>
+</section>
+<div class="divider-line"></div>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <img src="assets/img/logo.png" alt="Fair pour toi" class="footer-logo" width="384" height="384" loading="lazy" decoding="async">
+    <span class="footer-copy">&copy; 2026 Fair Pour Toi &middot; Santa Monica, CA</span>
+    <a href="https://www.instagram.com/fair.pourtoi" target="_blank" rel="noopener" class="footer-ig">Instagram &nearr;</a>
+  </div>
+</footer>
+<script src="script.js?v=2"></script>
+</body>
+</html>
