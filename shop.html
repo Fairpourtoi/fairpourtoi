@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
    Fair Pour Toi — shop.html    FAIR POUR TOI  COPYRIGHT 2026.  ALL RIGHTS RESERVED
-   2026-08-23.v.6 — v.5 read — new page: "Shop // Boutiques We Love."
+   2026-08-23.v.7 —  — new page: "Shop // Boutiques We Love."
 -->
 <html lang="en">
 <head>
@@ -133,32 +133,36 @@
     pointer-events: none;
     background: linear-gradient(225deg, rgba(26, 16, 16, 0.78) 0%, rgba(26, 16, 16, 0) 46%);
   }
-  /* [ADDED 2026-08-23.v.6] Diagonal light-sweep hover effect — toned down
-     from the v.4 build per direction ("LESS effect, not no effect"):
-     narrower band (45% vs 60%) and dimmer peak (.3 vs .5 opacity white),
-     so it reads as a soft glint rather than a loud streak, in keeping with
-     the Collections card's own restrained look. Sits above the corner
-     gradient, below the logo/CTA. Shopify's real Collections tiles do NOT
-     have this effect (confirmed live) — this exists only here on
-     shop.html for now. */
+  /* [REPLACED 2026-08-23.v.7] The exact real Dawn-theme shine effect that
+     already runs on the live Collections tiles (.card__media::after) —
+     captured directly off the live site via computed-style before/after an
+     actual hover, not guessed. A diagonal white gradient slides across via
+     background-position (not transform), fading in only to a subtle 0.2
+     opacity, blended with mix-blend-mode:overlay so it reacts to the
+     photo's own tones rather than sitting as a flat white layer. Sits
+     above the corner gradient, below the logo/CTA. No overflow-clipping
+     trick needed — the slide stays inside the element's own padding box
+     via background-size/position, unlike the old transform-band approach. */
   .boutique-card::after {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 45%;
-    height: 100%;
+    inset: 0;
     z-index: 1;
     pointer-events: none;
-    background: linear-gradient(115deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 42%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 58%, rgba(255, 255, 255, 0) 100%);
-    transform: translateX(-140%);
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0) 45%, #fff, rgba(255, 255, 255, 0) 55%);
+    background-size: 400% 100%;
+    background-repeat: no-repeat;
+    background-position: 90% 0%;
+    opacity: 0;
+    mix-blend-mode: overlay;
   }
   @media (prefers-reduced-motion: no-preference) {
     .boutique-card::after {
-      transition: transform 0.9s ease;
+      transition: background-position 6s ease, opacity 0.2s ease;
     }
     .boutique-card:hover::after {
-      transform: translateX(240%);
+      background-position: 0% 50%;
+      opacity: 0.2;
     }
   }
   .boutique-card__content {
