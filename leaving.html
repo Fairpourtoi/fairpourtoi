@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!--
+   Fair Pour Toi — leaving.html    FAIR POUR TOI  COPYRIGHT 2026.  ALL RIGHTS RESERVED
+   2026-08-23.v.1 
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Leaving Fair Pour Toi&hellip;</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=2">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<style>
+  /* [ADDED 2026-08-23.v.1] Self-contained — this page is a brief transition
+     screen, not a full site page, so it doesn't reuse the site nav/footer. */
+  .leaving-wrap {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cream);
+    padding: 32px 20px;
+    box-sizing: border-box;
+  }
+  .leaving-card {
+    max-width: 420px;
+    text-align: center;
+  }
+  .leaving-logo {
+    width: 64px;
+    height: auto;
+    margin: 0 auto 28px;
+    display: block;
+  }
+  .leaving-brand-logo {
+    max-width: 220px;
+    max-height: 60px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    margin: 20px auto 0;
+    display: block;
+    /* [FIX 2026-08-23.v.1] The logo asset is a white/transparent cutout —
+       correct for sitting on a photo (shop.html's cards), but that same
+       white mark is nearly invisible against this page's plain cream
+       background (confirmed via a local render before shipping: it was a
+       barely-visible ghost). Rather than require a second, differently-
+       colored logo file per boutique, invert the same white asset here —
+       white pixels -> black, transparent stays transparent — so one logo
+       file works legibly in both places. */
+    filter: invert(1);
+    opacity: .82;
+  }
+  .leaving-status {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--espresso);
+    opacity: .55;
+    margin-top: 22px;
+  }
+  .leaving-actions {
+    margin-top: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+</style>
+</head>
+<body>
+<div class="leaving-wrap">
+  <div class="leaving-card fade-in-up">
+    <img src="assets/img/logo.png" alt="Fair pour toi" class="leaving-logo">
+    <div class="eyebrow">You're now leaving Fair Pour Toi</div>
+    <h1 class="serif" id="leaving-heading" style="font-size:clamp(24px,3.4vw,32px); line-height:1.25; margin:10px 0 0;">Taking you to <span id="leaving-brand-name">this boutique</span>&rsquo;s site.</h1>
+    <p style="font-size:13.5px; line-height:1.8; color:var(--espresso); opacity:.75; margin-top:14px;">
+      Fair Pour Toi isn't involved in this purchase &mdash; you're shopping directly with <span id="leaving-brand-name-2">the boutique</span>, on their own site.
+    </p>
+    <img id="leaving-brand-logo" class="leaving-brand-logo" alt="" style="display:none;">
+    <div class="leaving-actions">
+      <a id="leaving-continue-btn" href="#" class="btn-espresso" style="width:100%; max-width:260px; text-align:center; box-sizing:border-box;">Continue now</a>
+      <a href="javascript:history.back()" style="font-size:12px; color:var(--espresso); opacity:.55; text-decoration:underline;">Go back to Fair Pour Toi</a>
+    </div>
+    <div class="leaving-status" id="leaving-status">Redirecting in 3&hellip;</div>
+  </div>
+</div>
+<script>
+  // [ADDED 2026-08-23.v.1] Shared interstitial logic. Reads brand/url/logo
+  // from the query string, fills in the copy, and redirects after a short
+  // countdown — same tab (a plain location.href navigation), not a new tab
+  // and not any kind of framed/embedded load. See the file header comment
+  // for why: most retailer checkout flows actively block being framed, and
+  // disguising the destination risks violating affiliate-program terms.
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    var brand = params.get('brand');
+    var url = params.get('url');
+    var logo = params.get('logo');
+
+    if (!url) {
+      // No destination given — nothing to redirect to. Fail safe: send
+      // them back to the Shop page rather than a dead-end blank redirect.
+      document.getElementById('leaving-status').textContent = 'No destination provided.';
+      document.getElementById('leaving-continue-btn').href = 'shop.html';
+      document.getElementById('leaving-continue-btn').textContent = 'Back to Shop';
+      return;
+    }
+
+    var brandName = brand || 'this boutique';
+    document.querySelectorAll('#leaving-brand-name, #leaving-brand-name-2').forEach(function (el) {
+      el.textContent = brandName;
+    });
+    document.title = 'Leaving Fair Pour Toi for ' + brandName + '…';
+
+    if (logo) {
+      var logoEl = document.getElementById('leaving-brand-logo');
+      logoEl.src = logo;
+      logoEl.alt = brandName;
+      logoEl.style.display = '';
+    }
+
+    var continueBtn = document.getElementById('leaving-continue-btn');
+    continueBtn.href = url;
+
+    var statusEl = document.getElementById('leaving-status');
+    var secondsLeft = 3;
+    function tick() {
+      if (secondsLeft <= 0) {
+        statusEl.textContent = 'Redirecting…';
+        window.location.href = url;
+        return;
+      }
+      statusEl.textContent = 'Redirecting in ' + secondsLeft + '…';
+      secondsLeft -= 1;
+      setTimeout(tick, 1000);
+    }
+    tick();
+  })();
+</script>
+</body>
+</html>
